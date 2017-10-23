@@ -1,0 +1,601 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = winMain
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 246
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = pegButton2
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 362
+  Begin Button = btn7
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1008
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 145
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 8
+    TabStop         = 1
+    Text            = 7
+    ToolTipText     = 
+    Top             = 158
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn5
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1007
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 272
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 7
+    TabStop         = 1
+    Text            = 5
+    ToolTipText     = 
+    Top             = 86
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn4
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1006
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 145
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 6
+    TabStop         = 1
+    Text            = 4
+    ToolTipText     = 
+    Top             = 85
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1005
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 144
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 5
+    TabStop         = 1
+    Text            = 1
+    ToolTipText     = 
+    Top             = 14
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn3
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1004
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 13
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 4
+    TabStop         = 1
+    Text            = 3
+    ToolTipText     = 
+    Top             = 86
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn8
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1003
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 269
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    TabStop         = 1
+    Text            = 8
+    ToolTipText     = 
+    Top             = 158
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn6
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1002
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 16
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    TabStop         = 1
+    Text            = 6
+    ToolTipText     = 
+    Top             = 162
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn2
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1001
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 273
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = 2
+    ToolTipText     = 
+    Top             = 10
+    Visible         = 1
+    Width           = 72
+  End
+  Begin Button = btn0
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 36
+    ImageType       = -1
+    Left            = 11
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = 0
+    ToolTipText     = 
+    Top             = 12
+    Visible         = 1
+    Width           = 72
+  End
+End
+
+.Const
+
+.Data
+
+WINMAIN_MESSAGES	DD WM_CREATE, OnwinMainCreate
+					DD WM_CLOSE, OnwinMainClose
+					DD WM_SIZE, OnwinMainResize
+
+;msgString1	DB 32 Dup 0
+;msgString2	DB 32 Dup 0
+pegBorderConstant DD 24
+
+.Code
+
+winMainProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf WINMAIN_MESSAGES / 8
+	Mov Edx, Addr WINMAIN_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnwinMainCreate: UseData winMainProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnwinMainClose: UseData winMainProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+
+OnwinMainResize: UseData winMainProcedure
+
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN0, 0, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN1, 1, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN2, 2, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN3, 3, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN4, 4, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN5, 5, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN6, 6, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN7, 7, [pegBorderConstant]
+	Invoke pegObject, [hWnd], IDC_WINMAIN_BTN8, 8, [pegBorderConstant]
+
+	Return (TRUE)
+
+; End OnwinMainResize
+EndU
+
+centreX Frame hButton, pBoxRight, pegBorder
+
+	Invoke GetWidth, [hButton]					; Get button current width
+	Mov Ebx, [pBoxRight]						; Get parent width
+	Sub Ebx, Eax								; Subtract button width ...
+	Shr Ebx, 1									; Divide parent width + button width by 2
+	Invoke SetLeft, [hButton], Ebx				; Set left to new value
+
+	Return (TRUE)
+
+; End centreX
+EndF
+
+centreY Frame hButton, pBoxBottom, pegBorder
+
+	Invoke GetHeight, [hButton]					; Get button current height
+	Mov Ebx, [pBoxBottom]						; Get parent height
+	Sub Ebx, Eax								; Subtract button height ...
+	Shr Ebx, 1									; Divide parent height + button height by 2
+	Invoke SetTop, [hButton], Ebx				; Set top to new value
+
+	Return (TRUE)
+
+; End centreY
+EndF
+
+rightX Frame hButton, pBoxRight, pegBorder
+
+	Invoke GetWidth, [hButton]					; Get button current width
+	Add Eax, [pegBorder]						; Add border
+	Mov Ebx, [pBoxRight]						; Get parent width
+	Sub Ebx, Eax								; Subtract button with border
+	Invoke SetLeft, [hButton], Ebx				; Set left to new value
+
+	Return (TRUE)
+
+EndF
+
+bottomY Frame hButton, pBoxBottom, pegBorder
+	
+	Invoke GetHeight, [hButton]
+	Add Eax, [pegBorder]
+	Mov Ebx, [pBoxBottom]
+	Sub Ebx, Eax
+	Invoke SetTop, [hButton], Ebx
+
+	Return (TRUE)
+
+EndF
+
+pegObject Frame hWnd, idControl, pegPosition, pegBorder
+
+	;
+	;
+	; WHY I SUFFERED WITH THIS ++ FORGOT TO CHANGE TWIPS TO PIXELS IN MAIN WINDOW
+	;
+	;
+
+	;Local hButton, pBox:RECT
+	Local hButton:D, pBox:RECT
+
+	; 1. Get handle on button
+	Invoke GetWindowItem, [hWnd], [idControl]
+	Mov [hButton], Eax
+
+	; 2. Get new size of window client area
+	Invoke GetClientRect, [hWnd], Addr pBox
+
+	; 3. Get required peg position
+	Mov Ebx, [pegPosition]
+
+	; Debugging
+	; Return (FALSE)
+
+	; 4. Jump to relevant code
+
+	Cmp Ebx, 0
+		Jz >.position_0
+	Cmp Ebx, 1
+		Jz >.position_1
+	Cmp Ebx, 2
+		Jz >>.position_2
+	Cmp Ebx, 3
+		Jz >>.position_3
+	Cmp Ebx, 4
+		Jz >>.position_4
+	Cmp Ebx, 5
+		Jz >>.position_5
+	Cmp Ebx, 6
+		Jz >>.position_6
+	Cmp Ebx, 7
+		Jz >>.position_7
+	Cmp Ebx, 8
+		Jz >>.position_8
+
+	; Else, incorrect peg position supplied, return to main code with FALSE flag
+	Return (FALSE)
+
+	; Peg position processing
+	.position_0
+		Invoke SetLeft, [hButton], [pegBorder]
+		Invoke SetTop, [hButton], [pegBorder]
+		Return (TRUE)
+
+	.position_1
+		Invoke centreX, [hButton], [pBox.right], [pegBorder]
+		Invoke SetTop, [hButton], [pegBorder]		; Set top
+		Return (TRUE)
+
+	.position_2
+		Invoke rightX, [hButton], [pBox.right], [pegBorder]
+		Invoke SetTop, [hButton], [pegBorder]		; Set top
+		Return (TRUE)
+
+	.position_3
+		Invoke SetLeft, [hButton], [pegBorder]
+		Invoke centreY, [hButton], [pBox.bottom], [pegBorder]
+		Return (TRUE)
+
+	.position_4
+		Invoke centreX, [hButton], [pBox.right], [pegBorder]
+		Invoke centreY, [hButton], [pBox.bottom], [pegBorder]
+		Return (TRUE)
+
+	.position_5
+		Invoke rightX, [hButton], [pBox.right], [pegBorder]
+		Invoke centreY, [hButton], [pBox.bottom], [pegBorder]
+		Return (TRUE)
+
+	.position_6
+		Invoke SetLeft, [hButton], [pegBorder]
+		Invoke bottomY, [hButton], [pBox.bottom], [pegBorder]
+		Return (TRUE)
+
+	.position_7
+		Invoke centreX, [hButton], [pBox.right], [pegBorder]
+		Invoke bottomY, [hButton], [pBox.bottom], [pegBorder]
+		Return (TRUE)
+
+	.position_8
+		Invoke rightX, [hButton], [pBox.right], [pegBorder]
+		Invoke bottomY, [hButton], [pBox.bottom], [pegBorder]
+		Return (TRUE)
+
+EndF
+
+winMainbtn0 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn2 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn6 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn8 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn3 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn4 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn5 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn7 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF

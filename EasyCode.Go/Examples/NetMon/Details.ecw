@@ -1,0 +1,499 @@
+;Do not edit or modify this file!!!
+Easy Code
+Begin Window = Details
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 1
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040181
+  Font            = Tahoma,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 171
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 1
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = 
+  TimerInterval   = 0
+  ToolWindow      = 1
+  Top             = 0
+  Visible         = 1
+  Width           = 228
+  Begin Static = stcProcess
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 97
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000102
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 12
+    Text            = 
+    TextAlignment   = 2
+    Top             = 89
+    Visible         = 1
+    Width           = 115
+    WordWrap        = 1
+  End
+  Begin Static = Static6
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 10
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 11
+    Text            = IDS_PROCESS
+    TextAlignment   = 0
+    Top             = 89
+    Visible         = 1
+    Width           = 90
+    WordWrap        = 0
+  End
+  Begin Static = Static5
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 10
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 9
+    Text            = IDS_REMOTE_ADDRESS
+    TextAlignment   = 0
+    Top             = 73
+    Visible         = 1
+    Width           = 90
+    WordWrap        = 0
+  End
+  Begin Static = Static4
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 10
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 7
+    Text            = IDS_REMOTE_PORT
+    TextAlignment   = 0
+    Top             = 57
+    Visible         = 1
+    Width           = 90
+    WordWrap        = 0
+  End
+  Begin Static = Static3
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 10
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 5
+    Text            = IDS_LOCAL_ADDRESS
+    TextAlignment   = 0
+    Top             = 41
+    Visible         = 1
+    Width           = 90
+    WordWrap        = 0
+  End
+  Begin Static = Static2
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 10
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    Text            = IDS_LOCAL_PORT
+    TextAlignment   = 0
+    Top             = 25
+    Visible         = 1
+    Width           = 90
+    WordWrap        = 0
+  End
+  Begin Static = Static1
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 10
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = IDS_STATE
+    TextAlignment   = 0
+    Top             = 9
+    Visible         = 1
+    Width           = 90
+    WordWrap        = 0
+  End
+  Begin Static = stcState
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 118
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000102
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    Text            = 
+    TextAlignment   = 2
+    Top             = 9
+    Visible         = 1
+    Width           = 94
+    WordWrap        = 1
+  End
+  Begin Static = stcRemoteAddr
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 118
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000102
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 10
+    Text            = 
+    TextAlignment   = 2
+    Top             = 73
+    Visible         = 1
+    Width           = 94
+    WordWrap        = 1
+  End
+  Begin Static = stcRemotePort
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 118
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000102
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 8
+    Text            = 
+    TextAlignment   = 2
+    Top             = 57
+    Visible         = 1
+    Width           = 94
+    WordWrap        = 1
+  End
+  Begin Static = stcLocalAddr
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 118
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000102
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 6
+    Text            = 
+    TextAlignment   = 2
+    Top             = 41
+    Visible         = 1
+    Width           = 94
+    WordWrap        = 1
+  End
+  Begin Static = stcLocalPort
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 14
+    Left            = 118
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000102
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 4
+    Text            = 
+    TextAlignment   = 2
+    Top             = 25
+    Visible         = 1
+    Width           = 94
+    WordWrap        = 1
+  End
+  Begin Button = btnOK
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 1
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 1
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 24
+    ImageType       = -1
+    Left            = 66
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000301
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = IDS_OK
+    Top             = 119
+    Visible         = 1
+    Width           = 90
+  End
+End
+
+.Const
+
+.Data
+
+DETAILS_MESSAGES	DD WM_CREATE, OnDetailsCreate
+					DD WM_COMMAND, OnDetailsCommand
+					DD WM_CLOSE, OnDetailsClose
+
+
+.Code
+
+DetailsProcedure Frame hWnd, uMsg, wParam, lParam
+	Local ProcessEntry:PROCESSENTRY32
+
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf DETAILS_MESSAGES / 8
+	Mov Edx, Addr DETAILS_MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnDetailsCreate: UseData DetailsProcedure
+	Lea Ebx, [szBuffer]
+	Invoke GlobalAlloc, GPTR, MAX_PATH
+	Mov Edi, Eax
+	Mov Esi, Eax
+	Mov B[Esi], ' '
+	Inc Esi
+	Invoke LoadString, [App.Instance], IDS_LOCAL_PORT, Esi, 64
+	Add Esi, Eax
+	Mov B[Esi - 1], ' '
+	Invoke PortToStr, [Ebx + MIB_TCPROW.dwLocalPort], Esi
+	Invoke SetWindowText, [hWnd], Edi
+	Invoke GetWindowItem, [hWnd], IDC_DETAILS_STCLOCALPORT
+	Invoke SetWindowText, Eax, Esi
+	Invoke GetStateString, [Ebx + MIB_TCPROW.dwState], Edi
+	Invoke GetWindowItem, [hWnd], IDC_DETAILS_STCSTATE
+	Invoke SetWindowText, Eax, Edi
+
+	Invoke PortToStr, [Ebx + MIB_TCPROW.dwRemotePort], Edi
+	Invoke GetWindowItem, [hWnd], IDC_DETAILS_STCREMOTEPORT
+	Invoke SetWindowText, Eax, Edi
+
+	Invoke IPToStr, [Ebx + MIB_TCPROW.dwLocalAddr], Edi
+	Invoke GetWindowItem, [hWnd], IDC_DETAILS_STCLOCALADDR
+	Invoke SetWindowText, Eax, Edi
+
+	Invoke IPToStr, [Ebx + MIB_TCPROW.dwRemoteAddr], Edi
+	Invoke GetWindowItem, [hWnd], IDC_DETAILS_STCREMOTEADDR
+	Invoke SetWindowText, Eax, Edi
+
+	Invoke GetProcessInfo, [Ebx + MIB_TCPROW_OWNER_PID.dwOwningPid], Edi, Addr ProcessEntry
+	Invoke GetWindowItem, [hWnd], IDC_DETAILS_STCPROCESS
+	Invoke SetWindowText, Eax, Edi
+
+	Invoke GlobalFree, Edi
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnDetailsCommand: UseData DetailsProcedure
+	LoWord ([wParam])
+	Cmp Ax, IDC_DETAILS_BTNOK
+	Jne >
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	Return (TRUE)
+:	Xor Eax, Eax
+	Ret
+EndU
+
+OnDetailsClose: UseData DetailsProcedure
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+	Ret
+EndU

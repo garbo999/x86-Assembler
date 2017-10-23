@@ -1,0 +1,267 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = RSAbout
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 1
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040181
+  Font            = Tahoma,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 136
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 1
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80200
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = IDS_CAPTION
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 1
+  Top             = 0
+  Visible         = 1
+  Width           = 220
+  Begin Button = btnClose
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 1
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 1
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 24
+    ImageType       = -1
+    Left            = 62
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000301
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 4
+    TabStop         = 1
+    Text            = IDS_OK
+    ToolTipText     = 
+    Top             = 84
+    Visible         = 1
+    Width           = 90
+  End
+  Begin Group = Group1
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 76
+    Left            = 7
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    Text            = 
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 3
+    Visible         = 1
+    Width           = 200
+    Begin Static = Static3
+      AutoSize        = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 1
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = IDC_CURSOR_HAND
+      CursorShape     = 14
+      DragAndDrop     = 1002
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,1,0
+      ForeColor       = 0x00800000
+      Height          = 13
+      HyperColor      = 0x000000FF
+      HyperLink       = 1
+      Left            = 38
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 3
+      Text            = http://www.easycode.cat
+      TextAlignment   = 1
+      ToolTipText     = 
+      Top             = 52
+      Transparent     = 0
+      Visible         = 1
+      Width           = 125
+      WordWrap        = 0
+    End
+    Begin Static = Static2
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1003
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 8
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 2
+      Text            = Copyright © 2009-2012 Ramon Sala
+      TextAlignment   = 1
+      ToolTipText     = 
+      Top             = 33
+      Transparent     = 0
+      Visible         = 1
+      Width           = 184
+      WordWrap        = 1
+    End
+    Begin Static = Static1
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1004
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 8
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 1
+      Text            = IDS_CAPTION
+      TextAlignment   = 1
+      ToolTipText     = 
+      Top             = 13
+      Transparent     = 0
+      Visible         = 1
+      Width           = 184
+      WordWrap        = 1
+    End
+  End
+End
+
+.Const
+
+.Data
+
+RSABOUT_MESSAGES	DD WM_CREATE, OnRSAboutCreate
+					DD WM_COMMAND, OnRSAboutCommand
+					DD WM_CLOSE, OnRSAboutClose
+
+szTemp				DB		64 Dup 0
+
+
+.Code
+
+RSAboutProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf RSABOUT_MESSAGES / 8
+	Mov Edx, Addr RSABOUT_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnRSAboutCreate: UseData RSAboutProcedure
+	Lea Esi, szTemp
+	Invoke LoadString, [App.Instance], IDS_CAPTION, Esi, 63
+	Add Esi, Eax
+	Mov B[Esi], ' '
+	Inc Esi
+	Invoke GetAppVersion, Esi
+	Invoke GetWindowItem, [hWnd], IDC_RSABOUT_STATIC1
+	Invoke SetText, Eax, Addr szTemp
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnRSAboutCommand: UseData RSAboutProcedure
+	LoWord ([wParam])
+	Cmp Ax, IDC_RSABOUT_BTNCLOSE
+	Jne > L2
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne > L2
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	Return (TRUE)
+:	Cmp D[uMsg], WM_CLOSE
+	Invoke EndModal, [hWnd], IDCANCEL
+	Return (TRUE)
+L2:	Xor Eax, Eax
+	Ret
+EndU
+
+OnRSAboutClose: UseData RSAboutProcedure
+	Invoke EndModal, [hWnd], IDCANCEL
+	Return (TRUE)
+EndU

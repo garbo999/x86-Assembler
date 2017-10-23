@@ -1,0 +1,10 @@
+#IFNDEF RPCNSIP_H
+#DEFINE RPCNSIP_H
+
+RPC_IMPORT_CONTEXT_P STRUCT
+	LookupContext PTR
+	ProposedHandle PTR
+	Bindings PTR
+ENDS
+
+#ENDIF

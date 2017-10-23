@@ -1,0 +1,63 @@
+#include "Memory.h"
+
+IDI_MEMORY                    ICON	DISCARDABLE	"Res\\Memory.ico"
+IDC_FINGER                    CURSOR	DISCARDABLE	"Res\\Finger.cur"
+
+IDR_MENU MENU DISCARDABLE
+BEGIN
+    POPUP ""
+    BEGIN
+        MENUITEM "&Open...",                    IDM_MENU_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "&About...",                   IDM_MENU_ABOUT
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit",                       IDM_MENU_EXIT
+    END
+END
+
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_ABOUT                           "&About..."
+    IDS_ALWAYS_ON_TOP                   "&Keep always on top"
+    IDS_AVAILABLE                       "Available:"
+    IDS_CLOSE                           "&Close"
+    IDS_EXIT                            "&Exit"
+    IDS_GET_EASYCODE                    "Get Easy Code complete free"
+    IDS_MEMORY                          "Memory version 1.00.0002"
+    IDS_OPEN                            "&Open..."
+    IDS_PROGRAMMED                      "Entirely programmed with Easy Code"
+    IDS_SYSTEM_MEMORY                   "System memory (bytes)"
+    IDS_TOOLTIP                         "Right click on the icon to see the menu"
+    IDS_TOTAL                           "Total:"
+END
+
+IDR_VERSION VERSIONINFO
+ FILEVERSION 1,0,0,5
+ PRODUCTVERSION 1,0,0,5
+ FILEFLAGSMASK 0x2L
+ FILEFLAGS 0x0L
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Comments", "Programmed in assembly with Easy Code\0"
+            VALUE "CompanyName", "http://www.easycode.cat\0"
+            VALUE "FileDescription", "System memory indicator\0"
+            VALUE "FileVersion", "1.00.0.0005\0"
+            VALUE "InternalName", "Memory\0"
+            VALUE "LegalCopyright", "Copyright © 2005-2009 Ramon Sala\0"
+            VALUE "OriginalFilename", "Memory.exe\0"
+            VALUE "ProductName", "Memory\0"
+            VALUE "ProductVersion", "1.00.0.0005\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1252
+    END
+END

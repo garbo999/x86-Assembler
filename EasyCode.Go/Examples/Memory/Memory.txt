@@ -1,0 +1,15 @@
+This is a complete visual project made with Easy Code that shows how to put an in icon in
+the task bar.
+
+Improve it and modify it as much as you like, and please do not forget to mention my name.
+
+
+Emjoy Easy Code!
+
+Ramon Sala
+
+
+
+Download IDE Easy Code at:
+
+	http://www.easycode.cat/English/index.htm

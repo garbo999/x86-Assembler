@@ -1,0 +1,359 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = cbsw_helper
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 4425
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 56
+  MenuString      = 0,&File,,,0,0,0|1,&Open,OPEN,,0,0,0|1,&Exit,EXIT,,0,0,0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = CBS Log Analyzer for Windows
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 5430
+  Begin Edit = Edit1
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 1
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 2265
+    Left            = 150
+    MaxLength       = 0
+    MultiLine       = 1
+    NormalStyle     = 0x54000004
+    PasswordChar    = 
+    ReadOnly        = 1
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = Edit1
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 270
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 4980
+  End
+  Begin Button = btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 450
+    ImageType       = -1
+    Left            = 1185
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Select Cabrillo File for Processing
+    ToolTipText     = 
+    Top             = 2835
+    Visible         = 1
+    Width           = 2925
+  End
+End
+
+.Const
+
+MAXSIZE Equ 260
+
+.Data
+
+cbsw_helper_MESSAGES	DD WM_CREATE, Oncbsw_helperCreate
+						DD WM_CLOSE, Oncbsw_helperClose
+						DD WM_COMMAND, Oncbsw_helperCommand
+
+pathName				DB "C:\Documents and Settings\user\Desktop\logs\", 0
+; applicationName			DB "cbsw.exe ES1WST_CQ_WW_SSB_2012.LOG test.CBS", 0
+; commandLine				DB "cbsw.exe ES1WST_CQ_WW_SSB_2012.LOG test.CBS", 0
+commandLine				DB "cbsw.exe", 0
+startInfo				STARTUPINFO
+processInfo				PROCESS_INFORMATION
+fileData				WIN32_FIND_DATA
+
+; file stuff
+ofn					OPENFILENAME
+filterString 		DB "Cabrillo Files", 0, "*.log", 0
+					DB "All Files", 0, "*.*", 0, 0
+buffer 				DB MAXSIZE Dup 0
+
+; text
+pStr1		DD 0				; a general string pointer variable
+
+mainText1	DB 'Program: "cbsw_helper.exe"', 0DH, 0AH
+            DB '', 0DH, 0AH
+            DB '- Run the DOS program "cbsw.exe" from Windows', 0DH, 0AH
+        	DB '- Select file for cbsw.exe to process ', 0DH, 0AH
+            DB 'using standard Windows file open dialog', 0DH, 0AH
+            DB '- NO NEED to type file names on command line', 0DH, 0AH
+            DB '- Program must be in same directory as "cbsw.exe"', 0DH, 0AH
+            DB '- Output file will have same name as input Cabrillo file,', 0DH, 0AH
+            DB 'but ".CBS" suffix replaces ".LOG" suffix', 0DH, 0AH
+            DB '- Error message if program does not find "cbsw.exe" in its directory', 0DH, 0AH
+            DB '- Send feedback via e-mail to WS4T (address on QRZ.COM)', 0DH, 0AH, 0
+
+mainText2	DB 'Put this program "cbsw_helper.exe" in the same directory as the DOS program "cbsw.exe".', 0DH, 0AH
+
+Align 4
+string1		DB MAXSIZE Dup 0
+string2		DB MAXSIZE Dup 0
+fileName	DB MAXSIZE Dup 0
+mainDir		DB MAXSIZE Dup 0
+
+.Code
+
+cbsw_helperProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf cbsw_helper_MESSAGES / 8
+	Mov Edx, Addr cbsw_helper_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+Oncbsw_helperCreate: UseData cbsw_helperProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+
+	; display text in edit box
+	Invoke SetDlgItemText, [hWnd], IDC_CBSW_HELPER_EDIT1, Addr mainText1
+
+	Invoke GetCurrentDirectory, MAXSIZE, Addr mainDir
+
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+Oncbsw_helperClose: UseData cbsw_helperProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+
+Oncbsw_helperCommand: UseData cbsw_helperProcedure
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_CBSW_HELPER_OPEN		; Is this File|Open?
+		Jz >>.openProcedure
+
+	Cmp Ax, IDC_CBSW_HELPER_BTN1		; Is this button 1?
+		Jnz >>.fileExit
+
+	; This IS button 1 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure		; Button 1 but not left click
+
+.openProcedure
+
+	; DEBUG
+	;Invoke GetCurrentDirectory, MAXSIZE, Addr mainDir ; this was moved to Oncbsw_helperCreate
+	;Invoke MessageBoxA, [hWnd], Addr mainDir, 'CBS', MB_OK
+
+	; check whether cbsw.exe exists in same directory
+	Invoke FindFirstFile, Addr commandLine, Addr fileData
+
+;/* This is commented out for DEBUGGING!
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jnz >>.exeFileExists
+		; no file so display error message
+		Invoke MessageBoxA, [hWnd], Addr mainText2, 'Error', MB_OK
+		Jmp >>.exitProcedure
+;*/
+
+.exeFileExists
+
+	; File|Open so process
+	;Invoke MessageBoxA, [hWnd], 'You clicked File|Open or the main button', 'CBS', MB_OK
+
+	; prepare for GetOpenFileName
+	Push SizeOf ofn
+	Pop [ofn.lStructSize]
+	Push [hWnd]
+	Pop [ofn.hwndOwner]
+	Push NULL
+	Pop [ofn.hInstance]
+	Push NULL
+	Pop [ofn.lpstrFile]
+
+	Mov [ofn.lpstrFilter], Addr filterString
+	Mov [ofn.lpstrFile], Addr buffer
+ 	Mov D[ofn.nMaxFile], MAXSIZE
+
+	Invoke GetOpenFileName, Addr ofn
+
+	; BAIL OUT if user does NOT select a file (GetOpenFileName returns 0 if no file selected)
+	Cmp Eax, 0
+		Jz >>.exitProcedure
+
+	; DEBUG
+	;Invoke MessageBoxA, [hWnd], 'You did NOT bail out...', 'CBS', MB_OK
+
+	; another way to get just file name (WIN32 routine)
+	;Invoke GetFullPathName, [ofn.lpstrFile], MAXSIZE, Addr string1, Addr pStr1
+
+.AAA_breakpoint_1
+
+	; from Donkey's FILES library
+	Invoke FindNameInPath, [ofn.lpstrFile]
+
+	; copy just file name (without path) to fileName
+	Invoke lszCopy, Addr fileName, Eax
+
+	; begin building string to call DOS program
+	Invoke lszCopy, Addr string1, Addr commandLine
+
+	; !!! concatenate and THEN copy new string back to desired location !!!
+	Invoke lszCat, Addr string1, ' '
+	Invoke lszCopy, Addr string1, Eax
+
+	Invoke lszCat, Addr string1, Addr fileName
+	Invoke lszCopy, Addr string1, Eax
+
+.AAA_breakpoint_2
+
+	Invoke lszCat, Addr string1, ' '
+	Invoke lszCopy, Addr string1, Eax
+
+.AAA_breakpoint_3
+
+	; copy file name without '.LOG' to string2
+	Invoke lszLen, Addr fileName
+	Sub Eax, 4
+	Invoke lszCopyn, Addr string2, Addr fileName, Eax
+
+.AAA_breakpoint_4
+
+	; add '.CBS' suffix to file name
+	Invoke lszCat, Addr string2, '.CBS'
+	Invoke lszCopy, Addr string2, Eax
+
+.AAA_breakpoint_5
+
+	; final concatenation
+	Invoke lszCat, Addr string1, Addr string2
+	Invoke lszCopy, Addr string1, Eax
+
+.AAA_breakpoint_6
+
+	; a test of MMX
+	;Invoke lszLenMMX, Addr string1
+
+.AAA_breakpoint_7
+
+	; debugging
+	;Invoke MessageBoxA, [hWnd], Addr string1, 'CBS', MB_ICONINFORMATION
+
+	; get startup info
+	Invoke GetStartupInfo, Addr startInfo
+
+	;Invoke SetCurrentDirectory, Addr pathName
+
+	; call EXE file
+	Invoke CreateProcess, NULL, Addr string1, NULL, NULL, FALSE, \
+		NORMAL_PRIORITY_CLASS, NULL, NULL, Addr startInfo, Addr processInfo
+
+	Return (TRUE)
+
+.fileExit
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_CBSW_HELPER_EXIT 		; Is this File|Exit
+		Jnz >>.exitProcedure
+
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0 ;exit message
+
+	Return (TRUE)
+
+.exitProcedure
+
+	Return (TRUE)
+
+EndU
+
+
+cbsw_helperbtn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+
+cbsw_helperEdit1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF

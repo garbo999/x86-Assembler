@@ -1,0 +1,251 @@
+;Do not edit or modify this file!!!
+Easy Code
+Begin Window = MAbout
+  AlignMode       = 0
+  AutoRedraw      = 1
+  BackColor       = 0x00000000
+  Border          = 4
+  Caption         = 0
+  CenterWindow    = 1
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040101
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 1710
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56080000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = 
+  TimerInterval   = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 3480
+  Begin Static = Static1
+    AutoSize        = 0
+    BackColor       = 0x00000000
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Arial,10,700,0,0,0
+    ForeColor       = 0x00FFFFFF
+    Height          = 240
+    Left            = 60
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000101
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = IDS_MEMORY
+    TextAlignment   = 1
+    Top             = 120
+    Visible         = 1
+    Width           = 3240
+    WordWrap        = 1
+  End
+  Begin Static = Static2
+    AutoSize        = 0
+    BackColor       = 0x00000000
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,700,0,0,0
+    ForeColor       = 0x0000FFFF
+    Height          = 240
+    Left            = 60
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000101
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    Text            = IDS_PROGRAMMED
+    TextAlignment   = 1
+    Top             = 420
+    Visible         = 1
+    Width           = 3240
+    WordWrap        = 1
+  End
+  Begin Static = stcWeb
+    AutoSize        = 1
+    BackColor       = 0x00000000
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = IDC_FINGER
+    CursorShape     = 14
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Arial,9,700,0,1,0
+    ForeColor       = 0x00FFFF00
+    Height          = 225
+    Left            = 780
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000101
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    Text            = IDS_GET_EASYCODE
+    TextAlignment   = 1
+    Top             = 780
+    Visible         = 1
+    Width           = 1755
+    WordWrap        = 1
+  End
+  Begin Button = btnClose
+    BackColor       = 0x8000000F
+    Border          = 1
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 360
+    ImageType       = -1
+    Left            = 1080
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = IDS_CLOSE
+    Top             = 1140
+    Visible         = 1
+    Width           = 1200
+  End
+End
+
+.Const
+
+.Data
+
+ABOUTMESSAGES	DD				WM_CREATE, OnAboutCreate
+				DD				WM_COMMAND, OnAboutCommand
+				DD				WM_CLOSE, OnAboutClose
+
+.Code
+
+MAboutProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf ABOUTMESSAGES / 8
+	Mov Edx, Addr ABOUTMESSAGES
+:	Dec Ecx
+	Js >.Default
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+.Default:
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnAboutCreate:
+	UseData MAboutProcedure
+	;Sets the MAbout window according to 'lParam'
+	Invoke SetWindowPos, [hWnd], [lParam], 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnAboutCommand:
+	UseData MAboutProcedure
+	Mov Eax, [wParam]
+	;Checks if message is
+	;from 'btnClose' object
+	Cmp Ax, IDC_MABOUT_BTNCLOSE
+	Je >
+	Xor Eax, Eax
+	Ret
+:	Shr Eax, 16
+	;Has button been clicked?
+	Cmp Ax, BN_CLICKED
+	Je >
+	Xor Eax, Eax
+	Ret
+:	;Closes the MAbout window
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnAboutClose:
+	UseData MAboutProcedure
+	;Check if it is a modal window
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax
+	Jz >
+	;If it is, ends the modal mode
+	;and closes the MAbout window
+	Invoke EndModal, [hWnd], IDCANCEL
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+:	Ret
+EndU
+
+MAboutstcWeb Frame hWnd, uMsg, wParam, lParam
+	Cmp D[uMsg], WM_LBUTTONDOWN
+	Jne >.Exit
+	Cmp D[wParam], MK_LBUTTON
+	Jne >.Exit
+	;Gets the parent window
+	Invoke GetParent, [hWnd]
+	;Runs the default explorer
+	;with Easy Code web address
+	Invoke ShellExecute, Eax, NULL, "http://www.easycode.cat", NULL, NULL, SW_SHOWNORMAL
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+
+.Exit
+	Xor Eax, Eax
+	Ret
+EndF

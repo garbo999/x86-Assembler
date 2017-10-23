@@ -1,0 +1,188 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = Theming
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 2
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040101
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 2655
+  IconBig         = IDI_APP_ICON
+  IconSmall       = IDI_APP_ICON
+  ImageType       = -1
+  KeepSize        = 1
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            =  Theming
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 3975
+  Begin Button = Button1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 540
+    ImageType       = -1
+    Left            = 705
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = 
+    ToolTipText     = 
+    Top             = 1305
+    Visible         = 1
+    Width           = 2310
+  End
+End
+
+.Const
+
+.Data
+
+szBuffer		DB MAX_PATH	Dup ?
+hThemeLib		HINSTANCE
+
+
+.Code
+
+ThemingProcedure Frame hWnd, uMsg, wParam, lParam
+	Local hHandle:D, tp:TOKEN_PRIVILEGES
+
+	Cmp D[uMsg], WM_CREATE
+	Jne >> L2
+	Invoke GetPlatform, NULL
+	Cmp Eax, ecWinXP
+	Jge >
+	;At this point, we are in a platform prior to WinXP. Since it could
+	;be Win95/98/ME, we use ANSI versions for the text to be displayed
+	Invoke LoadStringA, [App.Instance], IDS_BAD_SYSTEM, Addr szBuffer, 128
+	Invoke MessageBoxA, [hWnd], Addr szBuffer, A'Theming', (MB_OK | MB_ICONINFORMATION)
+	Return (-1)
+:	Mov D[hThemeLib], 0
+	Invoke LoadLibrary, TEXT("UxTheme.dll")
+	Or Eax, Eax
+	Jz > LExit
+	Mov [hThemeLib], Eax
+	;GetProcAddress always needs an ANSI text
+	Invoke GetProcAddress, [hThemeLib], A'IsThemeActive'
+	Call Eax
+	Mov Edx, IDS_ENABLE_THEMES
+	Or Eax, Eax
+	Jz >
+	Mov Eax, IDS_DISABLE_THEMES
+:	Invoke ChangeButtonText, Edx
+	Jmp > LExit
+L2:	Cmp D[uMsg], WM_COMMAND
+	Jne >> L6
+	LoWord ([wParam])
+	Cmp Ax, IDC_THEMING_BUTTON1
+	Jne > LExit
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne > LExit
+	Cmp D[hThemeLib], NULL
+	Je > LExit
+	;GetProcAddress always needs an ANSI text
+	Invoke GetProcAddress, [hThemeLib], A'IsThemeActive'
+	Or Eax, Eax
+	Jz >> L4
+	Call Eax
+	Mov Edi, TRUE
+	Or Eax, Eax
+	Jz >
+	Xor Edi, Edi
+	;GetProcAddress always needs an ANSI text
+:	Invoke GetProcAddress, [hThemeLib], A'EnableTheming'
+	Push Edi
+	Call Eax
+	Or Edi, Edi
+	Jnz >
+	Mov Eax, IDS_ENABLE_THEMES
+	Jmp >> L3
+:	Invoke GetCurrentProcess
+	Mov Edx, Eax
+	Invoke OpenProcessToken, Edx, TOKEN_ADJUST_PRIVILEGES Or TOKEN_QUERY, Addr hHandle
+	Invoke LookupPrivilegeValue, NULL, TEXT("SeShutdownPrivilege"), Addr tp.Privileges.Luid
+	Mov D[tp.PrivilegeCount], 1
+	Mov D[tp.Privileges.Attributes], SE_PRIVILEGE_ENABLED
+	Invoke AdjustTokenPrivileges, [hHandle], FALSE, Addr tp, SizeOf tp, NULL, NULL
+	Invoke LoadString, [App.Instance], IDS_LOG_OFF, Addr szBuffer, 128
+	Invoke MessageBox, [hWnd], Addr szBuffer, [App.Header], (MB_YESNO | MB_ICONQUESTION | MB_APPLMODAL)
+	Cmp Eax, IDYES
+	Jne >
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	Invoke ExitWindowsEx, EWX_LOGOFF, 0
+	Return (TRUE)
+:	Mov Eax, IDS_DISABLE_THEMES
+
+L3:	Invoke ChangeButtonText, Eax
+
+L4:	Return (TRUE)
+
+L6:	Cmp D[uMsg], WM_CLOSE
+	Jne > LExit
+	Cmp D[hThemeLib], 0
+	Je >
+	Invoke FreeLibrary, [hThemeLib]
+:	Invoke IsModal, [hWnd]
+	Or Eax, Eax
+	Jz > LExit
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE ;Return TRUE
+	Ret
+LExit:
+	Xor Eax, Eax	;Return FALSE
+	Ret
+EndF
+
+ChangeButtonText Frame ulID
+	Invoke LoadString, [App.Instance], Eax, Addr szBuffer, 128
+	Invoke GetWindowItem, [App.Main], IDC_THEMING_BUTTON1
+	Invoke SetText, Eax, Addr szBuffer
+	Ret
+EndF

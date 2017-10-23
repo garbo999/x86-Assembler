@@ -1,0 +1,552 @@
+#ifdef UNICODE
+	#undef UNICODE
+#endif
+#ifdef DEBUG
+	#undef DEBUG
+#endif
+
+STRINGS ANSI
+#define TEXT(x) x
+#define DSS DB
+#define CHARSIZE 1
+#define DEBUG 1
+
+#include "windows.h"
+#include "ECIncGo.h"
+#include "commctrl.inc"
+#include "comdlg32.inc"
+#include "winhttp.h"
+#include "wininet.h"
+
+#include "ECResFile.inc"
+#include "ECMacros.asm"
+
+StartErrorHandler(%1) MACRO
+	mov eax,%1
+	mov [Error.dwEip], eax
+	mov [Error.dwEbp], ebp
+	push Offset ECErrorHandle
+	fs push[0]
+	mov [Error.dwEsp],esp
+	fs mov[0],esp
+ENDM
+
+EndErrorHandler MACRO
+	fs pop[0]
+	add esp,4
+ENDM
+
+
+.data
+
+align 4
+
+IDR_EC_winMain_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_NAME	DB	'winMain',0
+IDR_EC_winMain_TEXT	DB	'Project Euler in Assembler',0
+IDR_EC_winMain_btn31_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn31_NAME	DB	'btn31',0
+IDR_EC_winMain_btn31_TEXT	DB	'xx6',0
+IDR_EC_winMain_btn31_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn30_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn30_NAME	DB	'btn30',0
+IDR_EC_winMain_btn30_TEXT	DB	'xx5',0
+IDR_EC_winMain_btn30_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn29_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn29_NAME	DB	'btn29',0
+IDR_EC_winMain_btn29_TEXT	DB	'xx4',0
+IDR_EC_winMain_btn29_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn28_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn28_NAME	DB	'btn28',0
+IDR_EC_winMain_btn28_TEXT	DB	'xx3',0
+IDR_EC_winMain_btn28_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn27_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn27_NAME	DB	'btn27',0
+IDR_EC_winMain_btn27_TEXT	DB	'Problem 23',0
+IDR_EC_winMain_btn27_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn26_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn26_NAME	DB	'btn26',0
+IDR_EC_winMain_btn26_TEXT	DB	'Problem 21',0
+IDR_EC_winMain_btn26_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn25_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn25_NAME	DB	'btn25',0
+IDR_EC_winMain_btn25_TEXT	DB	'Problem 18',0
+IDR_EC_winMain_btn25_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn24_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn24_NAME	DB	'btn24',0
+IDR_EC_winMain_btn24_TEXT	DB	'Problem 15',0
+IDR_EC_winMain_btn24_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn23_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn23_NAME	DB	'btn23',0
+IDR_EC_winMain_btn23_TEXT	DB	'Problem 12',0
+IDR_EC_winMain_btn23_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn22_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn22_NAME	DB	'btn22',0
+IDR_EC_winMain_btn22_TEXT	DB	'Problem 13',0
+IDR_EC_winMain_btn22_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn21_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn21_NAME	DB	'btn21',0
+IDR_EC_winMain_btn21_TEXT	DB	'Problem 11',0
+IDR_EC_winMain_btn21_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn20_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn20_NAME	DB	'btn20',0
+IDR_EC_winMain_btn20_TEXT	DB	'Problem 14',0
+IDR_EC_winMain_btn20_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn19_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn19_NAME	DB	'btn19',0
+IDR_EC_winMain_btn19_TEXT	DB	'Problem 17',0
+IDR_EC_winMain_btn19_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn18_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn18_NAME	DB	'btn18',0
+IDR_EC_winMain_btn18_TEXT	DB	'Problem 25',0
+IDR_EC_winMain_btn18_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn17_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn17_NAME	DB	'btn17',0
+IDR_EC_winMain_btn17_TEXT	DB	'Problem 16',0
+IDR_EC_winMain_btn17_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn16_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn16_NAME	DB	'btn16',0
+IDR_EC_winMain_btn16_TEXT	DB	'Problem 20',0
+IDR_EC_winMain_btn16_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn15_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn15_NAME	DB	'btn15',0
+IDR_EC_winMain_btn15_TEXT	DB	'Problem 19',0
+IDR_EC_winMain_btn15_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_edit1_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_edit1_NAME	DB	'edit1',0
+IDR_EC_winMain_edit1_TEXT	DB	'Edit1',0
+IDR_EC_winMain_edit1_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn14_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn14_NAME	DB	'btn14',0
+IDR_EC_winMain_btn14_TEXT	DB	'Problem 22',0
+IDR_EC_winMain_btn14_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn13_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn13_NAME	DB	'btn13',0
+IDR_EC_winMain_btn13_TEXT	DB	'Problem 4',0
+IDR_EC_winMain_btn13_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn12_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn12_NAME	DB	'btn12',0
+IDR_EC_winMain_btn12_TEXT	DB	'Problem 8',0
+IDR_EC_winMain_btn12_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn10_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn10_NAME	DB	'btn10',0
+IDR_EC_winMain_btn10_TEXT	DB	'Problem 9',0
+IDR_EC_winMain_btn10_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn11_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn11_NAME	DB	'btn11',0
+IDR_EC_winMain_btn11_TEXT	DB	'Problem 6',0
+IDR_EC_winMain_btn11_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn9_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn9_NAME	DB	'btn9',0
+IDR_EC_winMain_btn9_TEXT	DB	'Problem 5',0
+IDR_EC_winMain_btn9_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn8_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn8_NAME	DB	'btn8',0
+IDR_EC_winMain_btn8_TEXT	DB	'Problem 3 (64-bit)',0
+IDR_EC_winMain_btn8_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn7_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn7_NAME	DB	'btn7',0
+IDR_EC_winMain_btn7_TEXT	DB	'Problem 3 (32-bit)',0
+IDR_EC_winMain_btn7_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn6_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn6_NAME	DB	'btn6',0
+IDR_EC_winMain_btn6_TEXT	DB	'Problem 10 (7v3)',0
+IDR_EC_winMain_btn6_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn5_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn5_NAME	DB	'btn5',0
+IDR_EC_winMain_btn5_TEXT	DB	'Problem 7v2',0
+IDR_EC_winMain_btn5_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn3_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn3_NAME	DB	'btn3',0
+IDR_EC_winMain_btn3_TEXT	DB	'Problem 7v1',0
+IDR_EC_winMain_btn3_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn4_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn4_NAME	DB	'btn4',0
+IDR_EC_winMain_btn4_TEXT	DB	'Test area',0
+IDR_EC_winMain_btn4_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn2_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn2_NAME	DB	'btn2',0
+IDR_EC_winMain_btn2_TEXT	DB	'Problem 2',0
+IDR_EC_winMain_btn2_TOOLTIPTEXT	DB	0
+IDR_EC_winMain_btn1_FONT	DB	'MS Sans Serif',0
+IDR_EC_winMain_btn1_NAME	DB	'btn1',0
+IDR_EC_winMain_btn1_TEXT	DB	'Problem 1',0
+IDR_EC_winMain_btn1_TOOLTIPTEXT	DB	0
+
+IDR_EC_winMain_DATA	DD	0,0,08000000Fh,0,0,0,3,0,0
+		DD	0,0,1,1,0,0,0,0,offset IDR_EC_winMain_FONT
+		DD	8,0,0,80000012h,0,8475,0,0,0
+		DD	0,0,-1,0,0,0,1,0,0,0
+		DD	offset IDR_EC_winMain_NAME,0,0,0,0,0,0
+		DD	0,1,2,0,0,0,0,offset IDR_EC_winMain_TEXT,0,0,0,0
+		DD	0,0,3,0,1,10140,offset winMainProcedure
+		DD	0,0,32,0,00040100h,16EF0000h,0,offset IDR_EC_winMain_DATA
+
+IDR_EC_winMain_btn31_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn31_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	6330,0,0,0,offset IDR_EC_winMain_btn31_TOOLTIPTEXT,Offset IDR_EC_winMain_btn31_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	31,1,offset IDR_EC_winMain_btn31_TEXT,0,0,0,0,3885
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn30_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn30_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	6330,0,0,0,offset IDR_EC_winMain_btn30_TOOLTIPTEXT,Offset IDR_EC_winMain_btn30_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	30,1,offset IDR_EC_winMain_btn30_TEXT,0,0,0,0,3150
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn29_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn29_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	6330,0,0,0,offset IDR_EC_winMain_btn29_TOOLTIPTEXT,Offset IDR_EC_winMain_btn29_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	29,1,offset IDR_EC_winMain_btn29_TEXT,0,0,0,0,2430
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn28_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn28_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	6330,0,0,0,offset IDR_EC_winMain_btn28_TOOLTIPTEXT,Offset IDR_EC_winMain_btn28_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	28,1,offset IDR_EC_winMain_btn28_TEXT,0,0,0,0,1710
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn27_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn27_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	6330,0,0,0,offset IDR_EC_winMain_btn27_TOOLTIPTEXT,Offset IDR_EC_winMain_btn27_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	27,1,offset IDR_EC_winMain_btn27_TEXT,0,0,0,0,960
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn26_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn26_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	6330,0,0,0,offset IDR_EC_winMain_btn26_TOOLTIPTEXT,Offset IDR_EC_winMain_btn26_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	26,1,offset IDR_EC_winMain_btn26_TEXT,0,0,0,0,255
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn25_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn25_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	5070,0,0,0,offset IDR_EC_winMain_btn25_TOOLTIPTEXT,Offset IDR_EC_winMain_btn25_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	25,1,offset IDR_EC_winMain_btn25_TEXT,0,0,0,0,3825
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn24_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn24_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	5070,0,0,0,offset IDR_EC_winMain_btn24_TOOLTIPTEXT,Offset IDR_EC_winMain_btn24_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	24,1,offset IDR_EC_winMain_btn24_TEXT,0,0,0,0,3120
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn23_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn23_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	5070,0,0,0,offset IDR_EC_winMain_btn23_TOOLTIPTEXT,Offset IDR_EC_winMain_btn23_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	23,1,offset IDR_EC_winMain_btn23_TEXT,0,0,0,0,2460
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn22_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn22_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	5070,0,0,0,offset IDR_EC_winMain_btn22_TOOLTIPTEXT,Offset IDR_EC_winMain_btn22_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	22,1,offset IDR_EC_winMain_btn22_TEXT,0,0,0,0,1755
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn21_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn21_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	5070,0,0,0,offset IDR_EC_winMain_btn21_TOOLTIPTEXT,Offset IDR_EC_winMain_btn21_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	21,1,offset IDR_EC_winMain_btn21_TEXT,0,0,0,0,990
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn20_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn20_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	5070,0,0,0,offset IDR_EC_winMain_btn20_TOOLTIPTEXT,Offset IDR_EC_winMain_btn20_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	20,1,offset IDR_EC_winMain_btn20_TEXT,0,0,0,0,225
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn19_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn19_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	3345,0,0,0,offset IDR_EC_winMain_btn19_TOOLTIPTEXT,Offset IDR_EC_winMain_btn19_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	19,1,offset IDR_EC_winMain_btn19_TEXT,0,0,0,0,3885
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn18_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn18_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	3345,0,0,0,offset IDR_EC_winMain_btn18_TOOLTIPTEXT,Offset IDR_EC_winMain_btn18_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	18,1,offset IDR_EC_winMain_btn18_TEXT,0,0,0,0,3165
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn17_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn17_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	3345,0,0,0,offset IDR_EC_winMain_btn17_TOOLTIPTEXT,Offset IDR_EC_winMain_btn17_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	17,1,offset IDR_EC_winMain_btn17_TEXT,0,0,0,0,2520
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn16_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn16_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	3345,0,0,0,offset IDR_EC_winMain_btn16_TOOLTIPTEXT,Offset IDR_EC_winMain_btn16_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	16,1,offset IDR_EC_winMain_btn16_TEXT,0,0,0,0,1740
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn15_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn15_FONT
+			DD	8,0,0,80000012h,0,615,0,0,0,0,0,-1,0,0
+			DD	3345,0,0,0,offset IDR_EC_winMain_btn15_TOOLTIPTEXT,Offset IDR_EC_winMain_btn15_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	15,1,offset IDR_EC_winMain_btn15_TEXT,0,0,0,0,975
+			DD	1,7,0,1,1095,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_edit1_DATA	DD	0,0,080000005h,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_edit1_FONT
+			DD	8,0,0,80000008h,0,3090,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_edit1_TOOLTIPTEXT,Offset IDR_EC_winMain_edit1_NAME,1
+			DD	0,0,0,0,0,0,1,3,0,0
+			DD	14,1,offset IDR_EC_winMain_edit1_TEXT,0,0,0,0,4545
+			DD	0,5,0,1,9180,0,0,0,0,0
+			DD	00000210h,54300084h,0,0
+
+IDR_EC_winMain_btn14_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn14_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	3345,0,0,0,offset IDR_EC_winMain_btn14_TOOLTIPTEXT,Offset IDR_EC_winMain_btn14_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	13,1,offset IDR_EC_winMain_btn14_TEXT,0,0,0,0,225
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn13_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn13_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_btn13_TOOLTIPTEXT,Offset IDR_EC_winMain_btn13_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	12,1,offset IDR_EC_winMain_btn13_TEXT,0,0,0,0,3090
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn12_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn12_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	1845,0,0,0,offset IDR_EC_winMain_btn12_TOOLTIPTEXT,Offset IDR_EC_winMain_btn12_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	11,1,offset IDR_EC_winMain_btn12_TEXT,0,0,0,0,2355
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn10_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn10_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	1845,0,0,0,offset IDR_EC_winMain_btn10_TOOLTIPTEXT,Offset IDR_EC_winMain_btn10_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	10,1,offset IDR_EC_winMain_btn10_TEXT,0,0,0,0,3075
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn11_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn11_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	1845,0,0,0,offset IDR_EC_winMain_btn11_TOOLTIPTEXT,Offset IDR_EC_winMain_btn11_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	9,1,offset IDR_EC_winMain_btn11_TEXT,0,0,0,0,255
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn9_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn9_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_btn9_TOOLTIPTEXT,Offset IDR_EC_winMain_btn9_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	8,1,offset IDR_EC_winMain_btn9_TEXT,0,0,0,0,3840
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn8_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn8_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_btn8_TOOLTIPTEXT,Offset IDR_EC_winMain_btn8_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	7,1,offset IDR_EC_winMain_btn8_TEXT,0,0,0,0,2385
+			DD	1,7,0,1,1320,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn7_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn7_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_btn7_TOOLTIPTEXT,Offset IDR_EC_winMain_btn7_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	6,1,offset IDR_EC_winMain_btn7_TEXT,0,0,0,0,1710
+			DD	1,7,0,1,1380,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn6_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn6_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	1845,0,0,0,offset IDR_EC_winMain_btn6_TOOLTIPTEXT,Offset IDR_EC_winMain_btn6_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	5,1,offset IDR_EC_winMain_btn6_TEXT,0,0,0,0,3780
+			DD	1,7,0,1,1305,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn5_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn5_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	1845,0,0,0,offset IDR_EC_winMain_btn5_TOOLTIPTEXT,Offset IDR_EC_winMain_btn5_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	4,1,offset IDR_EC_winMain_btn5_TEXT,0,0,0,0,1710
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn3_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn3_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	1845,0,0,0,offset IDR_EC_winMain_btn3_TOOLTIPTEXT,Offset IDR_EC_winMain_btn3_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	3,1,offset IDR_EC_winMain_btn3_TEXT,0,0,0,0,960
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn4_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn4_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	8490,0,0,0,offset IDR_EC_winMain_btn4_TOOLTIPTEXT,Offset IDR_EC_winMain_btn4_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	2,1,offset IDR_EC_winMain_btn4_TEXT,0,0,0,0,1425
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn2_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn2_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_btn2_TOOLTIPTEXT,Offset IDR_EC_winMain_btn2_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	1,1,offset IDR_EC_winMain_btn2_TEXT,0,0,0,0,990
+			DD	1,7,0,1,1080,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_winMain_btn1_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_winMain_btn1_FONT
+			DD	8,0,0,80000012h,0,540,0,0,0,0,0,-1,0,0
+			DD	285,0,0,0,offset IDR_EC_winMain_btn1_TOOLTIPTEXT,Offset IDR_EC_winMain_btn1_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	0,1,offset IDR_EC_winMain_btn1_TEXT,0,0,0,0,270
+			DD	1,7,0,1,1080,offset winMainbtn1,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+
+App	ECApplication	<0,0,0,0,0,0,0,0,0,0,0>
+Error	ECErrorStruct	<0,0,0,0,0>
+ECdwOldErrorHandler		dd	0
+ECProcessMessagesAddress		dd	0
+icc	INITCOMMONCONTROLSEX	<0,0>
+
+
+.code
+
+align 4
+
+start:
+	invoke SetUnhandledExceptionFilter,addr ECLibFinalHandler
+	mov [ECdwOldErrorHandler],eax
+	invoke GetModuleHandle,NULL
+	mov [App.Instance],eax
+	mov D[App.Major],1
+	mov D[App.Minor],0
+	mov D[App.Revision],1
+	invoke InitCommonControls
+	mov D[icc.dwSize],sizeof INITCOMMONCONTROLSEX
+	mov D[icc.dwICC],03FFFH ;(ICC_WIN95_CLASSES | ICC_DATE_CLASSES | ICC_USEREX_CLASSES | ICC_COOL_CLASSES | ICC_INTERNET_CLASSES | ICC_PAGESCROLLER_CLASS | ICC_NATIVEFNTCTL_CLASS)
+	invoke InitCommonControlsEx,addr icc
+	invoke ECStcGo.lib:ECLibInitLibrary,[App.Instance],'projectEuler','projectEuler.exe','Easy Code GoAsm visual project',3
+
+	invoke ECInitProc,[App.Instance],NULL,[App.CommandLine],SW_SHOWDEFAULT
+	push eax
+	invoke SetUnhandledExceptionFilter,[ECdwOldErrorHandler]
+	pop eax
+	invoke ExitProcess,eax
+
+ECErrorHandle FRAME pExcept,pFrame,pContext,pDispatch
+	mov eax,[pExcept]
+	mov eax,[eax]
+	mov [Error.Code],eax
+	mov eax,[pContext]
+	push [Error.dwEip]
+	pop [eax+CONTEXT.Eip]
+	push [Error.dwEsp]
+	pop [eax+CONTEXT.Esp]
+	push [Error.dwEbp]
+	pop [eax+CONTEXT.Ebp]
+	mov eax,0 ;ExceptionContinueExecution
+	ret
+ENDF
+
+ECInitProc FRAME hInst,hPrevInst,CmdLine,CmdShow uses ebx,edi,esi
+	local bOnIdle:D,lCount:D,OnIdleAddress:D,msg:MSG
+	mov D[bOnIdle],1
+	mov D[lCount],0
+	invoke ECStcGo.lib:ECLibGetWindowPointer
+	lea esi,IDR_EC_winMain_DATA
+	mov [eax],esi
+	invoke ECStcGo.lib:ECLibCreateWindow,esi,NULL,FALSE,NULL
+	cmp eax,NULL
+	je > ECEndLoop
+	invoke LoadAccelerators,[App.Instance],IDR_EC_ACCEL_TABLE
+	mov [App.Accel],eax
+ECBeginLoop:
+	invoke GetMessage,addr msg,NULL,0,0
+	cmp eax,0
+	jle > ECEndLoop
+	invoke TranslateAccelerator,[App.Main],[App.Accel],addr msg
+	or eax,eax
+	jnz < ECBeginLoop
+	invoke TranslateMessage,addr msg
+	invoke DispatchMessage,addr msg
+	jmp < ECBeginLoop
+ECEndLoop:
+	invoke ECStcGo.lib:ECLibEndLibrary
+	cmp D[App.Accel],0
+	je >
+	invoke DestroyAcceleratorTable,[App.Accel]
+:	mov eax,[msg.wParam]
+	ret
+ENDF
+
+#include "winMain.asm"
+

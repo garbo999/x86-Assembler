@@ -1,0 +1,146 @@
+#ifdef UNICODE
+	#undef UNICODE
+#endif
+#ifdef DEBUG
+	#undef DEBUG
+#endif
+
+STRINGS ANSI
+#define TEXT(x) x
+#define DSS DB
+#define CHARSIZE 1
+#define DEBUG 1
+
+#include "windows.inc"
+#include "ECIncGo.h"
+#include "commctrl.inc"
+
+#include "ECResFile.inc"
+#include "ECMacros.asm"
+
+StartErrorHandler(%1) MACRO
+	mov eax,%1
+	mov [Error.dwEip], eax
+	mov [Error.dwEbp], ebp
+	push Offset ECErrorHandle
+	fs push[0]
+	mov [Error.dwEsp],esp
+	fs mov[0],esp
+ENDM
+
+EndErrorHandler MACRO
+	fs pop[0]
+	add esp,4
+ENDM
+
+
+.data
+
+align 4
+
+IDR_EC_grayline_FONT	DB	'MS Sans Serif',0
+IDR_EC_grayline_NAME	DB	'grayline',0
+IDR_EC_grayline_TEXT	DB	'Window1',0
+IDR_EC_grayline_btn1_FONT	DB	'MS Sans Serif',0
+IDR_EC_grayline_btn1_NAME	DB	'btn1',0
+IDR_EC_grayline_btn1_TEXT	DB	'Button1',0
+IDR_EC_grayline_btn1_TOOLTIPTEXT	DB	0
+
+IDR_EC_grayline_DATA	DD	0,0,08000000Fh,0,0,0,3,0,0
+		DD	0,0,1,1,0,0,0,0,offset IDR_EC_grayline_FONT
+		DD	8,0,0,80000012h,0,3690,0,0,0
+		DD	0,0,-1,0,0,0,1,0,0,0
+		DD	offset IDR_EC_grayline_NAME,0,0,0,0,0,0
+		DD	0,1,0,0,0,0,0,offset IDR_EC_grayline_TEXT,0,0,0,0
+		DD	0,0,3,0,1,5430,offset graylineProcedure
+		DD	0,0,1,0,00040100h,16CF0000h,0,offset IDR_EC_grayline_DATA
+
+IDR_EC_grayline_btn1_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_grayline_btn1_FONT
+			DD	8,0,0,80000012h,0,390,0,0,0,0,0,-1,0,0
+			DD	1575,0,0,0,offset IDR_EC_grayline_btn1_TOOLTIPTEXT,Offset IDR_EC_grayline_btn1_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	0,1,offset IDR_EC_grayline_btn1_TEXT,0,0,0,0,735
+			DD	1,7,0,1,1335,offset graylinebtn1,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+
+App	ECApplication	<0,0,0,0,0,0,0,0,0,0,0>
+Error	ECErrorStruct	<0,0,0,0,0>
+ECdwOldErrorHandler		dd	0
+ECProcessMessagesAddress		dd	0
+icc	INITCOMMONCONTROLSEX	<0,0>
+
+
+.code
+
+align 4
+
+start:
+	invoke SetUnhandledExceptionFilter,addr ECLibFinalHandler
+	mov [ECdwOldErrorHandler],eax
+	invoke GetModuleHandle,NULL
+	mov [App.Instance],eax
+	mov D[App.Major],1
+	mov D[App.Minor],0
+	mov D[App.Revision],1
+	invoke InitCommonControls
+	mov D[icc.dwSize],sizeof INITCOMMONCONTROLSEX
+	mov D[icc.dwICC],03FFFH ;(ICC_WIN95_CLASSES | ICC_DATE_CLASSES | ICC_USEREX_CLASSES | ICC_COOL_CLASSES | ICC_INTERNET_CLASSES | ICC_PAGESCROLLER_CLASS | ICC_NATIVEFNTCTL_CLASS)
+	invoke InitCommonControlsEx,addr icc
+	invoke ECStcGo.lib:ECLibInitLibrary,[App.Instance],'grayline','grayline.exe','Easy Code GoAsm visual project',3
+
+	invoke ECInitProc,[App.Instance],NULL,[App.CommandLine],SW_SHOWDEFAULT
+	push eax
+	invoke SetUnhandledExceptionFilter,[ECdwOldErrorHandler]
+	pop eax
+	invoke ExitProcess,eax
+
+ECErrorHandle FRAME pExcept,pFrame,pContext,pDispatch
+	mov eax,[pExcept]
+	mov eax,[eax]
+	mov [Error.Code],eax
+	mov eax,[pContext]
+	push [Error.dwEip]
+	pop [eax+CONTEXT.Eip]
+	push [Error.dwEsp]
+	pop [eax+CONTEXT.Esp]
+	push [Error.dwEbp]
+	pop [eax+CONTEXT.Ebp]
+	mov eax,0 ;ExceptionContinueExecution
+	ret
+ENDF
+
+ECInitProc FRAME hInst,hPrevInst,CmdLine,CmdShow uses ebx,edi,esi
+	local bOnIdle:D,lCount:D,OnIdleAddress:D,msg:MSG
+	mov D[bOnIdle],1
+	mov D[lCount],0
+	invoke ECStcGo.lib:ECLibGetWindowPointer
+	lea esi,IDR_EC_grayline_DATA
+	mov [eax],esi
+	invoke ECStcGo.lib:ECLibCreateWindow,esi,NULL,FALSE,NULL
+	cmp eax,NULL
+	je > ECEndLoop
+	invoke LoadAccelerators,[App.Instance],IDR_EC_ACCEL_TABLE
+	mov [App.Accel],eax
+ECBeginLoop:
+	invoke GetMessage,addr msg,NULL,0,0
+	cmp eax,0
+	jle > ECEndLoop
+	invoke TranslateAccelerator,[App.Main],[App.Accel],addr msg
+	or eax,eax
+	jnz < ECBeginLoop
+	invoke TranslateMessage,addr msg
+	invoke DispatchMessage,addr msg
+	jmp < ECBeginLoop
+ECEndLoop:
+	invoke ECStcGo.lib:ECLibEndLibrary
+	cmp D[App.Accel],0
+	je >
+	invoke DestroyAcceleratorTable,[App.Accel]
+:	mov eax,[msg.wParam]
+	ret
+ENDF
+
+#include "grayline.asm"
+

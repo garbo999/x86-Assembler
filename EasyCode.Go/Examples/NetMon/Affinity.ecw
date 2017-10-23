@@ -1,0 +1,593 @@
+;Do not modify this file!!!
+Easy Code
+Begin Dialog = Affinity:400
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 1
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  Enabled         = 1
+  ExStyle         = 0x00000001
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 70
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  Left            = 0
+  MaximizeBox     = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScrollBars      = 0
+  Style           = 1
+  Text            = 
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 180
+  Begin Button = btnCancel
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 1
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 15
+    ImageType       = -1
+    Left            = 122
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 10
+    TabStop         = 1
+    Text            = IDS_CANCEL
+    ToolTipText     = 
+    Top             = 28
+    Visible         = 1
+    Width           = 52
+  End
+  Begin Button = btnOK
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1001
+    DrawFocus       = 1
+    Enabled         = 0
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 15
+    ImageType       = -1
+    Left            = 122
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 9
+    TabStop         = 1
+    Text            = IDS_OK
+    ToolTipText     = 
+    Top             = 8
+    Visible         = 1
+    Width           = 52
+  End
+  Begin Group = Group1
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1002
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 59
+    Left            = 7
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    Text            = IDS_PROCESSORS
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 4
+    Visible         = 1
+    Width           = 108
+    Begin Check = Check8
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1003
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 67
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 8
+      TabStop         = 1
+      Text            = CPU &8
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 44
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check7
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1004
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 67
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 7
+      TabStop         = 1
+      Text            = CPU &7
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 33
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check6
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1005
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 67
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 6
+      TabStop         = 1
+      Text            = CPU &6
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 22
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check5
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1006
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 67
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 5
+      TabStop         = 1
+      Text            = CPU &5
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 11
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check4
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1007
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 9
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 4
+      TabStop         = 1
+      Text            = CPU &4
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 44
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check3
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1008
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 9
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 3
+      TabStop         = 1
+      Text            = CPU &3
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 33
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check2
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1009
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 9
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 2
+      TabStop         = 1
+      Text            = CPU &2
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 22
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+    Begin Check = Check1
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1010
+      Enabled         = 0
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 10
+      Left            = 9
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 1
+      TabStop         = 1
+      Text            = CPU &1
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 11
+      Value           = 0
+      Visible         = 1
+      Width           = 38
+    End
+  End
+End
+
+.Const
+
+.Data
+
+AFFINITY_MESSAGES	DD WM_INITDIALOG, OnAffinityInitDialog
+					DD WM_COMMAND, OnAffinityCommand
+					DD WM_CLOSE, OnAffinityClose
+
+.Code
+
+AffinityProcedure Frame hDlg, uMsg, wParam, lParam
+	Local dwProcess:D, dwSystem:D
+
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf AFFINITY_MESSAGES / 8
+	Mov Edx, Addr AFFINITY_MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnAffinityInitDialog: UseData AffinityProcedure
+	Lea Eax, szBuffer
+	Mov B[Eax], ' '
+	Inc Eax
+	Invoke LoadString, [App.Instance], IDS_AFFINITY, Eax, 64
+	Invoke GetNoEllipsisText, Addr szBuffer
+	Invoke GetNoPrefixString, Addr szBuffer
+	Invoke SetWindowText, [hDlg], Addr szBuffer
+	Invoke GetCurrentProcess
+	Mov Edi, Eax
+	Invoke GetProcessAffinityMask, Edi, Addr dwProcess, Addr dwSystem
+	Mov Eax, [dwSystem]
+	And Eax, 255
+	Mov Ebx, Eax
+	Invoke String, Eax, Addr szBuffer, ecDecimal
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szAffinity, Addr szBuffer
+	Invoke Value, Addr szBuffer
+	And Eax, 255
+	Mov Esi, Eax
+	Mov Eax, Ebx
+	And Eax, 1
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK1
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 1
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 2
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK2
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 2
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 4
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK3
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 4
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 8
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK4
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 8
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 16
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK5
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 16
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 32
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK6
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 32
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 64
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK7
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 64
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Mov Eax, Ebx
+	And Eax, 128
+	Jz >
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK8
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Mov Eax, Esi
+	And Eax, 128
+	Jz >
+	Invoke SendMessage, Edi, BM_SETCHECK, BST_CHECKED, 0
+:	Xor Eax, Eax
+	Ret
+EndU
+
+OnAffinityCommand: UseData AffinityProcedure
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >> L8
+	LoWord ([wParam])
+	Cmp Ax, IDC_AFFINITY_BTNCANCEL
+	Jne >
+	Invoke SendMessage, [hDlg], WM_CLOSE, 0, 0
+	Return (TRUE)
+:	Cmp Ax, IDC_AFFINITY_CHECK1
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK2
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK3
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK4
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK5
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK6
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK7
+	Je >
+	Cmp Ax, IDC_AFFINITY_CHECK8
+	Jne > L2
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_BTNOK
+	Push Eax
+	Invoke EnableWindow, Eax, TRUE
+	Pop Eax
+	Invoke SetDefault, Eax, TRUE
+	Return (TRUE)
+L2:	Cmp Ax, IDC_AFFINITY_BTNOK
+	Jne >> L8
+	Mov D[dwProcess], 0
+	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK1
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 1
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK2
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 2
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK3
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 4
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK4
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 8
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK5
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 16
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK6
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 32
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK7
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 64
+:	Invoke GetWindowItem, [hDlg], IDC_AFFINITY_CHECK8
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Cmp Eax, BST_CHECKED
+	Jne >
+	Or D[dwProcess], 128
+:	Cmp D[dwProcess], 0
+	Je >
+	Invoke GetCurrentProcess
+	Invoke SetAffinityMask, Eax, [dwProcess]
+	Invoke String, [dwProcess], Addr szBuffer, ecDecimal
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szAffinity, Addr szBuffer
+:	Invoke EndModal, [hDlg], IDOK
+	Return (TRUE)
+L8:	Xor Eax, Eax
+	Ret
+EndU
+
+OnAffinityClose: UseData AffinityProcedure
+	Invoke EndModal, [hDlg], IDCANCEL
+	Return (TRUE)
+EndU

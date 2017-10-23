@@ -1,0 +1,150 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = grayline
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3690
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Window1
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 5430
+  Begin Button = btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 390
+    ImageType       = -1
+    Left            = 1575
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Button1
+    ToolTipText     = 
+    Top             = 735
+    Visible         = 1
+    Width           = 1335
+  End
+End
+
+.Const
+
+.Data
+
+GRAYLINE_MESSAGES	DD WM_CREATE, OngraylineCreate
+					DD WM_CLOSE, OngraylineClose
+					DD WM_COMMAND, OngraylineCommand
+
+.Code
+
+graylineProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf GRAYLINE_MESSAGES / 8
+	Mov Edx, Addr GRAYLINE_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OngraylineCommand: UseData graylineProcedure
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDC_GRAYLINE_BTN1		; Is this BTN1?
+		Jnz >>.exitProcedure
+
+	; This IS button 1 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure		; Button 1 but not left click
+
+	; File|Exit? so process
+	Invoke MessageBoxA, [hWnd], 'You clicked BTN1', 'Grayline Calculator', MB_OK
+
+.exitProcedure
+
+	Return (TRUE)
+
+EndU
+
+OngraylineCreate: UseData graylineProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OngraylineClose: UseData graylineProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+
+graylinebtn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF

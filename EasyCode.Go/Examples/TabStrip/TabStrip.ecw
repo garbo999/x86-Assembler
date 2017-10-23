@@ -1,0 +1,537 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = TabStrip
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 2
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 2520
+  IconBig         = IDI_APP_ICON
+  IconSmall       = IDI_APP_ICON
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = IDS_CAPTION
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 3975
+  Begin Group = grpGeneral
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 1560
+    Left            = 60
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = 
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 360
+    Visible         = 1
+    Width           = 3630
+    Begin Check = chkGeneral_C
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1001
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 4
+      TabStop         = 1
+      Text            = Tab General - Option C
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 945
+      Value           = 0
+      Visible         = 1
+      Width           = 2640
+    End
+    Begin Check = chkGeneral_B
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1002
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 3
+      TabStop         = 1
+      Text            = Tab General - Option B
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 645
+      Value           = 0
+      Visible         = 1
+      Width           = 2640
+    End
+    Begin Check = chkGeneral_A
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1003
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 2
+      TabStop         = 1
+      Text            = Tab General - Option A
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 345
+      Value           = 1
+      Visible         = 1
+      Width           = 2640
+    End
+  End
+  Begin Group = grpInfo1
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1004
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 1560
+    Left            = 60
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 5
+    Text            = 
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 360
+    Visible         = 0
+    Width           = 3630
+    Begin Check = chkInfo1_A
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1005
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 6
+      TabStop         = 1
+      Text            = Tab Info 1 - Option A
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 345
+      Value           = 0
+      Visible         = 1
+      Width           = 2640
+    End
+    Begin Check = chkInfo1_B
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1006
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 7
+      TabStop         = 1
+      Text            = Tab Info 1 - Option B
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 645
+      Value           = 1
+      Visible         = 1
+      Width           = 2640
+    End
+    Begin Check = chkInfo1_C
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1007
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 8
+      TabStop         = 1
+      Text            = Tab Info 1 - Option C
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 945
+      Value           = 0
+      Visible         = 1
+      Width           = 2640
+    End
+  End
+  Begin Group = grpInfo2
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1008
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 1560
+    Left            = 60
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 9
+    Text            = 
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 360
+    Visible         = 0
+    Width           = 3630
+    Begin Check = chkInfo2_C
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1009
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 12
+      TabStop         = 1
+      Text            = Tab Info 2 - Option C
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 945
+      Value           = 1
+      Visible         = 1
+      Width           = 2640
+    End
+    Begin Check = chkInfo2_B
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1010
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 11
+      TabStop         = 1
+      Text            = Tab Info 2 - Option B
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 645
+      Value           = 0
+      Visible         = 1
+      Width           = 2640
+    End
+    Begin Check = chkInfo2_A
+      Auto            = 1
+      BackColor       = 0x8000000F
+      Border          = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1011
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 240
+      Left            = 255
+      LeftText        = 0
+      MultiLine       = 0
+      NormalStyle     = 0x54000103
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 10
+      TabStop         = 1
+      Text            = Tab Info 2 - Option A
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 345
+      Value           = 0
+      Visible         = 1
+      Width           = 2640
+    End
+  End
+  Begin TabStrip = TabStrip1
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1012
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    Height          = 2100
+    Left            = 0
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54008000
+    Placement       = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    Style           = 0
+    TabOrder        = 0
+    Tabs            = 3
+    TabStruct       = IDS_GENERAL,IDS_INFO1,IDS_INFO2
+    TabStop         = 1
+    TabWidthStyle   = 0
+    ToolTipText     = 
+    Top             = 0
+    Visible         = 1
+    Width           = 3840
+  End
+End
+
+.Const
+
+.Data
+
+MESSAGES	DD	WM_CREATE, OnCreate
+			DD	WM_NOTIFY, OnNotify
+			DD	WM_SIZE, OnSize
+			DD	WM_CLOSE, OnClose
+
+.Code
+
+TabStripProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MESSAGES / 8
+	Mov Edx, Addr MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L2:
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnCreate: UseData TabStripProcedure
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndU
+
+OnNotify: UseData TabStripProcedure
+	;Is it the TabStrip control?
+	Cmp D[wParam], IDC_TABSTRIP_TABSTRIP1
+	Jne >>L2
+	;Set Ebx to the address of lParam
+	;which is a NMHDR structure
+	Mov Ebx, [lParam]
+	Cmp D[Ebx + NMHDR.code], TCN_SELCHANGE
+	Jne >>L2
+	;Get the curent tab from TabStrip control
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_TABSTRIP1
+	Invoke SendMessage, Eax, TCM_GETCURSEL, 0, 0
+	Or Eax, Eax ;Is Tab 0 (General) being clicked?
+	Jnz >wmn2
+	;Show grpGeneral group and
+	;and hide all other groups
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPGENERAL
+	Invoke ShowWindow, Eax, SW_SHOWNORMAL
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPINFO1
+	Invoke ShowWindow, Eax, SW_HIDE
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPINFO2
+	Invoke ShowWindow, Eax, SW_HIDE
+	Jmp >>L2
+
+wmn2:
+	Cmp Eax, 1	;Is Tab 1 (Info1) being clicked?
+	Jne >wmn4
+	;Show grpInfo1 group and
+	;and hide all other groups
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPINFO1
+	Invoke ShowWindow, Eax, SW_SHOWNORMAL
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPGENERAL
+	Invoke ShowWindow, Eax, SW_HIDE
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPINFO2
+	Invoke ShowWindow, Eax, SW_HIDE
+	Jmp >L2
+
+wmn4:
+	Cmp Eax, 2	;Is Tab 2 (Info2) being clicked?
+	Jne >L2
+	;Show grpInfo2group and
+	;and hide all other groups
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPINFO2
+	Invoke ShowWindow, Eax, SW_SHOWNORMAL
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPGENERAL
+	Invoke ShowWindow, Eax, SW_HIDE
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_GRPINFO1
+	Invoke ShowWindow, Eax, SW_HIDE
+
+L2:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnSize: UseData TabStripProcedure
+	;Get handle for TabStrip1
+	;and store it in Ebx
+	Invoke GetWindowItem, [hWnd], IDC_TABSTRIP_TABSTRIP1
+	Mov Ebx, Eax
+	;Get high word of lParam (height of
+	;client area) and store it in Ecx
+	HiWord ([lParam])
+	Mov Ecx, Eax
+	;Get low word of lParam (width
+	;of client area in Eax
+	LoWord ([lParam])
+	Invoke SetWindowPos, Ebx, 0, 0, 0, Eax, Ecx, SWP_NOZORDER Or SWP_NOMOVE
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnClose: UseData TabStripProcedure
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE
+:	Ret
+EndU

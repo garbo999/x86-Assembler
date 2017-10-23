@@ -1,0 +1,1515 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = Window1
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3690
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  KeyPreview      = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Window1
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 5430
+  Begin Button = Btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 750
+    ImageType       = -1
+    Left            = 1380
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Button1
+    ToolTipText     = 
+    Top             = 720
+    Visible         = 1
+    Width           = 2220
+  End
+End
+
+.Const
+
+MAXSIZE Equ 260
+
+.Data
+
+WINDOW1_MESSAGES	DD WM_CREATE, OnWindow1Create
+					DD WM_CLOSE, OnWindow1Close
+					DD WM_COMMAND, OnWindow1ClickBtn
+
+Align 4
+myStringVar			DB 20 Dup 0 ; could this be too short?
+Align 4
+userAgent			DB "garbo superduper browser v1.01", 0
+Align 4
+url_5				DB "translationscience.com", 0
+Align 4
+objectName_2		DB "test_187_file_upload.php", 0
+
+;
+; LotW
+; https://p1k.arrl.org/lotwuser/default
+; https://p1k.arrl.org/lotwuser/upload
+;
+
+Align 4
+url_lotw_1			DB "p1k.arrl.org", 0
+Align 4
+objectName_lotw_1	DB "/lotwuser/default", 0
+Align 4
+objectName_lotw_2	DB "/lotwuser/default?logout=1", 0
+Align 4
+objectName_lotw_3	DB "/lotwuser/upload", 0
+
+Align 4
+acceptTypes			DB "*/*", 0	; used by HttpOpenRequest
+Align 4
+internetBuffer		DB 100H Dup 0
+
+Align 4
+hdrs 				DB "Content-Type: application/x-www-form-urlencoded", 0
+Align 4
+frmdata_lotw_1		DB "login=WS4T&password=gary10003&submit=Log+On&acct_sel=", 0
+; DUMB MISTAKE: Needed to use a + sign in POST data ("Log+On")
+
+Align 4
+hdrs_2				DB 'Content-Type: multipart/form-data; boundary=AaB03x', 0
+
+Align 4
+frmdata_2			DB '', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="submit"', 0DH, 0AH
+					DB '', 0DH, 0AH
+					DB 'Upload file', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="file"; filename="file5.txt"', 0DH, 0AH
+					DB 'Content-Type: text/plain', 0DH, 0AH
+					DB '', 0DH, 0AH
+					DB '... contents of file1.txt ...', 0DH, 0AH, 'sdfssfs', 0DH, 0AH
+					DB '--AaB03x--', 0DH, 0AH
+
+Align 4
+frmdata_2_A			DB '', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="submit"', 0DH, 0AH
+					DB '', 0DH, 0AH
+					DB 'Upload file', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="file"; filename="file5.txt"', 0DH, 0AH
+					DB 'Content-Type: text/plain', 0DH, 0AH
+					DB '', 0DH, 0AH
+Align 4
+frmdata_2_B			DB 0DH, 0AH
+					DB '--AaB03x--', 0DH, 0AH
+
+Align 4
+frmdata_3_A			DB '', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="submit"', 0DH, 0AH
+					DB '', 0DH, 0AH
+					DB 'Upload file', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="file"; filename="'
+
+;					<file name goes here>
+
+Align 4
+frmdata_3_B			DB '"', 0DH, 0AH
+					DB 'Content-Type: text/plain', 0DH, 0AH
+					DB '', 0DH, 0AH
+
+;					<file data goes here>
+					
+Align 4
+frmdata_3_C			DB 0DH, 0AH
+					DB '--AaB03x--', 0DH, 0AH
+
+;
+; frmdata_4 is for LotW !!!
+; name="upfile"
+;
+
+Align 4
+frmdata_4_A			DB '', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="submit"', 0DH, 0AH
+					DB '', 0DH, 0AH
+					DB 'Upload file', 0DH, 0AH
+					DB '--AaB03x', 0DH, 0AH
+					DB 'Content-Disposition: form-data; name="upfile"; filename="'
+
+;					<file name goes here>
+
+Align 4
+frmdata_4_B			DB '"', 0DH, 0AH
+					DB 'Content-Type: text/plain', 0DH, 0AH
+					DB '', 0DH, 0AH
+
+;					<file data goes here>
+					
+Align 4
+frmdata_4_C			DB 0DH, 0AH
+					DB '--AaB03x--', 0DH, 0AH
+
+Align 4
+filterString 		DB "All Files", 0, "*.*", 0
+             		DB "Text Files", 0, "*.txt", 0, 0
+Align 4
+buffer 				DB MAXSIZE Dup 0
+Align 4
+buffer_2			DB MAXSIZE Dup 0
+
+Align 4
+hInternet_1 		DD 0 ; used with 2nd (preferred) connection method = WinINet
+hInternet_2 		DD 0
+hInternet_3 		DD 0
+hOut				DD 0 ; for temp file
+nIn					DD 0
+nOut 				DD 0
+
+Align 4
+ofn					OPENFILENAME
+Align 4
+hFile				DD 0
+fileSize			DQ 0
+totalCharCount		DD 0
+ptrFrmData_2		DD 0
+lenLpstrFileTitle	DD 0
+hFileMap			DD 0
+pMemory				DD 0
+hHeap				DD 0
+
+.Code
+
+Window1Procedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf WINDOW1_MESSAGES / 8
+	Mov Edx, Addr WINDOW1_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnWindow1Create: UseData Window1Procedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnWindow1Close: UseData Window1Procedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+OnWindow1ClickBtn: UseData Window1Procedure
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDC_WINDOW1_BTN1		; Is this button 1?
+		Jnz >>.exitProcedure
+
+	; This IS button 1 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure		; Button 1 but not left click
+
+	; Button 1 AND left click so process
+	Invoke MessageBoxA, [hWnd], '...hoping for salvation from error 87...', 'Upload test', MB_ICONINFORMATION
+
+	; ************************************
+	;
+	; testing internet access, 8th attempt
+	; LotW
+	; SSL required!
+	; log out, log back into site and then upload file
+	; it works (23mar13)
+	; some problems:
+	; - repeated uploads fail?
+	;
+	; ************************************
+
+	; internet operations w/ SSL !!!
+
+	Invoke InternetOpen, Addr userAgent, INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0
+
+Cmp Eax, NULL
+		Jne >.OK_63
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetOpen failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_63
+
+	Mov [hInternet_1], Eax
+
+	; zzzzzz
+	Invoke InternetConnect, [hInternet_1], Addr url_lotw_1, INTERNET_DEFAULT_HTTPS_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 1
+	; perhaps last value could be NULL instead of 1?
+
+Cmp Eax, NULL
+		Jne >.OK_64
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetConnect failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Return (TRUE)
+
+.OK_64
+
+	Mov [hInternet_2], Eax
+
+	; here is where problem is happening (errir 87)
+	Invoke HttpOpenRequest, [hInternet_2], "GET", Addr objectName_lotw_2, NULL, NULL, NULL, INTERNET_FLAG_SECURE, 0
+	;Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_lotw_1, NULL, NULL, Addr acceptTypes, 0, 1
+	;Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_lotw_1, NULL, NULL, Addr acceptTypes, INTERNET_FLAG_SECURE, 1
+
+	Cmp Eax, NULL
+		Jne >.OK_65
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpOpenRequest failed 2, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Return (TRUE)
+
+.OK_65
+
+	Mov [hInternet_3], Eax
+
+	Invoke HttpSendRequest, [hInternet_3], NULL, NULL, NULL, NULL
+	;Invoke HttpSendRequest, [hInternet_3], Addr hdrs, SizeOf hdrs - 1, Addr frmdata, SizeOf frmdata - 1
+	;Invoke HttpSendRequest, [hInternet_3], Addr hdrs, SizeOf hdrs - 1, [ptrFrmData_2], [totalCharCount]
+
+	Cmp Eax, TRUE	; different return codes here!
+		Je >.OK_66
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpSendRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_66
+
+	; open a temporary file to save the data
+	; could use FILE_FLAG_DELETE_ON_CLOSE so file is automatically deleted
+	; but then need to have a way to also read the same temp file
+
+	Invoke CreateFile, 'c:/test5.txt', GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jne >.OK_67
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile 1 failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_67
+
+	Mov [hOut], Eax
+
+.loop_readfile_7
+
+	Invoke InternetReadFile, [hInternet_3], Addr internetBuffer, SizeOf internetBuffer, Addr nIn
+
+	Cmp Eax, NULL
+		Jne >.OK_68
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetReadFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+.OK_68
+
+	; if no bytes were returned this time, jump to final processing
+	Mov Eax, [nIn]
+	Cmp Eax, 0
+		Je >>.done_readfile_7
+
+	; write the current bytes to the temp file
+	Invoke WriteFile, [hOut], Addr internetBuffer, [nIn], Addr nOut, NULL
+
+	Mov Ebx, [nIn]	; nIn, nOut are more traditional
+	Cmp Ebx, [nOut]
+		Je .loop_readfile_7 ; if write operation was OK, do it again
+		; error processing
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'WriteFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+	; END OF LOOP
+
+.done_readfile_7
+
+	Invoke CloseHandle, [hOut]
+
+;
+;
+; read 2nd page (POST)
+;
+;
+
+	Invoke MessageBoxA, [hWnd], 'Now for POST request...', 'Upload test', MB_ICONINFORMATION
+
+	Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_lotw_1, NULL, NULL, NULL, INTERNET_FLAG_SECURE, 0
+	;Invoke HttpOpenRequest, [hInternet_2], "GET", Addr objectName_lotw_1, NULL, NULL, NULL, INTERNET_FLAG_SECURE, 0
+	;Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_lotw_1, NULL, NULL, Addr acceptTypes, 0, 1
+	;Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_lotw_1, NULL, NULL, Addr acceptTypes, INTERNET_FLAG_SECURE, 1
+
+	Cmp Eax, NULL
+		Jne >.OK_75
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpOpenRequest failed 2, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Return (TRUE)
+
+.OK_75
+
+	Mov [hInternet_3], Eax
+
+	Invoke HttpSendRequest, [hInternet_3], Addr hdrs, SizeOf hdrs - 1, Addr frmdata_lotw_1, SizeOf frmdata_lotw_1 - 1
+	;Invoke HttpSendRequest, [hInternet_3], NULL, NULL, NULL, NULL
+	;Invoke HttpSendRequest, [hInternet_3], Addr hdrs, SizeOf hdrs - 1, [ptrFrmData_2], [totalCharCount]
+
+	Cmp Eax, TRUE	; different return codes here!
+		Je >.OK_76
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpSendRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_76
+
+	; open a temporary file to save the data
+	; could use FILE_FLAG_DELETE_ON_CLOSE so file is automatically deleted
+	; but then need to have a way to also read the same temp file
+
+	Invoke CreateFile, 'c:/test6.txt', GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jne >.OK_77
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile 2 failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_77
+
+	Mov [hOut], Eax
+
+.loop_readfile_8
+
+	Invoke InternetReadFile, [hInternet_3], Addr internetBuffer, SizeOf internetBuffer, Addr nIn
+
+	Cmp Eax, NULL
+		Jne >.OK_78
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetReadFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+.OK_78
+
+	; if no bytes were returned this time, jump to final processing
+	Mov Eax, [nIn]
+	Cmp Eax, 0
+		Je >>.done_readfile_8
+
+	; write the current bytes to the temp file
+	Invoke WriteFile, [hOut], Addr internetBuffer, [nIn], Addr nOut, NULL
+
+	Mov Ebx, [nIn]	; nIn, nOut are more traditional
+	Cmp Ebx, [nOut]
+		Je .loop_readfile_8 ; if write operation was OK, do it again
+		; error processing
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'WriteFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+	; END OF LOOP
+
+.done_readfile_8
+
+	Invoke CloseHandle, [hOut]
+
+;
+; end of read 2nd page (POST)
+;
+
+
+
+;
+;
+; upload file (3rd page = POST)
+;
+;
+
+	; user specifies file
+	Push SizeOf ofn
+	Pop [ofn.lStructSize]
+	Push [hWnd]
+	Pop [ofn.hwndOwner]
+	Push NULL
+	Pop [ofn.hInstance]
+
+	Mov [ofn.lpstrFilter], Addr filterString
+	Mov [ofn.lpstrFile], Addr buffer
+ 	Mov D[ofn.nMaxFile], MAXSIZE
+	Mov [ofn.lpstrFileTitle], Addr buffer_2
+ 	Mov D[ofn.nMaxFileTitle], MAXSIZE
+
+	Invoke GetOpenFileName, Addr ofn
+
+	Cmp Eax, NULL
+	Jne >.OK_80A
+		Invoke CommDlgExtendedError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'GetOpenFileName failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_80A
+
+	Invoke MessageBoxA, [hWnd], [ofn.lpstrFile], 'Project Euler', MB_ICONINFORMATION
+	Invoke MessageBoxA, [hWnd], [ofn.lpstrFileTitle], 'Project Euler', MB_ICONINFORMATION
+	;Return (TRUE)
+
+	;
+	; load file into memory map yyyy
+	; open file for reading
+	;
+
+	Invoke CreateFile, [ofn.lpstrFile], GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+	Jne >.OK_80B
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile 3 failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_80B
+
+	Mov [hFile], Eax
+
+	; need to determine how long the header is (fileSize + header size)
+	; check file length (char count for file)
+	Invoke GetFileSizeEx, [hFile], Addr fileSize
+
+	; total char count = file char count + static string char count
+	Mov Eax, [fileSize] ; ignoring high double word (assumed = 0)
+	Mov [totalCharCount], Eax
+	Add D[totalCharCount], SizeOf frmdata_4_A
+	Add D[totalCharCount], SizeOf frmdata_4_B
+	Add D[totalCharCount], SizeOf frmdata_4_C
+	Invoke lszLen, Addr buffer_2
+	Add D[totalCharCount], Eax ; add length of filename too
+	Mov [lenLpstrFileTitle], Eax ; save length of filename for later use
+
+	Invoke CreateFileMapping, [hFile], NULL, PAGE_READONLY, 0, 0, NULL
+
+	Cmp Eax, NULL
+	Jne >.OK_81
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFileMapping failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke CloseHandle, [hFile]
+		Return (TRUE)
+
+.OK_81
+
+	Mov [hFileMap], Eax
+
+	Invoke MapViewOfFile, [hFileMap], FILE_MAP_READ, 0, 0, 0
+
+	Cmp Eax, NULL
+	Jne >.OK_82
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'MapViewOfFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke CloseHandle, [hFileMap]
+		Invoke CloseHandle, [hFile]
+		Return (TRUE)
+
+.OK_82
+
+	Mov [pMemory], Eax
+
+	; display
+	;Invoke SetDlgItemText, [hWnd], IDC_WINMAIN_EDIT1, [pMemory]
+
+	; alloc memory for string
+	Invoke GetProcessHeap
+	Mov [hHeap], Eax
+	Mov Ebx, [totalCharCount]
+	Inc Ebx	; allows an extra 0 to mark end of string
+	Invoke HeapAlloc, [hHeap], HEAP_ZERO_MEMORY, Ebx
+	Mov [ptrFrmData_2], Eax
+	
+	;
+	; !!!!!!!!!!!!!!!!!!!!!!!!!! CONCATENATE HEADERS STRINGS W/ FILE AND FILENAME !!!!!!!!!!!!!!!!!!!!!!
+	;
+
+	; copy string A to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Invoke lszCopyn, Eax, Addr frmdata_4_A, SizeOf frmdata_4_A
+
+.break_01
+
+	; copy file name to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_4_A
+	Invoke lszCopyn, Eax, Addr buffer_2, [lenLpstrFileTitle]
+
+.break_02
+
+	; copy string B to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_4_A
+	Add Eax, [lenLpstrFileTitle]
+	Invoke lszCopyn, Eax, Addr frmdata_4_B, SizeOf frmdata_4_B
+
+.break_03
+
+	; append file to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_4_A
+	Add Eax, [lenLpstrFileTitle]
+	Add Eax, SizeOf frmdata_4_B
+
+	; testing MOVSB
+	; this code copies the file to the current position
+	Mov Esi, [pMemory]
+	Mov Edi, Eax
+	Mov Ecx, [fileSize]
+	Cld ; Clear destination flag, Std would do opposite
+	Rep Movsb
+	
+	;
+	; the following code doesn't work because lszCopyn can't tolerate a zero in the file !!!
+	; Invoke lszCopyn, Eax, [pMemory], [fileSize]
+
+.break_04
+
+	; copy string C to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_4_A
+	Add Eax, [lenLpstrFileTitle]
+	Add Eax, SizeOf frmdata_4_B
+	Add Eax, [fileSize]
+	Invoke lszCopyn, Eax, Addr frmdata_4_C, SizeOf frmdata_4_C
+
+.break_05
+
+	; internet operations to upload file
+
+	; here is where problem is happening
+	Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_lotw_3, NULL, NULL, Addr acceptTypes, 0, 1
+
+	Cmp Eax, NULL
+		Jne >.OK_85
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpOpenRequest failed 2, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Return (TRUE)
+
+.OK_85
+
+	Mov [hInternet_3], Eax
+
+	Invoke HttpSendRequest, [hInternet_3], Addr hdrs_2, SizeOf hdrs_2 - 1, [ptrFrmData_2], [totalCharCount]
+
+	Cmp Eax, TRUE	; different return codes here!
+		Je >.OK_86
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpSendRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_86
+
+	; open a temporary file to save the data
+	; could use FILE_FLAG_DELETE_ON_CLOSE so file is automatically deleted
+	; but then need to have a way to also read the same temp file
+
+	Invoke CreateFile, 'c:/test7.txt', GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jne >.OK_87
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile 4 failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_87
+
+	Mov [hOut], Eax
+
+.loop_readfile_9
+
+	Invoke InternetReadFile, [hInternet_3], Addr internetBuffer, SizeOf internetBuffer, Addr nIn
+
+	Cmp Eax, NULL
+		Jne >.OK_88
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetReadFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+.OK_88
+
+	; if no bytes were returned this time, jump to final processing
+	Mov Eax, [nIn]
+	Cmp Eax, 0
+		Je >>.done_readfile_9
+
+	; write the current bytes to the temp file
+	Invoke WriteFile, [hOut], Addr internetBuffer, [nIn], Addr nOut, NULL
+
+	Mov Ebx, [nIn]	; nIn, nOut are more traditional
+	Cmp Ebx, [nOut]
+		Je .loop_readfile_9 ; if write operation was OK, do it again
+		; error processing
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'WriteFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+	; END OF LOOP
+
+.done_readfile_9
+
+;
+;
+; end of upload file (3rd page = POST)
+;
+;
+
+	; close handles
+	Invoke CloseHandle, [hOut]
+
+	Invoke HeapFree, [hHeap], NULL, [ptrFrmData_2] ; unTESTED!!!
+
+	Invoke UnmapViewOfFile, [pMemory]
+	Invoke CloseHandle, [hFileMap]
+	Invoke CloseHandle, [hFile]
+
+	Invoke InternetCloseHandle, [hInternet_1]
+	Invoke InternetCloseHandle, [hInternet_2]
+	Invoke InternetCloseHandle, [hInternet_3]
+
+	Return (TRUE)
+
+
+	; ************************************
+	;
+	; testing internet access, 7th attempt
+	; working fine on 17mar13
+	; uploading a user-specified file
+	; and using the specified file name
+	;
+	; FILE UPLOAD !!!
+	; writing returned data directly to (temp) file
+	; ************************************
+
+	; user specifies file
+	Push SizeOf ofn
+	Pop [ofn.lStructSize]
+	Push [hWnd]
+	Pop [ofn.hwndOwner]
+	Push NULL
+	Pop [ofn.hInstance]
+
+	Mov [ofn.lpstrFilter], Addr filterString
+	Mov [ofn.lpstrFile], Addr buffer
+ 	Mov D[ofn.nMaxFile], MAXSIZE
+	Mov [ofn.lpstrFileTitle], Addr buffer_2
+ 	Mov D[ofn.nMaxFileTitle], MAXSIZE
+
+	Invoke GetOpenFileName, Addr ofn
+
+	Cmp Eax, NULL
+	Jne >.OK_50A
+		Invoke CommDlgExtendedError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'GetOpenFileName failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_50A
+
+	Invoke MessageBoxA, [hWnd], [ofn.lpstrFile], 'Project Euler', MB_ICONINFORMATION
+	Invoke MessageBoxA, [hWnd], [ofn.lpstrFileTitle], 'Project Euler', MB_ICONINFORMATION
+	;Return (TRUE)
+
+	;
+	; load file into memory map yyyy
+	; open file for reading
+	;
+
+	Invoke CreateFile, [ofn.lpstrFile], GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+	Jne >.OK_50B
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile (2) failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_50B
+
+	Mov [hFile], Eax
+
+	; check file length (char count for file)
+	Invoke GetFileSizeEx, [hFile], Addr fileSize
+
+	; total char count = file char count + static string char count
+	Mov Eax, [fileSize] ; ignoring high double word (assumed = 0)
+	Mov [totalCharCount], Eax
+	Add D[totalCharCount], SizeOf frmdata_3_A
+	Add D[totalCharCount], SizeOf frmdata_3_B
+	Add D[totalCharCount], SizeOf frmdata_3_C
+	Invoke lszLen, Addr buffer_2
+	Add D[totalCharCount], Eax ; add length of filename too
+	Mov [lenLpstrFileTitle], Eax ; save length of filename
+
+	Invoke CreateFileMapping, [hFile], NULL, PAGE_READONLY, 0, 0, NULL
+
+	Cmp Eax, NULL
+	Jne >.OK_51
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFileMapping failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke CloseHandle, [hFile]
+		Return (TRUE)
+
+.OK_51
+
+	Mov [hFileMap], Eax
+
+	Invoke MapViewOfFile, [hFileMap], FILE_MAP_READ, 0, 0, 0
+
+	Cmp Eax, NULL
+	Jne >.OK_52
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'MapViewOfFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke CloseHandle, [hFileMap]
+		Invoke CloseHandle, [hFile]
+		Return (TRUE)
+
+.OK_52
+
+	Mov [pMemory], Eax
+
+	; display
+	;Invoke SetDlgItemText, [hWnd], IDC_WINMAIN_EDIT1, [pMemory]
+
+	; alloc memory for string
+	Invoke GetProcessHeap
+	Mov [hHeap], Eax
+	Mov Ebx, [totalCharCount]
+	Inc Ebx	; allows an extra 0 to mark end of string
+	Invoke HeapAlloc, [hHeap], HEAP_ZERO_MEMORY, Ebx
+	Mov [ptrFrmData_2], Eax
+	
+	;
+	; !!!!!!!!!!!!!!!!!!!!!!!!!! CONCATENATE HEADERS STRINGS W/ FILE AND FILENAME !!!!!!!!!!!!!!!!!!!!!!
+	;
+
+	; copy string A to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Invoke lszCopyn, Eax, Addr frmdata_3_A, SizeOf frmdata_3_A
+
+	; copy file name to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_3_A
+	Invoke lszCopyn, Eax, Addr buffer_2, [lenLpstrFileTitle]
+
+	; copy string B to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_3_A
+	Add Eax, [lenLpstrFileTitle]
+	Invoke lszCopyn, Eax, Addr frmdata_3_B, SizeOf frmdata_3_B
+
+	; append file to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_3_A
+	Add Eax, [lenLpstrFileTitle]
+	Add Eax, SizeOf frmdata_3_B
+	Invoke lszCopyn, Eax, [pMemory], [fileSize]
+
+	; copy string C to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_3_A
+	Add Eax, [lenLpstrFileTitle]
+	Add Eax, SizeOf frmdata_3_B
+	Add Eax, [fileSize]
+	Invoke lszCopyn, Eax, Addr frmdata_3_C, SizeOf frmdata_3_C
+
+	; internet operations to upload file
+
+	Invoke InternetOpen, Addr userAgent, INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0
+
+Cmp Eax, NULL
+		Jne >.OK_53
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetOpen failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_53
+
+	Mov [hInternet_1], Eax
+
+	; zzzzzz
+	Invoke InternetConnect, [hInternet_1], Addr url_5, INTERNET_DEFAULT_HTTP_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 1
+	; perhaps last value could be NULL instead of 1?
+
+Cmp Eax, NULL
+		Jne >.OK_54
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetConnect failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Return (TRUE)
+
+.OK_54
+
+	Mov [hInternet_2], Eax
+
+	; here is where problem is happening
+	Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_2, NULL, NULL, Addr acceptTypes, 0, 1
+
+	Cmp Eax, NULL
+		Jne >.OK_55
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpOpenRequest failed 2, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Return (TRUE)
+
+.OK_55
+
+	Mov [hInternet_3], Eax
+
+	Invoke HttpSendRequest, [hInternet_3], Addr hdrs_2, SizeOf hdrs_2 - 1, [ptrFrmData_2], [totalCharCount]
+
+	Cmp Eax, TRUE	; different return codes here!
+		Je >.OK_56
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpSendRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_56
+
+	; open a temporary file to save the data
+	; could use FILE_FLAG_DELETE_ON_CLOSE so file is automatically deleted
+	; but then need to have a way to also read the same temp file
+
+	Invoke CreateFile, 'c:/test5.txt', GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jne >.OK_57
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_57
+
+	Mov [hOut], Eax
+
+.loop_readfile_6
+
+	Invoke InternetReadFile, [hInternet_3], Addr internetBuffer, SizeOf internetBuffer, Addr nIn
+
+	Cmp Eax, NULL
+		Jne >.OK_58
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetReadFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+.OK_58
+
+	; if no bytes were returned this time, jump to final processing
+	Mov Eax, [nIn]
+	Cmp Eax, 0
+		Je >>.done_readfile_6
+
+	; write the current bytes to the temp file
+	Invoke WriteFile, [hOut], Addr internetBuffer, [nIn], Addr nOut, NULL
+
+	Mov Ebx, [nIn]	; nIn, nOut are more traditional
+	Cmp Ebx, [nOut]
+		Je .loop_readfile_6 ; if write operation was OK, do it again
+		; error processing
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'WriteFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+	; END OF LOOP
+
+.done_readfile_6
+
+	; file is on disk, internet operation complete
+	Invoke InternetCloseHandle, [hInternet_1]
+	Invoke InternetCloseHandle, [hInternet_2]
+	Invoke InternetCloseHandle, [hInternet_3]
+	Invoke CloseHandle, [hOut]
+
+	; close handles
+	Invoke HeapFree, [hHeap], NULL, [ptrFrmData_2] ; unTESTED!!!
+
+	Invoke UnmapViewOfFile, [pMemory]
+	Invoke CloseHandle, [hFileMap]
+	Invoke CloseHandle, [hFile]
+
+	Return (TRUE)
+
+
+
+	; ************************************
+	;
+	; testing internet access, 6th attempt
+	; uploading a user-specified file
+	;
+	; FILE UPLOAD !!!
+	; writing returned data directly to (temp) file
+	; ************************************
+
+	; user specifies file
+	Push SizeOf ofn
+	Pop [ofn.lStructSize]
+	Push [hWnd]
+	Pop [ofn.hwndOwner]
+	Push NULL
+	Pop [ofn.hInstance]
+
+	Mov [ofn.lpstrFilter], Addr filterString
+	Mov [ofn.lpstrFile], Addr buffer
+ 	Mov D[ofn.nMaxFile], MAXSIZE
+
+	Invoke GetOpenFileName, Addr ofn
+
+	Invoke MessageBoxA, [hWnd], [ofn.lpstrFile], 'Project Euler', MB_ICONINFORMATION
+
+	;
+	; load file into memory map yyyy
+	; open file for reading
+	;
+
+	Invoke CreateFile, [ofn.lpstrFile], GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+	Jne >.OK_40
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile (2) failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_40
+
+	Mov [hFile], Eax
+
+	; check file length (char count for file)
+	Invoke GetFileSizeEx, [hFile], Addr fileSize
+
+	; total char count = file char count + static string char count
+	Mov Eax, [fileSize] ; ignoring high double word (assumed = 0)
+	Mov [totalCharCount], Eax
+	Add D[totalCharCount], SizeOf frmdata_2_A
+	Add D[totalCharCount], SizeOf frmdata_2_B
+
+	Invoke CreateFileMapping, [hFile], NULL, PAGE_READONLY, 0, 0, NULL
+
+	Cmp Eax, NULL
+	Jne >.OK_41
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFileMapping failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke CloseHandle, [hFile]
+		Return (TRUE)
+
+.OK_41
+
+	Mov [hFileMap], Eax
+
+	Invoke MapViewOfFile, [hFileMap], FILE_MAP_READ, 0, 0, 0
+
+	Cmp Eax, NULL
+	Jne >.OK_42
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'MapViewOfFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke CloseHandle, [hFileMap]
+		Invoke CloseHandle, [hFile]
+		Return (TRUE)
+
+.OK_42
+
+	Mov [pMemory], Eax
+
+	; display
+	;Invoke SetDlgItemText, [hWnd], IDC_WINMAIN_EDIT1, [pMemory]
+
+	; alloc memory for string
+	Invoke GetProcessHeap
+	Mov [hHeap], Eax
+	Mov Ebx, [totalCharCount]
+	Inc Ebx	; allows an extra 0 to mark end of string
+	Invoke HeapAlloc, [hHeap], HEAP_ZERO_MEMORY, Ebx
+	Mov [ptrFrmData_2], Eax
+	
+	;
+	; !!!!!!!!!!!!!!!!!!!!!!!!!! BAD CODE HERE !!!!!!!!!!!!!!!!!!!!!!
+	;
+
+	; copy string A to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Invoke lszCopyn, Eax, Addr frmdata_2_A, SizeOf frmdata_2_A
+
+.AAA_breakpoint_13
+
+	; append file to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_2_A
+	Invoke lszCopyn, Eax, [pMemory], [fileSize]
+
+	; need to insert correct FILE NAME!?
+
+	; copy string B to allocated memory
+	Mov Eax, [ptrFrmData_2]
+	Add Eax, SizeOf frmdata_2_A
+	Add Eax, [fileSize]
+	Invoke lszCopyn, Eax, Addr frmdata_2_B, SizeOf frmdata_2_B
+
+	; internet operations to upload file
+
+	Invoke InternetOpen, Addr userAgent, INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0
+
+Cmp Eax, NULL
+		Jne >.OK_43
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetOpen failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_43
+
+	Mov [hInternet_1], Eax
+
+	; zzzzzz
+	Invoke InternetConnect, [hInternet_1], Addr url_5, INTERNET_DEFAULT_HTTP_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 1
+	; perhaps last value could be NULL instead of 1?
+
+Cmp Eax, NULL
+		Jne >.OK_44
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetConnect failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Return (TRUE)
+
+.OK_44
+
+	Mov [hInternet_2], Eax
+
+	; here is where problem is happening
+	Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_2, NULL, NULL, Addr acceptTypes, 0, 1
+
+	Cmp Eax, NULL
+		Jne >.OK_45
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpOpenRequest failed 2, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Return (TRUE)
+
+.OK_45
+
+.AAA_breakpoint_11
+
+	Mov [hInternet_3], Eax
+
+	Invoke HttpSendRequest, [hInternet_3], Addr hdrs_2, SizeOf hdrs_2 - 1, [ptrFrmData_2], [totalCharCount]
+
+	Cmp Eax, TRUE	; different return codes here!
+		Je >.OK_46
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpSendRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_46
+
+	; open a temporary file to save the data
+	; could use FILE_FLAG_DELETE_ON_CLOSE so file is automatically deleted
+	; but then need to have a way to also read the same temp file
+
+	Invoke CreateFile, 'c:/test5.txt', GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jne >.OK_47
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_47
+
+	Mov [hOut], Eax
+
+.loop_readfile_5
+
+	Invoke InternetReadFile, [hInternet_3], Addr internetBuffer, SizeOf internetBuffer, Addr nIn
+
+	Cmp Eax, NULL
+		Jne >.OK_48
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetReadFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+.OK_48
+
+	; if no bytes were returned this time, jump to final processing
+	Mov Eax, [nIn]
+	Cmp Eax, 0
+		Je >>.done_readfile_5
+
+	; write the current bytes to the temp file
+	Invoke WriteFile, [hOut], Addr internetBuffer, [nIn], Addr nOut, NULL
+
+	Mov Ebx, [nIn]	; nIn, nOut are more traditional
+	Cmp Ebx, [nOut]
+		Je .loop_readfile_5 ; if write operation was OK, do it again
+		; error processing
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'WriteFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+	; END OF LOOP
+
+.done_readfile_5
+
+	; file is on disk, internet operation complete
+	Invoke InternetCloseHandle, [hInternet_1]
+	Invoke InternetCloseHandle, [hInternet_2]
+	Invoke InternetCloseHandle, [hInternet_3]
+	Invoke CloseHandle, [hOut]
+
+	; close handles
+	Invoke HeapFree, [hHeap], NULL, [ptrFrmData_2] ; unTESTED!!!
+
+	Invoke UnmapViewOfFile, [pMemory]
+	Invoke CloseHandle, [hFileMap]
+	Invoke CloseHandle, [hFile]
+
+	Return (TRUE)
+
+
+
+
+
+
+	; ************************************
+	;
+	; testing internet access, 5th attempt
+	;
+	; FILE UPLOAD !!!
+	; writing returned data directly to (temp) file
+	; ************************************
+
+	Invoke InternetOpen, Addr userAgent, INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0
+
+Cmp Eax, NULL
+		Jne >.OK_31
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetOpen failed, error code from GetLastError', MB_ICONINFORMATION
+		Return (TRUE)
+
+.OK_31
+
+	Mov [hInternet_1], Eax
+
+	Invoke InternetConnect, [hInternet_1], Addr url_5, INTERNET_DEFAULT_HTTP_PORT, NULL, NULL, INTERNET_SERVICE_HTTP, 0, 1
+	; perhaps last value could be NULL instead of 1?
+
+Cmp Eax, NULL
+		Jne >.OK_32
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetConnect failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Return (TRUE)
+
+.OK_32
+
+	Mov [hInternet_2], Eax
+
+	Invoke HttpOpenRequest, [hInternet_2], "POST", Addr objectName_2, NULL, NULL, Addr acceptTypes, 0, 1
+
+	Cmp Eax, NULL
+		Jne >.OK_33
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpOpenRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Return (TRUE)
+
+.OK_33
+
+	Mov [hInternet_3], Eax
+
+	Invoke HttpSendRequest, [hInternet_3], Addr hdrs_2, SizeOf hdrs_2 - 1, Addr frmdata_2, SizeOf frmdata_2 - 1
+
+	Cmp Eax, TRUE	; different return codes here!
+		Je >.OK_34
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'HttpSendRequest failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_34
+
+	; open a temporary file to save the data
+	; could use FILE_FLAG_DELETE_ON_CLOSE so file is automatically deleted
+	; but then need to have a way to also read the same temp file
+
+	Invoke CreateFile, 'c:/test6.txt', GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL
+
+	Cmp Eax, INVALID_HANDLE_VALUE
+		Jne >.OK_35
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'CreateFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Return (TRUE)
+
+.OK_35
+
+	Mov [hOut], Eax
+
+.loop_readfile_4
+
+	Invoke InternetReadFile, [hInternet_3], Addr internetBuffer, SizeOf internetBuffer, Addr nIn
+
+	Cmp Eax, NULL
+		Jne >.OK_36
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'InternetReadFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+.OK_36
+
+	; if no bytes were returned this time, jump to final processing
+	Mov Eax, [nIn]
+	Cmp Eax, 0
+		Je >>.done_readfile_4
+
+	; write the current bytes to the temp file
+	Invoke WriteFile, [hOut], Addr internetBuffer, [nIn], Addr nOut, NULL
+
+	Mov Ebx, [nIn]	; nIn, nOut are more traditional
+	Cmp Ebx, [nOut]
+		Je .loop_readfile_4 ; if write operation was OK, do it again
+		; error processing
+		Invoke GetLastError
+		Invoke String, Eax, Addr myStringVar, ecDecimal
+		Invoke MessageBoxA, [hWnd], Addr myStringVar, 'WriteFile failed, error code from GetLastError', MB_ICONINFORMATION
+		Invoke InternetCloseHandle, [hInternet_1]
+		Invoke InternetCloseHandle, [hInternet_2]
+		Invoke InternetCloseHandle, [hInternet_3]
+		Invoke CloseHandle, [hOut]
+		Return (TRUE)
+
+	; END OF LOOP
+
+.done_readfile_4
+
+	; file is on disk, internet operation complete
+	Invoke InternetCloseHandle, [hInternet_1]
+	Invoke InternetCloseHandle, [hInternet_2]
+	Invoke InternetCloseHandle, [hInternet_3]
+	Invoke CloseHandle, [hOut]
+
+	Return (TRUE)
+	; END of 5TH VERSION!!!
+	;
+	;
+	;
+
+
+
+
+
+
+.exitProcedure
+
+	Return (TRUE)
+EndU
+
+
+Window1Btn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+

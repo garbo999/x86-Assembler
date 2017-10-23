@@ -1,0 +1,2 @@
+Addins.h is for use with Radasm 3.x only
+RadAsm.h is for use with Radasm 2.x only

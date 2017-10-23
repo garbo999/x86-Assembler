@@ -1,0 +1,520 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = Memory
+  AlignMode       = 0
+  AutoRedraw      = 1
+  BackColor       = 0x00A00000
+  Border          = 4
+  Caption         = 0
+  CenterWindow    = 2
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040101
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 1920
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56080000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = IDS_SYSTEM_MEMORY
+  TimerInterval   = 500
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 0
+  Width           = 3255
+  Begin Check = chkOnTop
+    Auto            = 1
+    BackColor       = 0x00A00000
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,700,0,0,0
+    ForeColor       = 0x00FFFFFF
+    Height          = 240
+    Left            = 120
+    LeftText        = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000103
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 6
+    TabStop         = 1
+    Text            = IDS_ALWAYS_ON_TOP
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 1080
+    Value           = 1
+    Visible         = 1
+    Width           = 2880
+  End
+  Begin Button = btnClose
+    BackColor       = 0x8000000F
+    Border          = 1
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 1
+    DragAndDrop     = 1001
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 360
+    ImageType       = -1
+    Left            = 960
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000001
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = IDS_CLOSE
+    ToolTipText     = 
+    Top             = 1380
+    Visible         = 1
+    Width           = 1200
+  End
+  Begin Group = Group1
+    BackColor       = 0x00A00000
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1002
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,700,0,0,0
+    ForeColor       = 0x00FFFFFF
+    Height          = 900
+    Left            = 120
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = IDS_SYSTEM_MEMORY
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 60
+    Visible         = 1
+    Width           = 2880
+    Begin Static = Static4
+      AutoSize        = 0
+      BackColor       = 0x00A00000
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1003
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,700,0,0,0
+      ForeColor       = 0x0000FF00
+      Height          = 240
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 180
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 4
+      Text            = IDS_AVAILABLE
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 570
+      Transparent     = 0
+      Visible         = 1
+      Width           = 1200
+      WordWrap        = 0
+    End
+    Begin Static = stcAvailable
+      AutoSize        = 0
+      BackColor       = 0x00A00000
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1004
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,700,0,0,0
+      ForeColor       = 0x0000FF00
+      Height          = 240
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 1500
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 5
+      Text            = 
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 570
+      Transparent     = 0
+      Visible         = 1
+      Width           = 1200
+      WordWrap        = 1
+    End
+    Begin Static = stcTotal
+      AutoSize        = 0
+      BackColor       = 0x00A00000
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1005
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,700,0,0,0
+      ForeColor       = 0x00FFFF00
+      Height          = 255
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 1500
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 3
+      Text            = 
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 330
+      Transparent     = 0
+      Visible         = 1
+      Width           = 1200
+      WordWrap        = 1
+    End
+    Begin Static = Static1
+      AutoSize        = 0
+      BackColor       = 0x00A00000
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1006
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = MS Sans Serif,8,700,0,0,0
+      ForeColor       = 0x00FFFF00
+      Height          = 240
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 180
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 2
+      Text            = IDS_TOTAL
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 330
+      Transparent     = 0
+      Visible         = 1
+      Width           = 1200
+      WordWrap        = 0
+    End
+  End
+End
+
+.Const
+
+WM_TRAYMESSAGE	Equ				WM_USER + 2048
+
+
+.Data
+
+szBuffer		DB				50 Dup 0
+
+MESSAGES		DD				WM_CREATE, OnCreate
+				DD				WM_COMMAND, OnCommand
+				DD				WM_TIMER, OnTimer
+				DD				WM_TRAYMESSAGE, OnTrayMessage
+				DD				WM_CLOSE, OnClose
+				DD				WM_DESTROY, OnDestroy
+
+dwInsertAfter	DD				HWND_TOPMOST
+hIcon			DD				NULL
+hMenu			DD				NULL
+hSubMenu		DD				NULL
+MEMSTATUS		MEMORYSTATUS	<>
+MEMSTATUSEX		MEMORYSTATUSEX	<>
+nID				NOTIFYICONDATA	<?>
+
+
+.Code
+
+MemoryProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MESSAGES / 8
+	Mov Edx, Addr MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L2:
+	Xor Eax, Eax
+	Ret
+EndF
+
+OnCreate: UseData MemoryProcedure
+	;Loads icon for task bar and stores it in 'hIcon' variable
+	Invoke LoadIcon, [App.Instance], IDI_MEMORY
+	Mov [hIcon], Eax
+	;Loads menu for icon in task bar and stores it in 'hMenu' variable
+	Invoke LoadMenu, [App.Instance], IDR_MENU
+	Mov [hMenu], Eax
+	Invoke GetSubMenu, Eax, 0
+	Mov [hSubMenu], Eax
+	;Fills the members for NOTIFYICONDATA structure to set an icon in task bar
+    Mov D[nID.cbSize], SizeOf nID
+    Mov D[nID.uCallbackMessage], WM_TRAYMESSAGE
+    Mov Eax, [hWnd]
+    Mov [nID.hWnd], Eax
+    Mov D[nID.uFlags], NIF_ICON | NIF_TIP Or NIF_MESSAGE
+	Mov D[nID.uID], 1
+	;Loads the string for tool tip text in the 'nID.szTip' member of the structure
+	Invoke LoadString, [App.Instance], IDS_TOOLTIP, Addr nID.szTip, 63
+	Mov Eax, [hIcon]
+	Mov [nID.hIcon], Eax
+	Invoke Shell_NotifyIcon, NIM_ADD, Addr nID
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnCommand: UseData MemoryProcedure
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_MENU_OPEN
+	Jne >wmc2
+	;Disables the 'Open' menu option
+	Invoke EnableMenuItem, [hSubMenu], IDM_MENU_OPEN, MF_BYCOMMAND Or MF_GRAYED
+	;Makes the Main window visible
+	Invoke SetVisible, [hWnd], TRUE
+	;Sets the Main window according to 'dwInsertAfter' flag
+	Invoke SetWindowPos, [hWnd], [dwInsertAfter], 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE
+	;Gets the handle for 'btnClose' object
+	Invoke GetWindowItem, [hWnd], IDC_MEMORY_BTNCLOSE
+	;Sets the focus to 'btnClose' object
+	Invoke SetFocus, Eax
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+
+wmc2:
+	Cmp Ax, IDM_MENU_ABOUT
+	Jne >wmc4
+	;Hides the Main window
+	Invoke SetVisible, [hWnd], FALSE
+	;Sets the Main window according to 'dwInsertAfter' flag
+	Invoke SetWindowPos, [hWnd], HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE Or SWP_HIDEWINDOW
+	;Disables the 'Open' and 'About' menu options
+	Invoke EnableMenuItem, [hSubMenu], IDM_MENU_OPEN, MF_BYCOMMAND Or MF_GRAYED
+	Invoke EnableMenuItem, [hSubMenu], IDM_MENU_ABOUT, MF_BYCOMMAND Or MF_GRAYED
+	;Creates and displays the About window
+	Invoke Create, "MAbout", [hWnd], ecModal, [dwInsertAfter]
+	;Enables the 'Open' and 'About' menu options
+	Invoke EnableMenuItem, [hSubMenu], IDM_MENU_OPEN, MF_BYCOMMAND Or MF_ENABLED
+	Invoke EnableMenuItem, [hSubMenu], IDM_MENU_ABOUT, MF_BYCOMMAND Or MF_ENABLED
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+
+wmc4:
+	Cmp Ax, IDM_MENU_EXIT
+	Jne >wmc6
+	;Closes and destroys the main window
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+
+wmc6:
+	Cmp Ax, IDC_MEMORY_BTNCLOSE
+	Jne >wmc8
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+	Jne >>L2
+	;Hides the Main window
+	Invoke SetVisible, [hWnd], FALSE
+	;Sets the Main Window to 'no top most'
+	Invoke SetWindowPos, [hWnd], HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE Or SWP_NOSIZE Or SWP_HIDEWINDOW
+	;Enables the 'Open' menu option
+	Invoke EnableMenuItem, [hSubMenu], IDM_MENU_OPEN, MF_BYCOMMAND Or MF_ENABLED
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+
+wmc8:
+	Cmp Ax, IDC_MEMORY_CHKONTOP
+	Jne >L2
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+	Jne >L2
+	;Gets the handle for 'chkOnTop' object
+	Invoke GetWindowItem, [hWnd], IDC_MEMORY_CHKONTOP
+	;Gets the value for 'chkOnTop' object (checked/unchecked)
+	Invoke GetValue, Eax
+	Or Eax, Eax
+	Jz >wmc10
+	;Check box is checked
+	Mov D[dwInsertAfter], HWND_TOPMOST
+	Jmp >wmc12
+wmc10:
+	;Check box is unchecked
+	Mov D[dwInsertAfter], HWND_NOTOPMOST
+wmc12:
+	;Sets the Main window to the new state
+	Invoke SetWindowPos, [hWnd], [dwInsertAfter], 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+
+L2:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnTimer: UseData MemoryProcedure
+	Mov D[MEMSTATUS.dwLength], SizeOf MEMORYSTATUS
+	;Gets memory status in MEMORYSTATUS structure
+	Invoke GlobalMemoryStatus, Addr MEMSTATUS
+	Cmp D[MEMSTATUS.dwTotalPageFile], (-1)
+	Je >
+	;Converts MEMSTATUS.dwTotalPhys to string
+	Invoke String, [MEMSTATUS.dwTotalPhys], Addr szBuffer, ecDecimal
+	;Gets the handle for 'stcTotal' object
+	Invoke GetWindowItem, [hWnd], IDC_MEMORY_STCTOTAL
+	;Sets the text in 'stcTotal' object
+	Invoke SetText, Eax, Addr szBuffer
+	;Converts MEMSTATUS.dwTotalPhys to string
+	Invoke String, [MEMSTATUS.dwAvailPhys], Addr szBuffer, ecDecimal
+	;Gets the handle for 'stcAvailable' object
+	Invoke GetWindowItem, [hWnd], IDC_MEMORY_STCAVAILABLE
+	;Sets the text in 'stcAvailable' object
+	Invoke SetText, Eax, Addr szBuffer
+	;Returns TRUE for no further processing
+L2:	Mov Eax, TRUE
+	Ret
+:	Mov D[MEMSTATUSEX.dwLength], SizeOf MEMORYSTATUSEX
+	Invoke GlobalMemoryStatusEx, Addr MEMSTATUSEX
+	;Converts MEMSTATUSEX.ullTotalPhys to string
+	Invoke wsprintf, Addr szBuffer, TEXT("%lu"), [MEMSTATUSEX.ullTotalPhys]
+	Add Esp, 12
+	;Gets the handle for 'stcTotal' object
+	Invoke GetWindowItem, [hWnd], IDC_MEMORY_STCTOTAL
+	;Sets the text in 'stcTotal' object
+	Invoke SetText, Eax, Addr szBuffer
+	;Converts MEMSTATUSEX.dwAvailPhys to string
+	Invoke wsprintf, Addr szBuffer, TEXT("%lu"), [MEMSTATUSEX.ullAvailPhys]
+	Add Esp, 12
+	;Gets the handle for 'stcAvailable' object
+	Invoke GetWindowItem, [hWnd], IDC_MEMORY_STCAVAILABLE
+	;Sets the text in 'stcAvailable' object
+	Invoke SetText, Eax, Addr szBuffer
+	;Returns TRUE for no further processing
+	Jmp L2
+EndU
+
+OnTrayMessage: UseData MemoryProcedure
+	Local pt:POINTL
+
+	;Processes messages related to icon in the task bar
+    Cmp D[lParam], WM_RBUTTONUP
+    Jne >
+	;Gets cursor coordinates
+	Invoke GetCursorPos, Addr pt
+	;Displays the menu in the right position
+	Invoke TrackPopupMenu, [hSubMenu], 0, [pt.x], [pt.y], 0, [hWnd], NULL
+	;Returns TRUE for no further processing
+	Mov Eax, TRUE
+	Ret
+:	Cmp D[lParam], WM_LBUTTONDOWN
+	Je >
+	Cmp D[lParam], WM_RBUTTONDOWN
+	Jne > L2
+:	Invoke SetForegroundWindow, [hWnd]
+
+L2:	Xor Eax, Eax
+    Ret
+EndU
+
+OnClose: UseData MemoryProcedure
+	;=====================================================;
+	; It's not a Modal window, so we can remove this code ;
+	;=====================================================;
+;	Invoke IsModal, [hWnd]
+;	Or Eax, Eax
+;	Jz >
+;	Invoke EndModal, [hWnd], IDCANCEL
+;	Mov Eax, TRUE
+;	Ret
+;:	;Hides the Main window and sets it in a 'No top most'state
+	Invoke SetWindowPos, [hWnd], HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_HIDEWINDOW
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnDestroy: UseData MemoryProcedure
+	;Removes the icon from task bar
+	Invoke Shell_NotifyIcon, NIM_DELETE, Addr nID
+	;Destroys the icon
+	Invoke DestroyIcon, [hIcon]
+	;Destroys the menu
+	Invoke DestroyMenu, [hMenu]
+	Xor Eax, Eax
+	Ret
+EndU

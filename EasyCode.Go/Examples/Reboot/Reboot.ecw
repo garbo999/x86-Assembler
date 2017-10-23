@@ -1,0 +1,181 @@
+;Do not modify this file!!!
+Easy Code
+Begin Dialog = dlgReboot:401
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 1
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 0
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  Enabled         = 1
+  ExStyle         = 0x00000001
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 75
+  IconBig         = IDI_MAINICON
+  IconSmall       = IDI_MAINICON
+  ImageType       = -1
+  Left            = 0
+  MaximizeBox     = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x52C80000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScrollBars      = 0
+  Style           = 1
+  Text            = IDS_REBOOT_APP
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 167
+  Begin Static = Static1
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 25
+    HyperColor      = 0x000000FF
+    HyperLink       = 0
+    Left            = 34
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000100
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = IDS_HELLO
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 12
+    Transparent     = 0
+    Visible         = 1
+    Width           = 103
+    WordWrap        = 1
+  End
+  Begin Button = Button1
+    BackColor       = 0x8000000F
+    Border          = 1
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1001
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 18
+    ImageType       = -1
+    Left            = 53
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = IDS_REBOOT
+    ToolTipText     = 
+    Top             = 53
+    Visible         = 1
+    Width           = 61
+  End
+End
+
+.Const
+
+.Data
+
+MESSAGES		DD WM_INITDIALOG, OnInitDialog
+				DD WM_COMMAND, OnCommand
+				DD WM_CLOSE, OnClose
+
+.Code
+
+dlgRebootProcedure Frame hDlg, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MESSAGES / 8
+	Mov Edx, Addr MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L2:
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnInitDialog: UseData dlgRebootProcedure
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnCommand: UseData dlgRebootProcedure
+	Local hHandle:D
+	Local tpr:TOKEN_PRIVILEGES
+
+	Mov Eax, [wParam]							; Get low word from wParam (control ID)
+	Cmp Ax, IDC_DLGREBOOT_BUTTON1				; Check if it is from Button1
+	Je >
+	Xor Eax, Eax
+	Ret
+:	Shr Eax, 16									; Get high word from wParam (action)
+	Cmp Ax, BN_CLICKED							; Check if Button1 has been clicked
+	Je >
+	Xor Eax, Eax
+	Ret
+:	Invoke GetPlatform, NULL					; Get Windows platform
+	Cmp Eax, ecWin98
+	Jle >wmc2									; If neither, Win95 nor Win98
+	Invoke GetCurrentProcess					; Get  to current process
+	Mov Edx, Eax								; Move it to Edx
+	; The following lines set the shut down privilege for WINNT/XP/2000
+	; that are not necessary neither, for WIN95 nor WIN98
+	Invoke OpenProcessToken, Edx, TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, Addr hHandle
+	Invoke LookupPrivilegeValue, NULL, TEXT("SeShutdownPrivilege"), Addr tpr.Privileges.Luid
+	Mov D[tpr.PrivilegeCount], 1
+	Mov D[tpr.Privileges.Attributes], SE_PRIVILEGE_ENABLED
+	Invoke AdjustTokenPrivileges, [hHandle], FALSE, Addr tpr, SizeOf tpr, NULL, NULL
+wmc2:
+	Invoke SendMessage, [hDlg], WM_CLOSE, 0, 0	; Close the Reboot application
+	Invoke ExitWindowsEx, EWX_SHUTDOWN | EWX_REBOOT, 0	; Reboots the computer
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnClose: UseData dlgRebootProcedure
+	Invoke IsModal, [hDlg]
+	Or Eax, Eax
+	Jnz >
+	Ret
+:	Invoke EndModal, [hDlg], IDCANCEL
+	Mov Eax, TRUE
+	Ret
+EndU

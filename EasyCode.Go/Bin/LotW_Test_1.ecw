@@ -1,0 +1,553 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = winMain8
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 5145
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = LotW Test 1
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 7875
+  Begin Edit = Edit3
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 1
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1006
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 1020
+    Left            = 255
+    MaxLength       = 0
+    MultiLine       = 1
+    NormalStyle     = 0x54000004
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 6
+    TabStop         = 1
+    Text            = 
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 2880
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 6930
+  End
+  Begin Button = btn2
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1005
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 375
+    ImageType       = -1
+    Left            = 5190
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 5
+    TabStop         = 1
+    Text            = Button 2
+    ToolTipText     = 
+    Top             = 1290
+    Visible         = 1
+    Width           = 1080
+  End
+  Begin Edit = edit2
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 1
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1004
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 345
+    Left            = 1215
+    MaxLength       = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000000
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 4
+    TabStop         = 1
+    Text            = Edit2
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 1305
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 3675
+  End
+  Begin Edit = edit1
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 1
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1002
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 345
+    Left            = 1200
+    MaxLength       = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000000
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    TabStop         = 1
+    Text            = Edit1
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 825
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 3675
+  End
+  Begin Button = btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 360
+    ImageType       = -1
+    Left            = 5175
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Button1
+    ToolTipText     = 
+    Top             = 810
+    Visible         = 1
+    Width           = 1080
+  End
+  Begin Static = Static1
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 315
+    HyperColor      = 0x000000FF
+    HyperLink       = 0
+    Left            = 285
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000100
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = Field 1
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 840
+    Transparent     = 0
+    Visible         = 1
+    Width           = 765
+    WordWrap        = 0
+  End
+  Begin Static = static2
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1003
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 315
+    HyperColor      = 0x000000FF
+    HyperLink       = 0
+    Left            = 285
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000100
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    Text            = Field 2
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 1335
+    Transparent     = 0
+    Visible         = 1
+    Width           = 810
+    WordWrap        = 0
+  End
+  Begin Group = group1
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1007
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 2250
+    Left            = 75
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 7
+    Text            = Group1
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 135
+    Visible         = 1
+    Width           = 6735
+  End
+End
+
+.Const
+
+.Data
+
+WINMAIN8_MESSAGES	DD WM_CREATE, OnwinMain8Create
+					DD WM_CLOSE, OnwinMain8Close
+					DD WM_COMMAND, OnwinMain8ClickBtn
+
+; General variables
+
+TQSL_DATE Struct
+	year	DD 2012
+	month	DD 9
+	day		DD 23
+EndS
+
+TQSL_PROVIDER_ST Struct
+	organizationName 		DB 101H Dup 0
+	organizationalUnitName 	DB 101H Dup 0
+	emailAddress 			DB 101H Dup 0
+	url 					DB 101H Dup 0
+EndS
+
+numOfProviders		DD 0
+provider			TQSL_PROVIDER_ST
+certlist			DD 100H Dup 0
+ncerts				DD 0
+dxcc				DD 52		; Estonia = 52, United States = 291
+myDate				TQSL_DATE
+serial				DQ 0
+myString			DB 101H Dup 0
+myString2			DB 'test string', 0
+myBuffer			DB 101H Dup 0
+myBuffer2			DB 101H Dup 0
+stationLocBuffer1	DB 101H Dup 0
+stationLocBuffer2	DB 101H Dup 0
+loc					DD 0
+nloc 				DD 0
+conv				DD 0			; pointer to tQSL_Converter
+filenameADIF		DB 'C:\Documents and Settings\user\Desktop\logs\ES1WST_CQP_2012.ADI', 0
+certs				DD 0			; need to think about not using certs and cert!
+cert				DD 0
+uid					DD 0
+certuid				DD 0
+password			DB 'gary10003', 0
+
+.Code
+
+winMain8Procedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf WINMAIN8_MESSAGES / 8
+	Mov Edx, Addr WINMAIN8_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnwinMain8Create: UseData winMain8Procedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnwinMain8Close: UseData winMain8Procedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+
+winMain8btn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+OnwinMain8ClickBtn: UseData winMain8Procedure
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDC_WINMAIN8_BTN1		; Is this button 1?
+		Jnz >>.exitProcedure
+
+	; This IS button 1 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure		; Button 1 but not left click
+
+	; Button 1 AND left click so process
+	Invoke MessageBoxA, [hWnd], 'Welcome to LotW DLL test 1...', 'LotW Test 1', MB_OK
+
+	.LotW_Debug_1
+
+	; Initialize DLL
+	Invoke tqsl_init
+
+	; Get the number of certificate providers known to tqsllib
+	Invoke tqsl_getNumProviders, Addr numOfProviders
+
+	.LotW_Debug_2
+
+	; Get the information for a certificate provider
+	Invoke tqsl_getProvider, 0, Addr provider
+	Invoke MessageBoxA, [hWnd], Addr provider.organizationName, 'LotW Test 1', MB_OK
+
+	; Get a list of certificates.
+	; Selects a set of certificates from the user's certificate store based on optional selection criteria.
+	; The function produces a list of tQSL_Cert objects.
+	; Each of the tQSL_Cert objects in the list should be freed by calling tqsl_freeCertificate().
+	; Invoke tqsl_freeCertificate, Addr cert
+	; Invoke tqsl_selectCertificates, Addr certlist, Addr ncerts, 'ES1WST', [dxcc], Addr myDate, Addr provider, 7
+	Invoke tqsl_selectCertificates, Addr certlist, Addr ncerts, NULL, 0, Addr myDate, Addr provider, 7
+
+	.LotW_Debug_3
+
+	; Invoke tqsl_getCertificateSerial, Addr certlist, Addr serial
+
+	Mov Ebx, [certlist] ; certlist is pointer to pointer
+	Mov Ebx, [Ebx] 		;
+	Mov [cert], Ebx		; [cert] now = pointer to first certificate
+
+	; cert[0] = WS4T
+	Invoke tqsl_getCertificateDXCCEntity, [cert], Addr dxcc
+
+	.LotW_Debug_4
+
+	; cert[1] = ES1WST
+	Mov Ebx, [certlist] ; certlist is pointer to pointer
+	Invoke tqsl_getCertificateDXCCEntity, [Ebx + 4], Addr dxcc
+
+	.LotW_Debug_5
+
+	Mov Ebx, [certlist] ; certlist is pointer to pointer
+	Invoke tqsl_getCertificateEmailAddress, [Ebx], Addr myString, 101H
+
+
+	;Invoke SetDlgItemText, [hWnd], IDC_WINMAIN8_STATIC1, Addr provider.organizationName
+	Invoke SetDlgItemText, [hWnd], IDC_WINMAIN8_EDIT1, Addr provider.organizationalUnitName
+
+	Invoke GetDlgItemText, [hWnd], IDC_WINMAIN8_EDIT2, Addr myBuffer, 100H
+
+	Invoke SetDlgItemText, [hWnd], IDC_WINMAIN8_EDIT3, Addr myBuffer
+
+	; trying to figure out station locations
+	Invoke tqsl_initStationLocationCapture, Addr loc
+	; Get the number of saved station locations
+	Invoke tqsl_getNumStationLocations, [loc], Addr nloc
+
+	; Get the name of the specified (by idx) saved station location
+	Invoke tqsl_getStationLocationName, [loc], 1, Addr stationLocBuffer1, 100H
+  	Invoke tqsl_getLocationCallSign, [loc], Addr stationLocBuffer2, 100H
+
+	Mov Ebx, [certlist] ; certlist is pointer to pointer
+	;Add Ebx, 4
+	Mov [certs], Ebx
+
+	; Initiates the conversion process for an ADIF file.
+	Invoke tqsl_beginADIFConverter, Addr conv, Addr filenameADIF, Addr certs, [ncerts], [loc]
+
+	; function not defined?
+	; Invoke tqsl_getSelectedCertificate, Addr cert, Addr certlist, 0
+
+	;Mov Ebx, [certlist] ; certlist is pointer to pointer
+	;Invoke tqsl_getGABBItCERT, [Ebx], [uid]
+
+	;Invoke tqsl_getGABBItSTATION, [loc], [uid], [certuid]
+
+	;Invoke tqsl_getConverterCert, [conv], Addr cert
+
+	Invoke tqsl_beginSigning, [cert], Addr password, NULL, [cert]
+
+	.LotW_Debug_6
+
+	Invoke tqsl_setADIFConverterDateFilter, [conv], NULL, NULL
+
+	Invoke tqsl_getConverterGABBI, [conv]
+
+
+	Invoke tqsl_getErrorString
+
+
+	; need to release all of the memory used!
+	; Int tqsl_endConverter (tQSL_Converter * conv)
+  	; End the conversion process by freeing the used resources.
+	Mov Ebx, [certlist] ; certlist is pointer to pointer
+	Invoke tqsl_freeCertificate, [Ebx]
+
+	Return (TRUE)
+
+; ************************************************************************************
+.exitProcedure:					; None of checked buttons were clicked
+
+	Return (FALSE)
+
+EndU
+; End OnwinMain8ClickBtn
+
+winMain8Static1 Frame hWnd, uMsg, wParam, lParam
+
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMain8edit1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMain8group1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMain8static2 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMain8edit2 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMain8btn2 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMain8Edit3 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF

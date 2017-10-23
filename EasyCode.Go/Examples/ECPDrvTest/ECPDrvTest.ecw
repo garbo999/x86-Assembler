@@ -1,0 +1,349 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = ECPDrvTest
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 2
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3825
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = EC Driver Test -Get Process
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 7710
+  Begin Button = Button1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 420
+    ImageType       = -1
+    Left            = 6405
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = Get Process
+    ToolTipText     = 
+    Top             = 105
+    Visible         = 1
+    Width           = 990
+  End
+  Begin List = List1
+    BackColor       = 0x80000005
+    Border          = 1
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 3105
+    IntegralHeight  = 0
+    Left            = 90
+    MultiColumn     = 0
+    MultiSelect     = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000101
+    RightToLeft     = 0
+    ScrollBars      = 0
+    Sorted          = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Process List
+    ToolTipText     = 
+    Top             = 75
+    UseTabStops     = 1
+    Visible         = 1
+    Width           = 6255
+  End
+End
+
+.Const
+
+.Data
+
+ECPDRVTEST_MESSAGES	DD		WM_CREATE, OnECPDrvTestCreate
+					DD		ECM_AFTERCREATE, OnECPDrvTestAfterCreate
+					DD		WM_COMMAND, OnECPDrvTestCommand
+					DD		WM_CLOSE, OnECPDrvTestClose
+
+SYSTEM_PROCESS_INFORMATION Struct
+	NextEntryDelta	DD		?
+	ThreadCount		DD		?
+	Reserved1		DB		60 Dup      ;60 bytes de espacio libre
+	ProcessID		DD		?
+EndS
+
+TMP_Buffer			DSS    MAX_PATH Dup ?
+Renglon				DSS    MAX_PATH Dup ?
+TABs				DD     20 Dup ?
+
+hList               DD		0
+hFile               DD		0
+NullStr             DD		0
+TAB                 DSS		09, 00, 00
+PID					DSS		'PID', 9, 'Process', 0
+
+
+.Code
+
+ECPDrvTestProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf ECPDRVTEST_MESSAGES / 8
+	Mov Edx, Addr ECPDRVTEST_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnECPDrvTestCreate: UseData ECPDrvTestProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnECPDrvTestAfterCreate: UseData ECPDrvTestProcedure
+	Invoke GetWindowItem, [hWnd], IDC_ECPDRVTEST_LIST1
+	Mov [hList], Eax
+	;Invoke SendMessage, hList, LB_RESETCONTENT, NULL, NULL
+	Mov Eax, Offset TABs
+	Mov D[Eax], 60
+	Mov D[Eax + 4], 200
+	Invoke SendMessage, [hList], LB_SETTABSTOPS, 2, Addr TABs
+	;--
+	Call Load_ECPDrv
+	Call Open_File
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnECPDrvTestCommand: UseData ECPDrvTestProcedure
+	LoWord ([wParam])
+	Cmp Ax, IDC_ECPDRVTEST_BUTTON1
+	Jne >
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >
+	Invoke SendMessage, [hList], LB_RESETCONTENT, NULL, NULL
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, Addr PID
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, Addr NullStr
+	Call Read_File
+	Mov Eax, TRUE
+	Ret
+:	Xor Eax, Eax
+	Ret
+EndU
+
+OnECPDrvTestClose: UseData ECPDrvTestProcedure
+	Call Close_file
+	Call UnLoad_ECPDrv
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+
+Load_ECPDrv Frame
+	Local hSCManager:D, hService:D
+	Local acDriverPath[MAX_PATH]:B
+
+    Invoke OpenSCManager, NULL, NULL, SC_MANAGER_CREATE_SERVICE
+    Cmp Eax, NULL
+    Jne >
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Open SCManager Err")
+	Jmp >> L4
+
+:	Mov [hSCManager], Eax
+	Invoke GetFullPathName, TEXT("ECPDriver.sys"), SizeOf acDriverPath, Addr acDriverPath, NULL
+	Invoke CreateService, [hSCManager], TEXT("ECPDriver"), TEXT("EC SYS Driver"), \
+				       SERVICE_START + DELETE, SERVICE_KERNEL_DRIVER, SERVICE_DEMAND_START, \
+				       SERVICE_ERROR_IGNORE, Addr acDriverPath, NULL, NULL, NULL, NULL, NULL
+	Cmp Eax, NULL
+	Jne >
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Create Service Err")
+	Jmp > L2
+:	Mov [hService], Eax
+	Invoke StartService, [hService], 0, NULL
+	Invoke CloseServiceHandle, [hService]
+
+L2:	Invoke CloseServiceHandle, [hSCManager]
+
+L4:	Ret
+EndF
+
+UnLoad_ECPDrv Frame
+	Local hSCManager:D, hService:D
+	Local sService:SERVICE_STATUS
+
+	Invoke OpenSCManager, NULL, NULL, SC_MANAGER_ALL_ACCESS
+	Cmp Eax, NULL
+	Jne >
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Open SCManager Err")
+	Jmp > L4
+:	Mov [hSCManager], Eax
+	Invoke OpenService, [hSCManager], TEXT("ECPDriver"), SERVICE_ALL_ACCESS
+	Cmp Eax, NULL
+	Je >
+	Mov [hService], Eax
+	Invoke ControlService, [hService], SERVICE_CONTROL_STOP, Addr sService
+	Invoke DeleteService, [hService]
+	Invoke CloseServiceHandle, [hService]
+	Jmp > L2
+:	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Open Service Err")
+
+L2:	Invoke CloseServiceHandle, [hSCManager]
+
+L4:	Ret
+EndF
+
+Open_File:
+	Cmp D[hFile], 0
+	Je >
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Open File Err")
+	Ret
+:	Invoke CreateFile, TEXT("\\.\ECPDriver"), GENERIC_READ Or GENERIC_WRITE, \
+                       FILE_SHARE_READ Or FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+	Cmp Eax, INVALID_HANDLE_VALUE
+	Jne >
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Create File Err")
+	Ret
+:	Mov [hFile], Eax
+	Ret
+
+Close_file:
+	Cmp D[hFile], 0
+	Je >
+	Invoke CloseHandle, [hFile]
+	Mov D[hFile], 0
+:	Ret
+
+Read_File Frame
+	Local InBufferPtr:D
+	Local InBufferLen:D
+	Local BRet:D
+
+;	Xor Eax, Eax
+;	Mov D[Eax], 0
+
+    Mov D[InBufferLen], 100000
+    Mov D[InBufferPtr], 0
+    Mov D[BRet], 0
+    Invoke GlobalAlloc, GPTR, [InBufferLen]
+    Or Eax, Eax
+    Jnz >
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, TEXT("Alloc Mem Err.")
+	Ret
+
+:	Mov [InBufferPtr], Eax
+	Invoke ReadFile, [hFile], [InBufferPtr], [InBufferLen], Addr BRet, NULL
+	;--
+	Cmp D[BRet], 0
+	Jle >
+	Invoke ReadProcessInfo, [InBufferPtr], [InBufferLen]
+	;--
+:	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, Addr NullStr
+	Invoke wsprintf, Addr TMP_Buffer, TEXT("Read Ret: %s%u bytes"), Addr TAB, [BRet]
+	Add Esp, 16
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, Addr TMP_Buffer
+	;--
+	Invoke GlobalFree, [InBufferPtr]
+	Ret
+EndF
+
+ReadProcessInfo Frame BufPtr, BufLen Uses Ebx, Ecx, Edx
+	Mov Ebx, [BufPtr]
+
+NextID:
+	Push Ebx
+	Mov Edx, [Ebx + SYSTEM_PROCESS_INFORMATION.ThreadCount]
+	Shl Edx, 6
+	Add Edx, 136
+	Invoke GetPlatform, NULL
+	Cmp Eax, ecWinNT
+	Jle >
+	Add Edx, 48
+:	Add Edx, Ebx
+	Invoke WideCharToMultiByte, CP_ACP, 0, Edx, -1, Addr TMP_Buffer, 255, 0, 0
+	Mov Eax, [Ebx + SYSTEM_PROCESS_INFORMATION.ProcessID]
+	Or Eax, Eax
+	Jnz >
+	Push Eax
+	Invoke lstrcpy, Addr TMP_Buffer, TEXT("System Idle Process")
+	Pop Eax
+:	Invoke wsprintf, Addr Renglon, TEXT("%X%s%s"), Eax, Addr TAB, Addr TMP_Buffer
+	Add Esp, 20
+	Invoke SendMessage, [hList], LB_ADDSTRING, NULL, Addr Renglon
+	Pop Ebx
+	Mov Ecx, [Ebx + SYSTEM_PROCESS_INFORMATION.NextEntryDelta]
+	Or Ecx, Ecx
+	Jz >
+	Add Ebx, Ecx       ; Pumtero proxima estructura
+	Mov Ecx, [BufPtr]
+	Add Ecx, [BufLen]  ; Check contra el fin del Buffer
+	Cmp Ebx, Ecx
+	Jl < NextID
+:	Ret
+EndF

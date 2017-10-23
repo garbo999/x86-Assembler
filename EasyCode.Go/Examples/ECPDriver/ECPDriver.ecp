@@ -1,0 +1,25 @@
+;Do not modify this file!!!
+Easy Code 1.06.0.0014
+Begin ECProject = ECPDriver
+  EasyCodeProject=0
+  FileType=5
+  Processor=.486
+  Align=32
+  DebugInfo=0
+  AsmFiles=1
+  GlobalVariables=1
+  MLOptions=/ni
+  LinkOptions=/ni
+  MMXOptions=0
+  CommonControls=0
+  RichEdit=0
+  PackFile=0
+  Unicode=0
+  ECMacros=1
+  StartupWindow=ECPDriver
+  Title=Easy Code driver project
+  Resources=ECPDriver.ecr
+  Module=ECPDriver.asm
+  Include=ntddk.h
+  Library=ntoskrnl.exe
+End

@@ -1,0 +1,363 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = MIDIplay
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 2
+  Caption         = 1
+  CenterWindow    = 2
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 242
+  IconBig         = IDI_APP_ICON
+  IconSmall       = [None]
+  ImageType       = 0
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80000
+  Picture         = IDB_BACKGROUND
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Virtual MIDI Music Box
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 294
+  Begin Button = Button3
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 20
+    ImageType       = -1
+    Left            = 224
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = About
+    ToolTipText     = 
+    Top             = 184
+    Visible         = 1
+    Width           = 52
+  End
+  Begin Button = Button2
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1001
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 20
+    ImageType       = -1
+    Left            = 160
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Stop
+    ToolTipText     = 
+    Top             = 184
+    Visible         = 1
+    Width           = 52
+  End
+  Begin Button = Button1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1002
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 20
+    ImageType       = -1
+    Left            = 96
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    TabStop         = 1
+    Text            = Play
+    ToolTipText     = 
+    Top             = 184
+    Visible         = 1
+    Width           = 52
+  End
+End
+
+; ******************************************************************************************
+; **  MIDIplay.exe - an EasyCode IDE project by Mark Jones (gzscuqn02ATsneakemailD0Tcom)  **
+; **                                                                                      **
+; **  This file gives examples of four interesting concepts: manipulating resources,      **
+; **  saving resources as temporary files, deleting those files, and playing MIDI files   **
+; **  using MCI calls. The latter is accomplished with functions from winmm.lib.          **
+; **                                                                                      **
+; **  The Mozart Sonata in A (turk.mid) is from http://www.asahi-net.or.jp/~YW4Y-OOb/     **
+; **                                                                     -MCJ 2005/02/14  **
+; ******************************************************************************************
+.Const
+
+.Data
+
+hMIDIres		DD	?				; handle of midi resource
+hMIDISize		DD	?				; size of midi resource and resulting file
+hMIDIdevID		DD	?				; handle of the mci midi device
+
+MESSAGES		DD	WM_CREATE, OnCreate
+				DD	ECM_AFTERCREATE, OnAfterCreate
+				DD	WM_COMMAND, OnCommand
+				DD	MM_MCINOTIFY, OnMCINotify
+				DD	WM_CLOSE, OnClose
+
+mciOpenParms	MCI_OPEN_PARMS <>	; mci open parameters struct
+mciPlayParms	MCI_PLAY_PARMS <>	; play struct
+
+szSequencer		DSS	TEXT('Sequencer')	; part of the mci command needs this string
+				DSS	0
+errTitle		DSS	TEXT("Error!")		; error handling is very sparse in this demo
+				DSS	0
+
+errMsg			DSS	TEXT("Your PC doesn't seem to support  ")
+				DSS	13, 10
+				DSS	TEXT("MCI MIDI playback, sorry.")
+				DSS	0
+
+szAboutBody		DSS	TEXT("Virtual Midi Music Box v1.03 by Mark Jones  ")
+				DSS	13, 10
+				DSS	TEXT("Special thanks to Ramon Sala. :")
+				DSS	')', 0
+
+path			DSS	256 Dup 0		; path of temporary file
+
+xLoop			DB	1				; set to 0 to loop MIDI forever
+
+.Code
+
+MIDIplayProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MESSAGES / 8
+	Mov Edx, Addr MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L2:
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnCreate: UseData MIDIplayProcedure
+	Cmp D[App.Previous], NULL		; is one of these windows already open?
+	Je >
+	Mov Eax, -1						; if so, don't start another and release resources
+	Ret
+:	Xor Eax, Eax
+	Ret
+EndU
+
+OnAfterCreate: UseData MIDIplayProcedure
+	Invoke ShowWindow, [hWnd], SW_SHOWNORMAL
+	Invoke UpdateWindow, [hWnd]
+
+	Push [hWnd]						; hWnd must be put into dwCallback here in MIDIplayProcedure
+	Pop [mciPlayParms.dwCallback]	; dwCallback returns a uMsg MM_MCINOTIFY flag when an
+									; MCI event has occured (like playing has completed)
+	Call GetMIDIHandle 				; gets handle of midi resource
+	Call MakeMIDIfile				; outputs midi file from resources
+	Call GetMIDIdevID				; gets MIDI device ID
+	Call PlayMIDI					; start playing the MIDI file
+	Ret
+EndU
+
+OnCommand: UseData MIDIplayProcedure
+	Mov Eax, [wParam]				; get the low word of wParam result
+	Cmp Ax, IDC_MIDIPLAY_BUTTON1	; play button
+	Jne >wmc4
+	Shr Eax, 16						; rotate the top 16 bits of wParam into Ax
+	Cmp Ax, BN_CLICKED				; was play button clicked?
+	Jne >L2
+	Call PlayMIDI
+wmc2:
+	Mov Eax, TRUE
+	Ret
+
+wmc4:
+	Cmp Eax, IDC_MIDIPLAY_BUTTON2	; stop button
+	Jne >wmc6
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+	Jne >L2
+	Call StopMIDI
+	Jmp <wmc2
+
+wmc6:
+	Cmp Eax, IDC_MIDIPLAY_BUTTON3	; about button
+	Jne >L2
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+	Jne >L2
+	Invoke MessageBox, [hWnd], Addr szAboutBody, TEXT("About..."), MB_OK
+	Jmp <wmc2
+
+L2:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnMCINotify: UseData MIDIplayProcedure
+	Cmp D[wParam], MCI_NOTIFY_SUCCESSFUL	; if good message
+	Jne >mcin4
+	Cmp D[xLoop], 0
+	Jne >mcin2
+	Inc D[xLoop]
+	Invoke mciSendCommand, [hMIDIdevID], MCI_SEEK, MCI_SEEK_TO_START, Offset mciPlayParms
+	Invoke mciSendCommand, [hMIDIdevID], MCI_PLAY, MCI_NOTIFY, Offset mciPlayParms
+	Dec D[xLoop]
+	Jmp >mcin4
+
+mcin2:
+	; looping disabled
+	Call StopMIDI							; stop playback and rewind
+
+mcin4:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnClose: UseData MIDIplayProcedure
+	Call StopMIDI							; stop MIDI playback, very important!
+	Call EndMIDIfile						; close MIDI thread and delete our temporary file
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE
+:	Ret
+EndU
+
+GetMIDIHandle: ; get handle of MIDI resource
+	Invoke FindResource, [App.Instance], MIDI_FILE, RT_FILEDATA	; locate midi resource offset
+    Mov [hMIDIres], Eax											; store temp address in hMIDIres var
+    Invoke SizeofResource, [App.Instance], [hMIDIres]			; how big is the midi resource?
+    Mov [hMIDISize], Eax										; save size address
+    Invoke LoadResource, [App.Instance], [hMIDIres]				; load resource, valid handle in EAX
+    Invoke LockResource, Eax									; lock resource
+    Mov [hMIDIres], Eax											; save good handle
+	Xor Eax, Eax
+	Ret
+
+MakeMIDIfile Frame ; output midi file from internal raw data resource
+	Local fhandle1:D
+	Local numchar:D
+
+	Invoke GetTempPath, 248, Addr path						; get the temporary folder path
+	Invoke lstrcat, Addr path, TEXT("\~tmp.mid")			; append our filename to the path
+	Invoke CreateFile, Addr path, GENERIC_WRITE, FILE_SHARE_WRITE, 0, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0
+    Mov [fhandle1], Eax										; save EAX, our file handle
+    Invoke WriteFile, [fhandle1], [hMIDIres], [hMIDISize], Addr numchar, 0		; output midi file from resource
+    Invoke CloseHandle, [fhandle1]							; close our file
+	Xor Eax, Eax
+	Ret
+EndF
+
+GetMIDIdevID: ; get midi device ID and test for capability
+	Mov D[mciOpenParms.lpstrDeviceType], Offset szSequencer 	; MCI_DEVTYPE_SEQUENCER does not work!
+	Mov D[mciOpenParms.lpstrElementName], Offset path 			; this is the path and filename to open
+
+	Invoke mciSendCommand, [hMIDIdevID], MCI_OPEN, MCI_OPEN_ELEMENT + MCI_OPEN_TYPE, Offset mciOpenParms
+	Push [mciOpenParms.wDeviceID]								; copy the reported wDeviceID
+	Pop [hMIDIdevID]											; to hMIDIdevID variable
+	Or Eax, Eax
+	Jnz >
+	Ret
+:	Invoke MessageBox, 0, Addr errMsg, Addr errTitle, MB_OK		; device not supported, popup error
+	Call EndMIDIfile											; cleanup
+	Invoke SendMessage, [App.Main], WM_CLOSE, 0, 0				; and exit
+	Return (TRUE)
+
+PlayMIDI: ; play midi stream
+	Invoke mciSendCommand, [hMIDIdevID], MCI_PLAY, MCI_NOTIFY, Offset mciPlayParms
+	Or Eax, Eax
+	Jnz >
+	Ret
+:	Invoke MessageBox, 0, Addr errMsg, Addr errTitle, MB_OK		; popup error
+	Call EndMIDIfile											; cleanup
+	Invoke ExitProcess, 0										; and exit
+	Xor Eax, Eax
+	Ret
+
+StopMIDI: ; stop midi playback
+	Invoke mciSendCommand, [hMIDIdevID], MCI_STOP, MCI_OPEN_ELEMENT + MCI_OPEN_TYPE, Offset mciPlayParms
+	Invoke mciSendCommand, [hMIDIdevID], MCI_SEEK, MCI_SEEK_TO_START, Offset mciPlayParms
+	Xor Eax, Eax
+	Ret
+
+EndMIDIfile: ; close MIDI handle and delete our temporary MIDI file
+	Invoke mciSendCommand, [hMIDIdevID], MCI_CLOSE, MCI_OPEN_ELEMENT + MCI_OPEN_TYPE, Offset mciPlayParms
+	Invoke DeleteFile, Addr path
+	Xor Eax, Eax
+	Ret

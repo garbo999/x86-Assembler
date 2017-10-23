@@ -1,0 +1,62 @@
+#include "Drives.h"
+
+1                             24	DISCARDABLE	"Res\\Manifest.xml"
+IDI_APP_ICON                  ICON	DISCARDABLE	"Res\\Drives.ico"
+
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_AVAILABLE_DRIVES                "&Available drives:"
+    IDS_BYTES                           "Bytes per sector:"
+    IDS_CD_DVD                          "CD/DVD"
+    IDS_DECIMAL                         "."
+    IDS_DRIVE_INFO                      "Drive information"
+    IDS_FILE_SYSTEM                     "File system:"
+    IDS_FIXED_DRIVE                     "Fixed drive"
+    IDS_FREE_CLUSTERS                   "Free clusters:"
+    IDS_FREE_SPACE                      "Free space:"
+    IDS_LOGICAL_DRIVES                  " Logical drives"
+    IDS_NETWORK_DRIVE                   "Network drive"
+    IDS_NO_DISK_IN                      "No disk in"
+    IDS_RAM_DRIVE                       "RAM drive"
+    IDS_REMOVABLE_DRIVE                 "Removable drive"
+    IDS_SECTORS                         "Sectors per cluster:"
+    IDS_TOTAL_CLUSTERS                  "Total clusters:"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_TOTAL_SPACE                     "Total space:"
+    IDS_UNKNOWN                         "Unknown"
+    IDS_VOLUME_NAME                     "Volume name:"
+END
+
+IDR_VERSION VERSIONINFO
+ FILEVERSION 1,0,0,5
+ PRODUCTVERSION 1,0,0,5
+ FILEFLAGSMASK 0x2L
+ FILEFLAGS 0x0L
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Comments", "Programmed in assembly with Easy Code\0"
+            VALUE "CompanyName", "http://www.easycode.cat\0"
+            VALUE "FileDescription", "Easy Code visual project\0"
+            VALUE "FileVersion", "1.00.0.0005\0"
+            VALUE "InternalName", "Drives\0"
+            VALUE "LegalCopyright", "Copyright © 2009-2011 Ramon Sala\0"
+            VALUE "OriginalFilename", "Drives.exe\0"
+            VALUE "ProductName", "Drives\0"
+            VALUE "ProductVersion", "1.00.0.0005\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1252
+    END
+END

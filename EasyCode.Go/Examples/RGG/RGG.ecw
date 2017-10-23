@@ -1,0 +1,225 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = RGG
+  AlignMode       = 0
+  AutoRedraw      = 1
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 4995
+  IconBig         = IDI_APP_BIG_ICON
+  IconSmall       = IDI_APP_SMALL_ICON
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = GDI Demo
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 4995
+End
+
+;Written by Robert Bieber
+;Thanks to Petezl for showing me how to use the GDI functions
+;Please note that GDI32.inc and GDI32.lib must be included
+;for a project like this to assemble properly
+
+;The purpose of this project is to draw, on a window, two diagonal lines, and
+;and ellipse that will fit inside a rectangle 1/4 the size of the window
+
+.Data
+;Memory to store the window handle
+WindowHandle	DD	?
+;Memory for our three pens
+Pen1			DD	?
+Pen2 			DD	?
+Pen3			DD	?
+;Memory to store the Default pen
+PenStore		DD	?
+;No need for declared memory or constants
+
+MESSAGES		DD	WM_CREATE, OnCreate
+				DD	WM_PAINT, OnPaint
+				DD	WM_CLOSE, OnClose
+				DD	WM_DESTROY, OnDestroy
+
+.Code
+
+;;    Copyright Robert Bieber, 2006
+;;    This program is free software; you can redistribute it and/or modify
+;;    it under the terms of the GNU General Public License as published by
+;;    the Free Software Foundation; either version 2 of the License, or
+;;    (at your option) any later version.
+;;
+;;    This program is distributed in the hope that it will be useful,
+;;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;    GNU General Public License for more details.
+;;
+;;    You should have received a copy of the GNU General Public License along
+;;    with this program; if not, write to the Free Software Foundation, Inc.,
+;;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+RGGProcedure Frame hWnd, uMsg, wParam, lParam
+	;Memort to hold the device context of the window
+	Local WinHDC:D
+
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MESSAGES / 8
+	Mov Edx, Addr MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L2:
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnCreate: UseData RGGProcedure
+	;These two lines store the window handle in WindowHandle
+	;It is neccesary to use two lines because MOV cannot move
+	;data from memory to memory
+	Mov Eax, [hWnd]
+	Mov [WindowHandle], Eax
+	;---
+	;These six lines create pens
+	;A pen is basically a profile of information on how
+	;things should be drawn
+	;We will make three pens.  One all blue, one red, and one green
+	;All of them will draw solid lines
+	Invoke CreatePen, PS_SOLID, 1, 000000FFH
+	Mov [Pen1], Eax
+	Invoke CreatePen, PS_SOLID, 1, 00FF0000H
+	Mov [Pen2], Eax
+	Invoke CreatePen, PS_SOLID, 1, 0000FF00H
+	Mov [Pen3], Eax
+	;Here, we select a pen, which causes the default pen to be put in EAX
+	;Before the application closes, we will restore that pen
+	Invoke SelectObject, [WinHDC], [Pen1]
+	Mov [PenStore], Eax
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnPaint: UseData RGGProcedure
+	;Variable to hold the PaintStruct
+	Local PS:PAINTSTRUCT
+	;Memory to hold the windows dimensions
+	Local WinRect:RECT
+
+	;This begins the process of painting the window and returns a handle
+	;device context we can use to draw to the window
+	;We supply the adress of PS only to satisfy the API function.  We won't
+	;actually be using it
+	Invoke BeginPaint, [WindowHandle], Addr PS
+	;This line stores the device context in WinHDC
+	Mov [WinHDC], Eax
+	;Set the drawing style to that stored in Pen1
+	Invoke SelectObject, [WinHDC], [Pen1]
+	;Retrieve the dimensions of the window in a Rect structure
+	Invoke GetClientRect, [WindowHandle], Addr WinRect
+	;Set the point from which the first line will be drawn
+	Invoke MoveToEx, [WinHDC], [WinRect.left], [WinRect.top], NULL
+	;Draw a line from the point we just set to the point specified by
+	;WinRect.right and WinRect.bottom
+	Invoke LineTo, [WinHDC], [WinRect.right], [WinRect.bottom]
+	;Set the drawing style to that stored in Pen2
+	Invoke SelectObject, [WinHDC], [Pen2]
+	;Set the point from which to draw the second line
+	Invoke MoveToEx, [WinHDC], [WinRect.left], [WinRect.bottom], NULL
+	;Draw a line from the point we just set to the point specified by
+	;WinRect.left and WinRect.bottom
+	Invoke LineTo, [WinHDC], [WinRect.right], [WinRect.top]
+	;Set the drawing style to that specified by Pen3
+	Invoke SelectObject, [WinHDC], [Pen3]
+	;Move the bottom coordinate of the window in EAX
+	Mov Eax, [WinRect.bottom]
+	;These three lines divide EAX by 4, which will give us the top
+	;coordinate of the ellipse
+	Mov Ecx, 4
+	Xor Edx, Edx
+	Div Ecx
+	;Now we store that coordinate in WinRect.top for future use
+	Mov [WinRect.top], Eax
+	;These two lines multiply EAX by 3, which will give us the bottom
+	;coordinate of the ellipse
+	Mov Ecx, 3
+	Mul Ecx
+	;Now we store the coordinate in WinRect.bottom for future use
+	Mov [WinRect.bottom], Eax
+	;Move the bottom coordinate of the window into EAX
+	Mov Eax, [WinRect.right]
+	;These three lines divide EAX by four, which will give us the left
+	;coordinate of the ellipse
+	Mov Ecx, 4
+	Xor Edx, Edx
+	Div Ecx
+	;Store the coordinate in WinRect.left for future use
+	Mov [WinRect.left], Eax
+	;These two lines multiply EAX by 3, which will give us the right
+	;coordinate of the ellipse
+	Mov Ecx, 3
+	Mul Ecx
+	;Store the coordinate in WinRect.right for future use
+	Mov [WinRect.right], Eax
+	;Now we draw the ellipse with the coordinates we have calculated
+	Invoke Ellipse, [WinHDC], [WinRect.left], [WinRect.top], [WinRect.right], [WinRect.bottom]
+	;This API call tells Windows that we are finished drawing to the window
+	Invoke EndPaint, [WindowHandle], Addr PS
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnClose: UseData RGGProcedure
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE
+	Ret
+	Xor Eax, Eax
+:	Ret
+EndU
+
+OnDestroy: UseData RGGProcedure
+	;Now it's time to clean up.  This line restores the default pen
+	Invoke SelectObject, [WinHDC], [PenStore]
+	;These three lines delete the pens we were using
+	Invoke DeleteObject, [Pen1]
+	Invoke DeleteObject, [Pen2]
+	Invoke DeleteObject, [Pen3]
+	Xor Eax, Eax
+	Ret
+EndU

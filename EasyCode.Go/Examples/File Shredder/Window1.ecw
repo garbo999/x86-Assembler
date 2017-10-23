@@ -1,0 +1,541 @@
+;Do not edit or modify this file!!!
+Easy Code
+Begin Window = Window1
+  AlignMode       = 0
+  AutoRedraw      = 1
+  BackColor       = 0x8000000F
+  Border          = 2
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 2415
+  IconBig         = IDI_APP_ICON
+  IconSmall       = IDI_APP_ICON
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = BieberWorks File Shredder
+  TimerInterval   = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 4725
+  Begin Button = AboutButton
+    BackColor       = 0x8000000F
+    Border          = 1
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 300
+    ImageType       = -1
+    Left            = 3960
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 9
+    TabStop         = 1
+    Text            = About
+    Top             = 1620
+    Visible         = 1
+    Width           = 660
+  End
+  Begin Button = ShredButton
+    BackColor       = 0x8000000F
+    Border          = 1
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 300
+    ImageType       = -1
+    Left            = 60
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 8
+    TabStop         = 1
+    Text            = Shred It!
+    Top             = 1620
+    Visible         = 1
+    Width           = 3900
+  End
+  Begin Static = Static3
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 180
+    Left            = 60
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 7
+    Text            = Pass
+    TextAlignment   = 0
+    Top             = 1320
+    Transparent     = 0
+    Visible         = 1
+    Width           = 600
+    WordWrap        = 0
+  End
+  Begin ProgressBar = PassBar
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00020200
+    ForeColor       = 0x8000000D
+    Height          = 300
+    Left            = 660
+    MaxValue        = 100
+    MinValue        = 0
+    NormalStyle     = 0x54000000
+    Orientation     = 0
+    Scrolling       = 0
+    StaticEdge      = 1
+    TabOrder        = 6
+    Top             = 1260
+    Value           = 0
+    Visible         = 1
+    Width           = 3840
+  End
+  Begin Static = Static2
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 180
+    Left            = 60
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 5
+    Text            = Overall
+    TextAlignment   = 0
+    Top             = 960
+    Transparent     = 0
+    Visible         = 1
+    Width           = 540
+    WordWrap        = 0
+  End
+  Begin ProgressBar = TotalBar
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00020200
+    ForeColor       = 0x8000000D
+    Height          = 300
+    Left            = 660
+    MaxValue        = 100
+    MinValue        = 0
+    NormalStyle     = 0x54000000
+    Orientation     = 0
+    Scrolling       = 0
+    StaticEdge      = 1
+    TabOrder        = 4
+    Top             = 900
+    Value           = 0
+    Visible         = 1
+    Width           = 3840
+  End
+  Begin Static = Static1
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 180
+    Left            = 60
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x5400010C
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    Text            = Passes
+    TextAlignment   = 0
+    Top             = 540
+    Transparent     = 0
+    Visible         = 1
+    Width           = 540
+    WordWrap        = 0
+  End
+  Begin Slider = PassSlider
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Height          = 480
+    Left            = 600
+    MaxValue        = 30
+    MinValue        = 0
+    NormalStyle     = 0x54000001
+    Orientation     = 0
+    SelectRange     = 0
+    SelEnd          = 0
+    SelStart        = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    TabStop         = 1
+    TickFrequency   = 1
+    TickStyle       = 1
+    Top             = 420
+    Value           = 0
+    Visible         = 1
+    Width           = 3900
+  End
+  Begin Button = BrowseButton
+    BackColor       = 0x8000000F
+    Border          = 1
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 300
+    ImageType       = -1
+    Left            = 3840
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = Browse
+    Top             = 60
+    Visible         = 1
+    Width           = 720
+  End
+  Begin Edit = FileBox
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 1
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 300
+    Left            = 60
+    MaxLength       = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000000
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = 
+    TextAlignment   = 0
+    Top             = 60
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 3780
+  End
+End
+
+.Const
+
+.Data?
+
+FileBoxHandle HWND ?
+ByteWrite DWord ?
+TotalHandle DWord ?
+PassHandle DWord ?
+hInstance DWord ?
+ShredHandle DWord ?
+SlideHandle DWord ?
+
+.Data
+
+FilePath Byte 257 Dup (0)
+DataByte DWord 01010101010101010101010101010101B
+mbText DB "The file has been shredded", 0
+mbCaption DB "Done", 0
+mbError DB "Error", 0
+Ofn OPENFILENAME <>
+FilterString DB "All Files", 0, "*.*", 0, 0
+AboutCaption DB "BieberWorks File Shredder", 0, 13, 10
+AboutText DB "BieberWorks File Shredder", 13, 10, "BieberWorks Software", 13, 10, "http://www.bieberworks.net"
+
+.Code
+
+;;    Copyright Robert Bieber, 2006
+;;    This program is free software; you can redistribute it and/or modify
+;;    it under the terms of the GNU General Public License as published by
+;;    the Free Software Foundation; either version 2 of the License, or
+;;    (at your option) any later version.
+;;
+;;    This program is distributed in the hope that it will be useful,
+;;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;    GNU General Public License for more details.
+;;
+;;    You should have received a copy of the GNU General Public License along
+;;    with this program; if not, write to the Free Software Foundation, Inc.,
+;;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+Window1Procedure Proc Private hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	.If uMsg == WM_CREATE
+		;Retrieve and store handle to the edit box
+		Invoke GetWindowItem, hWnd, IDC_WINDOW1_FILEBOX
+		Mov FileBoxHandle, Eax
+		;Retrieve and store the handle to the upper status bar
+		Invoke GetWindowItem, hWnd, IDC_WINDOW1_TOTALBAR
+		Mov TotalHandle, Eax
+		;Retrieve and store the handle to the lower status bar
+		Invoke GetWindowItem, hWnd, IDC_WINDOW1_PASSBAR
+		Mov PassHandle, Eax
+		;Retrieve and store the handle of the shred button
+		Invoke GetWindowItem, hWnd, IDC_WINDOW1_SHREDBUTTON
+		Mov ShredHandle, Eax
+		;Retrieve and store the handle of the slider bar
+		Invoke GetWindowItem, hWnd, IDC_WINDOW1_PASSSLIDER
+		Mov SlideHandle, Eax
+		Return TRUE
+	.ElseIf uMsg == WM_COMMAND
+		Mov Eax, wParam
+		.If Ax == IDC_WINDOW1_SHREDBUTTON
+			Shr Eax, 16
+			.If Ax == BN_CLICKED
+				;Code to execute if the shred button has been clicked
+				Invoke GetWindowText, FileBoxHandle, Addr FilePath, 256
+				Invoke ShredFile
+			.EndIf
+		.ElseIf Ax == IDC_WINDOW1_BROWSEBUTTON
+			Shr Eax, 16
+			.If Ax == BN_CLICKED
+				;Fill the OPENFILENAME structure
+				Invoke RtlFillMemory, Addr Ofn, SizeOf OPENFILENAME, 0
+				Invoke GetModuleHandle, NULL
+				Mov hInstance, Eax
+				Mov Ofn.lStructSize, SizeOf Ofn
+				Push hWnd
+				Pop Ofn.hWndOwner
+				Push hInstance
+				Pop Ofn.hInstance
+				Mov Ofn.lpstrFilter, Offset FilterString
+				Mov Ofn.lpstrFile, Offset FilePath
+				Mov Ofn.nMaxFile, 257
+				Mov Eax, hWnd
+				Mov Ofn.hwndOwner, Eax
+				Mov Ofn.lStructSize, SizeOf OPENFILENAME
+				Mov Ofn.Flags, OFN_FILEMUSTEXIST Or \
+                                OFN_PATHMUSTEXIST Or OFN_LONGNAMES Or \
+                                OFN_EXPLORER Or OFN_HIDEREADONLY
+                Invoke GetOpenFileName, Addr Ofn
+                .If Eax == TRUE
+	                Invoke SetWindowText, FileBoxHandle, Addr FilePath
+	            .EndIf
+	        .EndIf
+	    .ElseIf Ax == IDC_WINDOW1_ABOUTBUTTON
+		     Shr Eax, 16
+		     .If Ax == BN_CLICKED
+			     Invoke MessageBox, NULL, Addr AboutText, Addr AboutCaption, MB_OK
+			 .EndIf
+		.EndIf
+	.ElseIf uMsg == WM_CLOSE
+		Invoke IsModal, hWnd
+		.If Eax
+			Invoke EndModal, hWnd, IDCANCEL
+			Return TRUE
+		.EndIf
+	.EndIf
+	Return FALSE
+Window1Procedure EndP
+
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ShredFile Proc Private
+	Local lDWORD:DWord
+	Local hDWORD:DWord
+	Local hFile:DWord
+	Local Pass:DWord
+	Local BytesLeft:DWord
+	Local TempValue:DWord
+	Invoke SetEnabled, ShredHandle, FALSE
+	Invoke GetValue, SlideHandle
+	Mov TempValue, Eax
+	Invoke SetMaxValue, TotalHandle, TempValue
+	Invoke CreateFile, Addr FilePath, GENERIC_READ Or GENERIC_WRITE, NULL, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+	Cmp Eax, INVALID_HANDLE_VALUE
+	Je ExitProcError
+	Mov hFile, Eax
+	Invoke GetFileSize, hFile, Addr hDWORD
+	Cmp Eax, INVALID_HANDLE_VALUE
+	Je ExitProcError
+	Cmp Eax, 0
+	Je ExitProcError
+	;Divide total filesize by four to allow writing one DWORD at a time
+	;Then add 1 to the value to compensate for any possible remainder
+	Mov Ecx, 4
+	Xor Edx, Edx
+	Div Ecx
+	Mov lDWORD, Eax
+	Invoke GetValue, SlideHandle
+	Add Eax, 1
+	Mov Pass, Eax
+	;The MaxValue and MinValue of
+	;a Progress bar are two-byte
+	;values (from 0 to 65535). So,
+	;we will work with a percentage
+	Invoke SetMaxValue, PassHandle, 100 ;lDWORD
+PassLabel:
+	Invoke SetFilePointer, hFile, 0, NULL, FILE_BEGIN
+	Mov Ecx, lDWORD
+	Mov BytesLeft, Ecx
+
+	Invoke SetValue, PassHandle, 0 ; BytesLeft
+	Dec Pass
+	Invoke SetValue, TotalHandle, Pass
+
+	;Divide total size by 100 in
+	;order to get the percentage,
+	;and store it in Edi register
+	Mov Eax, lDWORD
+	Mov Ecx, 100
+	Xor Edx, Edx
+	Div Ecx
+	Mov Edi, Eax
+
+ByteLabel:
+	Invoke WriteFile, hFile, Addr DataByte, 4, Addr ByteWrite, NULL
+	Dec BytesLeft
+
+	;Get the percentage done
+	;and update ProgressBar
+	Mov Eax, lDWORD
+	Sub Eax, BytesLeft
+	Xor Edx, Edx
+	Div Edi
+	Invoke SetValue, PassHandle, Eax
+
+	;This line allows the message queue
+	;to be watched. Only needed if you
+	;want the user to able to interrupt
+	Invoke DoEvents
+
+	Invoke GetTickCount
+	And DataByte, Eax
+	Xor DataByte, Eax
+	Cmp BytesLeft, 0
+	Jne ByteLabel
+	Cmp Pass, 0
+	Jne PassLabel
+	Jmp ExitProc
+ExitProcError:
+	Invoke SetEnabled, ShredHandle, TRUE
+	Invoke MessageBox, NULL, Addr mbError, Addr AboutCaption, MB_OK
+	Jmp ErrorExit2
+ExitProc:
+	Invoke CloseHandle, hFile
+	Invoke MessageBox, NULL, Addr mbText, Addr mbCaption, MB_OK
+	Invoke SetValue, PassHandle, 0
+	Invoke SetEnabled, ShredHandle, TRUE
+	Invoke DeleteFile, Addr FilePath
+ErrorExit2:
+	Ret
+ShredFile EndP
+
+;<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

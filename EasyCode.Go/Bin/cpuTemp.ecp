@@ -1,0 +1,26 @@
+;Do not modify this file!!!
+Easy Code 1.06.0.0018
+Begin ECProject = cpuTemp
+  EasyCodeProject=1
+  FileType=0
+  Processor=.486
+  Align=4
+  DebugInfo=1
+  AsmFiles=1
+  StaticLib=1
+  MLOptions=
+  LinkOptions=
+  MMXOptions=0
+  CommonControls=1
+  RichEdit=0
+  PackFile=1
+  Unicode=0
+  ECMacros=1
+  StartupWindow=Window1
+  Title=Easy Code GoAsm visual project
+  Resources=cpuTemp.ecr
+  Window=cpuTempWindow1.ecw
+  Include=commctrl.h
+  Library=comctl32.dll
+  MiscFile=Manifest.xml
+End

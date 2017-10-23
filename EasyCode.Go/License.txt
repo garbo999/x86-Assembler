@@ -1,0 +1,18 @@
+EASY CODE VISUAL ASSEMBLER
+==========================
+
+Easy Code is free software. 
+
+You are free to modify it as you wish as long as the author (Ramon Sala) is credited and a link back to either the download page on the author's site (http://www.easycode.cat/English/index.htm) or the Louix94.co.nr download page (http://www.louix94.co.nr/easycode) is provided along with this License.txt file.
+
+You are also free to distribute this software by any means under the condition that the author (Ramon Sala) is credited and a link back to either the download page on the author's site (http://www.easycode.cat/English/index.htm) or the Louix94.co.nr download page (http://www.louix94.co.nr/easycode) is provided along with this License.txt file.
+
+You are not free to modify this license in any way without permission from Easy Code's author (Ramon Sala).
+
+You cannot sell this software as it is distributed freely.
+
+Neither the author (Ramon Sala) or Louix94 can be held responsible for any problems that might occur before, when, or after using this software.
+
+This license is subject to change at any time and the latest revision to it was on the 21/11/2009 (21st of November 2009).
+
+Please contact Ramon Sala at asm@easycode.cat if you have any questions.

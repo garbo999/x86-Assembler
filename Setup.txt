@@ -1,0 +1,49 @@
+Setup and configuration instructions
+====================================
+
+
+Installing Easy Code
+====================
+
+1 - Make sure there is no application running. If any, exit it before continuing.
+
+2 - Delete the EasyCode.Go folder and all its subfolders (if you have projects
+    or configuration files inside, remember to first save them).
+
+3 - Unzip the EasyCode.zip file and the 'EasyCode.Go' folder will be created.
+
+4 - Place the whole EasyCode.Go folder anywhere you like in one of your hard
+    disks. If the folder already exists, overwrite it.
+
+5 - Close all applications, open the EasyCode.Go folder and run the 'Settings.exe'
+    program (if possible, as an Administrator). Choose the desired options and
+    press the 'OK' button.
+
+6 - Run the 'EasyCode.exe' file (located in the 'EasyCode.Go\Bin' folder) and set
+    the paths for GoAsm files. To do so, use the 'Tools-->Settings' menu and then
+    click on the 'Compile / Link' tab.
+
+
+
+After that, Easy Code is ready to be used. You can run it by double-clicking the
+desktop shortcut if you chose to create one. At this time, the 'Settings.exe'
+file is no longer needed, so you can delete it if you like.
+
+
+NOTE: Remember that the 'ECGo.zip' tools package, which can be downloaded from the
+'http://www.godevtool.com' and 'http://www.easycode.cat/English/GoTools.htm' sites,
+must be installed for Easy Code GoAsm to be fully operative. After installing ECGo,
+please see the 'Using the GoAsm headers' topic in the Easy Code help file. Installing
+the GoAsm headers is highly recommended as they are needed for building drivers and
+all the example projects.
+
+
+IMPORTANT: For the rich edit control to be available, you must have the 'riched20.dll'
+file in the system directory. If not, the referred control cannot be used inside the
+Easy Code environment.
+
+
+
+Enjoy Easy Code!
+
+Ramon Sala

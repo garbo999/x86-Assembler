@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Author's own Paws - see www.GoDevTool.com">
+   <meta name="keywords" content="GoLink, "Go" tools, linker, MSLU, Microsoft Layer for Unicode, loader, MSLU loader">
+   <title>The Microsoft Layer for Unicode (with specific reference to 
+          the "Go" tools</title>
+   <!--Copyright Jeremy Gordon 2002/3-->
+   <style>
+   <!--
+   A {color: #0000FF; font: bold 10pt times}
+   A:Visited {color: #333399}
+   A:Hover {color: #009900}
+   -->
+   </style>
+</HEAD>
+<BODY>
+
+<br><a href="http://www.GoDevTool.com"><img SRC="GoLogo50.gif" border=0 height=22 width=50>The "Go" tools</a>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="GoLink.htm">The GoLink manual</a>
+<h1>The Microsoft Layer for Unicode</h1>
+<h1>(with particular reference to the "Go" tools)</h1>
+By Jeremy Gordon - <img SRC="mail6sblue.gif" height=13 width=93 align="top" vspace="5">
+
+<p><i>Note: this article applies only to applications which work in languages
+which do not need to rely on Unicode to represent them.</i>
+
+<h3>The Microsoft Layer for Unicode</h3>
+The Microsoft Layer for Unicode is one way to make just one version 
+of your application to run both under Windows 95, 98 and ME platforms
+and also under Windows NT, 2000 and XP platforms.
+
+<h3>The "Ansi" application</h3>
+Traditionally the way to do this for programmers who had no need to
+represent non-Roman characters (typically "Western" languages) was to
+call only the Ansi APIs instead of their Unicode counterparts.  This was
+the obvious solution because the Unicode versions of the APIs were mostly not
+available under Windows 95, 98 and ME.  And who needed the Unicode versions
+anyway, since Western languages didn't have to use Unicode?  Doing this resulted
+in what could be described as an "Ansi application".  Such applications worked
+fine both under Windows 95, 98 and ME and Windows NT, 2000 and XP platforms.
+But it surprises developers to be told that these applications only work 
+naturally under Windows 95, 98 and ME.  If you call an Ansi API under Windows NT 
+2000 and XP, the system actually ends up calling the Unicode version of the 
+API.  In order to do this it needs to convert the Ansi strings to Unicode
+and also any output from the API from Unicode to Ansi. So if under XP you call
+MessageBoxA, the Ansi string you pass to that API is converted to Unicode
+and the system calls MessageBoxW instead.
+
+<h3>A new approach: the "Unicode" application</h3>
+With the enlarged support for multilingual applications and almost exclusive
+use of Unicode in the operating system, Microsoft recommends that developers 
+now do the opposite of the above. 
+<br>It is now recommended that developers make all their applications using
+the Unicode versions of the APIs.  But you may say, "if I do that my application
+will not run under Windows 95, 98 and ME because those Windows versions
+do not support the Unicode APIs".  Well this is where the Microsoft Layer 
+for Unicode (or "mslu") comes in.  The mslu is contained in a Dll called
+"unicows.dll".  This is redistributable, so the intention is that you 
+will ship this with your executable for placement in the same folder as
+your executable.
+
+<h3>What unicows.dll does</h3>
+Basically unicows.dll acts as a wrapper around the Ansi APIs so that
+they can be called as Unicode APIs under Windows 95, 98 and ME. Provided
+unicows.dll is installed, you can call the Unicode APIs from your application
+without worrying that they may return with the dreaded error code 120 decimal
+("ERROR_CALL_NOT_IMPLEMENTED").  Instead when you call for example,
+CreateWindowExW under Windows 95, 98 or ME the Unicode strings that you pass 
+to the API will be converted by unicows.dll to Ansi strings, and then 
+unicows.dll will call CreateWindowExA instead.
+
+<h3>Unicows.dll ought not to be involved under Windows NT, 2000 and XP</h3>
+Under Windows NT, 2000 and XP, if your application is properly linked,
+unicows.dll will not get involved at all and will not even be loaded into
+memory.  The application calls the Unicode APIs in the correct system Dlls 
+directly.  So what is happening here is that under Windows 95, 98 and ME 
+unicows.dll is called, but under NT, 2000 and XP unicows.dll is not called 
+and the system Dll is called instead.
+  
+<h3>How the switching is achieved</h3>
+Not all tools can achieve this.  It is achieved by the linker inserting
+in your application's code some special "mslu loader" code.  This loader
+code causes the switch to occur.  And since in the executable unicows.dll is 
+never named as a Dll holding imports for the application, but is loaded 
+using LoadLibrary under Windows 95, 98 and ME only, it is not loaded at all 
+at load-time under NT, 2000 and XP.
+<p>The way Microsoft gets this loader code into your application is via
+unicows.lib at link-time.  Unfortunately not all tools support this and
+applications written with some tools will still have to call
+unicows.dll even when running under NT, 2000 or XP.  In this case the 
+switching is done inside unicows.dll itself.  Unicows.dll knows the version
+of Windows being used and will simply pass on the call to the appropriate
+system Dll under NT, 2000 or XP.  The disadvantage of this method is that
+when unicows.dll loads, it also loads a number of other Dlls on which it
+relies.  This, and the extra switching involved, slows down the application.
+<p>C and C++ programmers can use unicows.lib at link-time.  Unfortunately
+the file is enormous and must slow down the linking process.  
+<p>Using GoLink
+you can add the mslu loader code very simply.  Just add the <b>/mslu</b> switch to 
+the GoLink command line or file.  GoLink does not use unicows.lib but has its own
+code instead.  Since GoLink is written wholly in assembler, this code
+works fast and is small, at less than 800 bytes plus a dword for each API
+within unicows.dll which has to be dealt with.  This therefore provides a 
+simple way to add an mslu loader to your application so that you can use 
+unicows.dll fully, and make just one application to work under all versions 
+of Windows.
+
+<h3>How the mslu loader works: Microsoft</h3>
+Microsoft's loader is a wrapper (within your executable) for each API which 
+is known potentially to be dealt with by unicows.dll.  When your application
+calls one of these APIs it enters the wrapper.  The wrapper checks what
+platform the application is running on and if it is NT, 2000 or XP the
+system Dll is called directly.  If not, then if unicows.dll has not yet
+been loaded, an attempt is made to load it.  If successful, the API is
+called within unicows.dll rather than in the system Dll.
+
+<h3>How the mslu loader works: GoLink</h3>
+GoLink's loader code does not work in the same way as Microsoft's.  GoLink's 
+code is simpler because it has the advantage of being able directly to 
+manipulate the contents of the executable at link-time, whereas the MS 
+loader has to do this via unicows.lib.
+<br><b>In Exe files</b> GoLink's loader code (within the Exe) is 
+only called once just after the application loads and it is not called again
+(the beginning of the loader code is given to the system as the entry address 
+for the application).  After the loader code has run, execution continues
+at the original entry point.
+<br><b>In Dlls</b> the arrangement is slightly different because the loader
+code cannot be run from the Dlls entry point when the Dll attaches.
+Instead, GoLink creates a function within the Dll called MSLU_LOADER.  Your
+application has the responsibility of calling this loader before using
+any function in the Dll which might require unicows.dll.  The loader should
+only be called once.  A convenient time to call MSLU_LOADER is just after
+your main Exe starts.  Use the syntax CALL&nbsp;&nbsp;<i>DllName</i>:MSLU_LOADER 
+or just CALL&nbsp;&nbsp;MSLU_LOADER.
+<br>The first job of GoLink's mslu loader is to check whether 
+the application is running under Windows NT, 2000 or XP.  If so, the loader 
+has no more work to do and simply hands control back to the application by 
+(in an Exe) jumping to the original starting address, or (in a Dll) returning.
+The application then works
+normally without needing unicows.dll.  But if the mslu loader finds that 
+the application is running under Windows 95, 98 or ME, it needs to do some 
+work.  
+
+<h4>Loading unicows.dll</h4>
+Firstly, the loader tries to load unicows.dll using LoadLibrary.  In the first instance it
+looks for this in the same folder as the application itself.  Microsoft
+recommends that unicows.dll is placed there.  This is to try to avoid
+problems with updated versions of unicows.dll being elsewhere on the machine.
+This is sensible because you tested your application using a particular
+version of unicows.dll and so you will want that version to be used at
+run-time.  See also <a href="#changen">changing the name of unicows.dll</a>.
+The actual search order is:-
+<br>1. the directory from which the application was started
+<br>2. if different, the current directory
+<br>3. the windows system directory
+<br>4. the windows directory
+<br>5. directories listed in the PATH environment variable.
+
+<h4>Overwriting the call stubs for the APIs found at link-time</h4>
+If unicows.dll is loaded successfully, then GoLink's mslu loader examines a 
+list of APIs given to it by the linker.  This list was created at link-time 
+and is contained within the executable.  It contains all those API
+calls for which unicows.dll was known at link-time to provide a wrapper.
+The GoLink loader looks for these APIs within unicows.dll as loaded.  
+Using a list acts is an important check on the version and integrity of 
+unicows.dll found at run-time.  As each API is found within unicows.dll the 
+loader writes its address in the application's call stubs which are
+in the memory image in the application's address space (in the Import Address
+Table).  These have
+already been written to by the system loader, but they hold the addresses
+of the API calls for the ordinary system Dlls.  These have to be changed
+to the addresses of the APIs in unicows.dll.  Once that is done, if the
+application calls one of these APIs it will call unicows.dll instead of 
+calling the system Dll directly.  There will still be many APIs which
+are not dealt with by unicows.dll and these will continue to be called
+using the address provided by the system loader.
+The result of this process is that under Windows 95, 98 and ME the 
+application will rely on unicows.dll to work properly.
+
+<h3>Mslu loader error messages</h3>
+Unlike the Microsoft loader, GoLink provides optional error messages 
+to the user if unicows.dll is not found, is found but is found damaged or 
+if it does not contain the APIs which it was found to contain at link-time.
+These messages are given to the user by using a message box in a GUI
+application or using the console in a console application.  In GoLink
+using the <b>/msluerr <i>filename</i></b> switch you can override this 
+message and provide your own text  which will be displayed on the happening 
+of one of these events.  Using the <b>/msluerr off</b> switch you can also
+stop the error message altogether, so that your application can continue 
+to run even if there is a problem with unicows.dll.
+
+<a NAME="changen"></a><h3>Changing the name of unicows.dll</h3>
+You may wish to ensure that the version of unicows.dll that you ship with 
+your application will not get mixed up with other versions of the Dll
+which may be on the destination computer.  You tested your application on 
+the version you shipped and you will want your application to use that file 
+only.  Changing the name of unicows.dll was suggested by Michael Kaplan 
+(principal developer for mslu) and Cathy Wissack (a Program Manager at 
+Microsoft) in their article <a href="http://msdn.microsoft.com/msdnmag/issues/01/10/MSLU/default.aspx">
+"MSLU: Develop Unicode Applications for Windows 9x Platforms with the Microsoft
+Layer for Unicode"</a>.  I have checked and double-checked with Michael Kaplan 
+that changing the name of unicows.dll and then distributing it is lawful 
+and not in breach of Microsoft's licence or copyright.
+If you do change the name, obviously you must tell the mslu loader code
+the new name for the file so that it loads the correct file at run-time.  
+In GoLink you do this by specifying <b>/msludll <i>newfilename</i></b> in the
+command line or file.  This also has the effect of amending the error messages if
+the file is not found or is found damaged or in the wrong version.  The
+filename in those messages is changed and the reference to downloading
+unicows.dll from the Microsoft site is omitted to avoid confusing the 
+user.
+
+<h3>Choosing to use unicows.dll but not the mslu loader</h3>
+What if you do not want the mslu loader in your executable, can you
+still use unicows.dll?  Yes!  However, there will be no run-time switching
+by your application.  You will be relying on the switching within unicows.dll
+itself.  This works perfectly well but the disadvantage is that
+when running under Windows NT, 2000 or XP your application will have to
+load unicows.dll into memory.  Although unicows.dll is not large, it does
+also load other Dlls as it itself loads, reducing the overall speed of
+loading.  And you will have to make sure that unicows.dll is shipped with
+your application even for use under Windows NT, 2000 or XP.
+<br>To use unicows.dll in this way with GoLink you need to take just
+two steps.  Remove or comment out the /mslu switch in the command file.  
+And specify unicows.dll in the command file, making sure it is the very 
+first Dll listed (GoLink looks for the API names in the Dlls in the
+order in which they are listed and once found will not look again).
+
+<h3>Overriding the mslu action for selected APIs</h3>
+You may prefer to use your own wrapper code for certain APIs rather than
+use the wrapper within unicows.dll.  Eventually, though, your wrapper will probably
+need to call the appropriate Windows API.  Now if this API is itself available
+from unicows.dll, if the /mslu switch is specified at link-time and the
+application is being run under Windows 95, 98 or ME, the MSLU 
+loader will cause the API within unicows.dll to be called by your wrapper 
+rather than the API within the usual system Dll as you may have intended.
+To avoid this happening you can force GoLink under all circumstances to 
+link to the API in a specified Dll.  This can be done  using the syntax 
+<i>NameOfDll:NameOfAPI</i> (this is similar to the syntax used to import 
+by ordinal <i>OrdinalNumber:NameOfAPI</i>).
+For example if you do not want to call EnableWindow within unicows.dll 
+under any circumstances, you would use User32:EnableWindow.  This ensures that
+only EnableWindow in User32.dll is called at run-time even if the
+application is running under Windows 95, 98 or ME and the /mslu switch
+is used at link-time.
+
+<h3>Where to get unicows.dll</h3>
+Unicows.dll can be obtained from Microsoft from 
+<a href="http://www.microsoft.com/msdownload/platformsdk/sdkupdate/psdkredist.htm">here</a>.
+
+<a NAME="arts"></a><h3>More information and links</h3>
+<a href="http://www.unicode.org">The Unicode Consortium</a>.
+<p><b>Newsgroups:-</b>
+<br><a href="news://msnews.microsoft.com/microsoft.public.platformsdk.mslayerforunicode">MSDN mslu newsgroup</a>
+<br><a href="news://msnews.microsoft.com/microsoft.public.win32.programmer.international">MSDN international newsgroup</a>
+<p><b>Various MSJ/MSDN articles:-</b>
+<br><a href="http://msdn.microsoft.com/msdnmag/issues/01/10/MSLU/default.aspx">
+"MSLU: Develop Unicode Applications for Windows 9x Platforms with the Microsoft
+Layer for Unicode"</a> by Michael Kaplan and Cathy Wissink (October 2001).
+<br><a href="http://www.microsoft.com/msj/0499/multilangUnicode/multilangunicode.htm">
+"Design a Single Unicode App that Runs on Both Windows 98 and Windows 2000"</a>
+by F Avery Bishop (April 1999).
+<br><a href="http://www.microsoft.com/msj/1198/multilang/multilang.htm">
+"Supporting Multilanguage Text Layout and Complex Scripts with Windows NT 5.0"</a> 
+by F Avery Bishop, David C Brown and Davis M Meltzer (November 1998).
+
+<h3>Microsoft Legal stuff for unicows.dll</h3>
+Microsoft expect you to adopt its own terms of licence to apply to the
+distribution of unicows.dll.  The safest bet is probably to make it
+clear to the user that unicows.dll (or the file as renamed) is a Microsoft 
+file and is subject to the Microsoft terms of 
+<a href="MSLULicense.txt">licence</a> and <a href="MSLURedist.txt">terms 
+of redistribution</a>.
+Unfortunately the licence is not at all in "plain English", so that
+any attempt to incorporate its terms into your own licence terms could be
+troublesome and dangerous.  It is probably prudent therefore, simply to
+pass on the files License.txt and Redist.txt (which come with unicows.dll)
+to the user asking them to comply with them.
+
+<p><i>This article was written from a "Go" tools perspective and may not
+apply to other tools.  You use the information here at your own risk,
+the author taking no responsibility for errors in this file nor in GoLink</i>.
+
+<p>Copyright Jeremy Gordon 2002/3 [MrDuck Software]
+</BODY>
+</HTML>
+

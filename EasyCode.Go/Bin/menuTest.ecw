@@ -1,0 +1,351 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = menuTest
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3690
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 122
+  MenuString      = 0,&File,,,0,0,0|1,&Open,OPEN,,0,0,0|1,&Exit,EXIT,,0,0,0|0,&Help,,,0,0,0|1,&Preferences,PREFS,,0,0,0|1,&About,ABOUT,,0,0,0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Window1
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 5430
+  Begin Radio = Radio2
+    Auto            = 1
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1003
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 315
+    Left            = 390
+    LeftText        = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000109
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    TabStop         = 0
+    Text            = Radio 2
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 1185
+    Value           = 0
+    Visible         = 1
+    Width           = 1605
+  End
+  Begin Button = btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1002
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 570
+    ImageType       = -1
+    Left            = 2415
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    TabStop         = 1
+    Text            = Button1
+    ToolTipText     = 
+    Top             = 675
+    Visible         = 1
+    Width           = 2505
+  End
+  Begin Radio = Radio1
+    Auto            = 1
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 315
+    Left            = 390
+    LeftText        = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000109
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 0
+    Text            = Radio 1
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 525
+    Value           = 0
+    Visible         = 1
+    Width           = 1605
+  End
+  Begin ProgressBar = ProgressBar1
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    ForeColor       = 0x8000000D
+    Height          = 345
+    Left            = 390
+    MaxValue        = 100
+    MinValue        = 0
+    NormalStyle     = 0x54000000
+    Orientation     = 0
+    Scrolling       = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    ToolTipText     = 
+    Top             = 2310
+    Value           = 100
+    Visible         = 1
+    Width           = 4470
+  End
+End
+
+.Const
+
+.Data
+
+MENUTEST_MESSAGES	DD WM_CREATE, OnmenuTestCreate
+					DD WM_CLOSE, OnmenuTestClose
+					DD WM_COMMAND, OnmenuTestCommand
+
+lpszBuffer			DB 100H Dup 0
+lpszSvPack			DB 100H Dup 0
+lpBuffer1			DB MAX_PATH Dup 0 ; length should be referred to MAX_PATH
+lpBuffer2			DB MAX_PATH Dup 0
+nBuffer1Length		DD MAX_PATH
+nBuffer2Length		DD MAX_PATH
+
+hProgressBar1		DD ?
+hRadio1				DD ?
+
+myStringVar			DB 100H Dup 0
+
+.Code
+
+menuTestProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MENUTEST_MESSAGES / 8
+	Mov Edx, Addr MENUTEST_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+OnmenuTestCommand: UseData menuTestProcedure
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_MENUTEST_OPEN		; Is this File|Open?
+		Jnz >>.fileExit
+
+	; File|Open so process
+	Invoke MessageBoxA, [hWnd], 'You clicked File|Open', 'Menu Test', MB_OK
+
+	Return (TRUE)
+
+.fileExit
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_MENUTEST_EXIT		; Is this File|Exit?
+		Jnz >>.helpPreferences
+
+	; File|Exit? so process
+	Invoke MessageBoxA, [hWnd], 'You clicked File|Exit', 'Menu Test', MB_OK
+
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0 ;exit message
+
+	Return (TRUE)
+
+.helpPreferences
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_MENUTEST_PREFS		; Is this Help|Preferences?
+		Jnz >>.helpAbout
+
+	; File|Exit? so process
+	Invoke MessageBoxA, [hWnd], 'You clicked Help|Preferences', 'Menu Test', MB_OK
+
+	Return (TRUE)
+
+.helpAbout
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_MENUTEST_ABOUT		; Is this Help|About
+		Jnz >>.btn1
+
+	; File|Exit? so process
+	Invoke MessageBoxA, [hWnd], 'You clicked Help|About', 'Menu Test', MB_OK
+
+	Invoke GetAppVersion, Addr lpszBuffer
+
+	Invoke MessageBoxA, [hWnd], Addr lpszBuffer, 'Menu Test', MB_OK
+
+	Invoke GetPlatform, Addr lpszSvPack
+
+	Invoke MessageBoxA, [hWnd], Addr lpszSvPack, 'Menu Test', MB_OK
+
+	Invoke GetCurrentDirectory, [nBuffer1Length], Addr lpBuffer1
+
+	Invoke GetLongPathName, Addr lpBuffer1, Addr lpBuffer2, [nBuffer2Length]
+
+	Mov Ecx, 50000000
+	Mov Edx, 0
+
+	.loop1
+
+	Push Ecx, Edx
+	Invoke SetValue, [hProgressBar1], Edx
+	Pop Edx, Ecx
+
+		.loop2
+		Nop
+		Loop .loop2
+
+	; Invoke Sleep, 10
+
+	Mov Ecx, 50000000
+	Inc Edx
+
+	Cmp Edx, 101
+	Jne .loop1
+
+.btn1
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDC_MENUTEST_BTN1		; Is this BTN1?
+		Jnz >>.exitProcedure
+
+	; This IS button 1 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure		; Button 1 but not left click
+
+	; File|Exit? so process
+	Invoke MessageBoxA, [hWnd], 'You clicked BTN1', 'Menu Test', MB_OK
+
+	Invoke GetValue, [hRadio1] 	; BST_CHECKED Or BST_UNCHECKED
+	Invoke String, Eax, Addr myStringVar, ecHexa
+	Invoke MessageBoxA, [hWnd], Addr myStringVar, 'Menu Test', MB_OK
+
+.exitProcedure
+
+	Return (TRUE)
+
+EndU
+
+OnmenuTestCreate: UseData menuTestProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Invoke GetWindowItem, [hWnd], IDC_MENUTEST_RADIO1
+	Mov [hRadio1], Eax
+
+	Invoke GetWindowItem, [hWnd], IDC_MENUTEST_PROGRESSBAR1
+	Mov [hProgressBar1], Eax
+	Invoke SetValue, [hProgressBar1], 0
+
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnmenuTestClose: UseData menuTestProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+
+menuTestProgressBar1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+menuTestRadio1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+menuTestbtn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+menuTestRadio2 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF

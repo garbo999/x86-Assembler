@@ -1,0 +1,291 @@
+;Do not edit or modify this file!!!
+Easy Code
+Begin MDIWindow = wndMDIMain
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000C
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 2
+  ClientEdge      = 1
+  ClipChildren    = 1
+  ClipSiblings    = 0
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  Enabled         = 1
+  ExStyle         = 0x00040200
+  Height          = 6090
+  IconBig         = IDI_APP_ICON
+  IconSmall       = IDI_APP_ICON
+  ImageType       = -1
+  Left            = 0
+  MaximizeBox     = 1
+  Menu            = 256
+  MenuString      = 0,&File,,,0,0|1,Show MDI child &A,SHOW_CHILD_A,Ctrl+A,0,0|1,Show MDI child &B,SHOW_CHILD_B,Ctrl+B,0,0|1,-,,,0,0|1,&Exit,EXIT,,0,0|0,&View,,,0,0|1,&Tool bar,TOOLBAR,,1,0|1,&Status bar,STATUSBAR,,1,0|0,&Status bar,,,0,0|1,&Simple text,SIMPLE_TEXT,Ctrl+S,0,0
+  MinimizeBox     = 1
+  NormalStyle     = 0x52CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 3
+  ShowMode        = 0
+  Text            = MDI Window application
+  TimerInterval   = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 9210
+  Begin ToolBar = ToolBar1
+    Align           = 1
+    AllowCustomize  = 0
+    BitmapFile      = IDB_TOOLBAR
+    Buttons         = 2
+    ButtonHeight    = 38
+    ButtonWidth     = 60
+    ButtonStruct    = 0,1,4,0,0,0,1,2,4,0,0,1
+    ButtonStrings   = IDS_A,IDS_B
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    Height          = 630
+    ImageHeight     = 16
+    Images          = 2
+    ImageWidth      = 16
+    Left            = 0
+    NoDivider       = 1
+    NormalStyle     = 0x54000A4A
+    NoTooltips      = 0
+    Style           = 1
+    TabOrder        = 0
+    Top             = 0
+    Visible         = 1
+    Width           = 9090
+    Wrappable       = 1
+  End
+  Begin StatusBar = StatusBar1
+    Align           = 2
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    Height          = 300
+    Left            = 0
+    NormalStyle     = 0x5400030E
+    Pannels         = 3
+    PannelStruct    = 50,0,IDS_PANNEL1,55,0,IDS_PANNEL2,-1,0,IDS_PANNEL3
+    RightToLeft     = 0
+    SimpleText      = IDS_SIMPLE_TEXT
+    SizeGrip        = 1
+    Style           = 0
+    TabOrder        = 1
+    Top             = 5385
+    Visible         = 1
+    Width           = 9090
+  End
+End
+
+.Const
+
+.Data
+
+MESSAGES		DD	WM_CREATE, OnCreate
+				DD	WM_NOTIFY, OnNotify
+				DD	WM_COMMAND, OnCommand
+
+hwndToolTips	DD	NULL
+
+.Code
+
+wndMDIMainProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MESSAGES / 8
+	Mov Edx, Addr MESSAGES
+:	Dec Ecx
+	Js >L1
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L1:	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnCreate:
+	UseData wndMDIMainProcedure
+	;Get tool tips handle (from the ToolBar control)
+	;and store it in a variable for further use
+	Invoke GetWindowItem, [hWnd], IDC_WNDMDIMAIN_TOOLBAR1	;Get ToolBar handle in Eax
+	Invoke SendMessage, Eax, TB_GETTOOLTIPS, 0, 0			;Get tool tips handle in Eax
+	Mov [hwndToolTips], Eax									;Store it in 'hwndToolTips'
+	Return (TRUE)
+EndU
+
+OnNotify:
+	UseData wndMDIMainProcedure
+	Local uiID:D
+	
+	;Process tool tips
+	Mov Ebx, [lParam]
+	Cmp D[Ebx + NMHDR.code], TTN_NEEDTEXT
+	Jne > L2
+	;===========================================================
+	; These two lines of code are necessary only when more than
+	; one control may need text. In this application they could
+	; be removed as only the ToolBar control will ask for text.
+	;===========================================================
+	Mov Eax, [Ebx + NMHDR.hwndFrom]				;Check if it's tool tips handle
+	Cmp Eax, [hwndToolTips]						;from the to ToolBar control
+	Jne >L2
+	Mov Esi, [lParam]
+	Mov D[uiID], IDS_TEXT_A
+	Cmp D[Esi + TOOLTIPTEXT.hdr.idFrom], 1		;Is it button 1 (A)?
+	Je >L1
+	Mov D[uiID], IDS_TEXT_B
+	Cmp D[Esi + TOOLTIPTEXT.hdr.idFrom], 2		;Is it button 2 (B)?
+	Je >L1 ;wmn2
+	Mov D[uiID], IDS_TEXT_B
+	Mov D[uiID], 0
+
+L1:	Mov Eax, [uiID]
+	Mov [Esi + TOOLTIPTEXT.lpszText], Eax
+	Mov Eax, [App.Instance]
+	Mov [Esi + TOOLTIPTEXT.hInst], Eax
+	Mov Eax, TRUE
+	Ret
+
+L2:	Xor Eax, Eax
+	Ret
+EndU
+
+OnCommand:
+	UseData wndMDIMainProcedure
+	;Get the tool bar handle
+	;and store it in Ebx
+	Invoke GetWindowItem, [hWnd], IDC_WNDMDIMAIN_TOOLBAR1
+	Mov Ebx, Eax
+	;Get low word of wParam in Eax (in fact
+	;in Ax) needed for accelerators to work
+	Mov Eax, [wParam]
+	Cmp Ebx, [lParam]	;Is lParam the tool bar handle?
+	Jne >L1
+	;The tool bar button commands are processed here. The low
+	;word of wParam is the button index in Custom properties
+	Cmp Ax, 1	;Button index number in Tool bar Custom properties
+	Jne >
+	;The string passed to Create method is
+	;the name of the window to be created
+	Invoke Create, "wndChildA", [hWnd], 0, 0
+	Jmp >>L2
+
+:	Cmp Ax, 2	;Button index number in Tool bar Custom properties
+	Je >
+	Xor Eax, Eax
+	Ret
+	;The string passed to Create method is
+	;the name of the window to be created
+:	Invoke Create, "wndChildB", [hWnd], 0, 0
+	Jmp >>L2
+
+L1:	;Process menu commands
+	Cmp Ax, IDM_WNDMDIMAIN_SHOW_CHILD_A
+	Jne >
+	;The string passed to Create method is
+	;the name of the window to be created
+	Invoke Create, "wndChildA", [hWnd], 0, 0
+	Jmp >>L2
+
+:	Cmp Ax, IDM_WNDMDIMAIN_SHOW_CHILD_B
+	Jne >
+	;The string passed to Create method is
+	;the name of the window to be created
+	Invoke Create, "wndChildB", [hWnd], 0, 0
+	Jmp >>L2
+
+:	Cmp Ax, IDM_WNDMDIMAIN_EXIT
+	Jne >
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	Jmp >>L2
+
+:	Cmp Ax, IDM_WNDMDIMAIN_TOOLBAR
+	Jne >
+	Invoke GetWindowItem, [hWnd], IDC_WNDMDIMAIN_TOOLBAR1
+	Mov Ebx, Eax
+	Invoke GetVisible, Eax
+	Neg Eax		; This two instructions convert
+	Inc Eax		; toggle between TRUE and FALSE
+	Push Eax	; Save visible state
+	Invoke SetVisible, Ebx, Eax
+	Pop Eax		; Restore visible state
+	;Check/uncheck the menu item according to visible state
+	Invoke CheckMenu, IDM_WNDMDIMAIN_TOOLBAR, Eax
+	Jmp >>L2
+
+:	Cmp Ax, IDM_WNDMDIMAIN_STATUSBAR
+	Jne >
+	Invoke GetWindowItem, [hWnd], IDC_WNDMDIMAIN_STATUSBAR1
+	Mov Ebx, Eax
+	Invoke GetVisible, Eax
+	Neg Eax		; This two instructions convert
+	Inc Eax		; toggle between TRUE and FALSE
+	Push Eax	; Save visible state
+	Invoke SetVisible, Ebx, Eax
+	Pop Eax		; Restore visible state
+	;Check/uncheck the menu item according to visible state
+	Invoke CheckMenu, IDM_WNDMDIMAIN_STATUSBAR, Eax
+	Jmp >L2
+
+:	Cmp Ax, IDM_WNDMDIMAIN_SIMPLE_TEXT
+	Je >
+	Xor Eax, Eax
+	Ret
+:	;Get StatusBar1 handle
+	;and store it in Ebx
+	Invoke GetWindowItem, [hWnd], IDC_WNDMDIMAIN_STATUSBAR1
+	Mov Ebx, Eax
+	;Get main menu handle
+	Invoke GetMenu, [App.Main]
+	Invoke GetMenuState, Eax, IDM_WNDMDIMAIN_SIMPLE_TEXT, MF_BYCOMMAND
+	And Eax, MF_CHECKED
+	Cmp Eax, MF_CHECKED
+	Jne >
+	;Sets simple text = FALSE, so Simple
+	;text is hidden and Pannels are shown
+	Invoke SendMessage, Ebx, SB_SIMPLE, FALSE, 0
+	Invoke CheckMenu, IDM_WNDMDIMAIN_SIMPLE_TEXT, FALSE
+	Jmp >L2
+
+:	;Sets simple text = TRUE, so Simple
+	;text is shown and Pannels are hidden
+	Invoke SendMessage, Ebx, SB_SIMPLE, TRUE, 0
+	Invoke CheckMenu, IDM_WNDMDIMAIN_SIMPLE_TEXT, TRUE
+
+L2:	Mov Eax, TRUE
+	Ret
+EndU
+
+CheckMenu Frame uiMenu, bChecked
+	;Get main menu handle
+	;and store it in Ebx
+	Invoke GetMenu, [App.Main]
+	Mov Ebx, Eax
+	;Add the corresponding flag
+	;according to checked state
+	Mov Eax, MF_CHECKED
+	Cmp D[bChecked], 0
+	Jne >
+	Mov Eax, MF_UNCHECKED
+:	;Add MF_BYCOMMAND flag because
+	;the menu IDentifier is passed
+	Or Eax, MF_BYCOMMAND
+	Invoke CheckMenuItem, Ebx, [uiMenu], Eax
+	Ret
+EndF

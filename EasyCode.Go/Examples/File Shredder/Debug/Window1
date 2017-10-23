@@ -1,0 +1,255 @@
+#ifdef UNICODE
+	#undef UNICODE
+#endif
+#ifdef DEBUG
+	#undef DEBUG
+#endif
+
+STRINGS ANSI
+#define TEXT(x) x
+#define DSS DB
+#define CHARSIZE 1
+#define DEBUG 1
+
+#include "windows.inc"
+#include "ECIncGo.h"
+#include "ECResFile.inc"
+#include "ECMacros.asm"
+
+StartErrorHandler(%1) MACRO
+	mov eax,%1
+	mov [Error.dwEip], eax
+	mov [Error.dwEbp], ebp
+	push Offset ECErrorHandle
+	fs push[0]
+	mov [Error.dwEsp],esp
+	fs mov[0],esp
+ENDM
+
+EndErrorHandler MACRO
+	fs pop[0]
+	add esp,4
+ENDM
+
+
+.data
+
+align 4
+
+IDR_EC_Window1_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_NAME	DB	'Window1',0
+IDR_EC_Window1_TEXT	DB	'BieberWorks File Shredder',0
+IDR_EC_Window1_AboutButton_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_AboutButton_NAME	DB	'AboutButton',0
+IDR_EC_Window1_AboutButton_TEXT	DB	'About',0
+IDR_EC_Window1_AboutButton_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_ShredButton_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_ShredButton_NAME	DB	'ShredButton',0
+IDR_EC_Window1_ShredButton_TEXT	DB	'Shred It!',0
+IDR_EC_Window1_ShredButton_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Static3_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Static3_NAME	DB	'Static3',0
+IDR_EC_Window1_Static3_TEXT	DB	'Pass',0
+IDR_EC_Window1_Static3_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_PassBar_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_PassBar_NAME	DB	'PassBar',0
+IDR_EC_Window1_PassBar_TEXT	DB	0
+IDR_EC_Window1_PassBar_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Static2_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Static2_NAME	DB	'Static2',0
+IDR_EC_Window1_Static2_TEXT	DB	'Overall',0
+IDR_EC_Window1_Static2_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_TotalBar_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_TotalBar_NAME	DB	'TotalBar',0
+IDR_EC_Window1_TotalBar_TEXT	DB	0
+IDR_EC_Window1_TotalBar_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Static1_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Static1_NAME	DB	'Static1',0
+IDR_EC_Window1_Static1_TEXT	DB	'Passes',0
+IDR_EC_Window1_Static1_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_PassSlider_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_PassSlider_NAME	DB	'PassSlider',0
+IDR_EC_Window1_PassSlider_TEXT	DB	0
+IDR_EC_Window1_PassSlider_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_BrowseButton_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_BrowseButton_NAME	DB	'BrowseButton',0
+IDR_EC_Window1_BrowseButton_TEXT	DB	'Browse',0
+IDR_EC_Window1_BrowseButton_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_FileBox_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_FileBox_NAME	DB	'FileBox',0
+IDR_EC_Window1_FileBox_TEXT	DB	0
+IDR_EC_Window1_FileBox_TOOLTIPTEXT	DB	0
+
+IDR_EC_Window1_DATA	DD	0,0,08000000Fh,0,0,0,3,0,0
+		DD	0,0,1,1,0,0,0,0,offset IDR_EC_Window1_FONT
+		DD	8,0,0,80000012h,0,2415,0,0,0
+		DD	0,0,-1,0,0,0,1,0,0,0
+		DD	offset IDR_EC_Window1_NAME,0,0,0,1,0,0
+		DD	0,1,0,0,0,0,0,offset IDR_EC_Window1_TEXT,0,0,0,0
+		DD	0,0,3,0,1,4725,offset Window1Procedure
+		DD	0,0,10,0,00040100h,16C80000h,0,offset IDR_EC_Window1_DATA
+
+IDR_EC_Window1_AboutButton_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_AboutButton_FONT
+			DD	8,0,0,80000012h,0,300,0,0,0,0,0,-1,0,0
+			DD	3960,0,0,0,offset IDR_EC_Window1_AboutButton_TOOLTIPTEXT,Offset IDR_EC_Window1_AboutButton_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	9,1,offset IDR_EC_Window1_AboutButton_TEXT,0,0,0,0,1620
+			DD	1,7,0,1,660,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_Window1_ShredButton_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_ShredButton_FONT
+			DD	8,0,0,80000012h,0,300,0,0,0,0,0,-1,0,0
+			DD	60,0,0,0,offset IDR_EC_Window1_ShredButton_TOOLTIPTEXT,Offset IDR_EC_Window1_ShredButton_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	8,1,offset IDR_EC_Window1_ShredButton_TEXT,0,0,0,0,1620
+			DD	1,7,0,1,3900,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_Window1_Static3_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Static3_FONT
+			DD	8,0,0,80000012h,0,180,0,0,0,0,0,-1,0,0
+			DD	60,0,0,0,offset IDR_EC_Window1_Static3_TOOLTIPTEXT,Offset IDR_EC_Window1_Static3_NAME,0
+			DD	0,0,0,0,0,0,1,255,0,0
+			DD	7,0,offset IDR_EC_Window1_Static3_TEXT,0,0,0,0,1320
+			DD	0,4,0,1,600,0,0,0,0,0
+			DD	00000010h,5400010Ch,0,0
+
+IDR_EC_Window1_PassBar_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_PassBar_FONT
+			DD	8,0,0,8000000Dh,0,300,0,0,0,0,0,-1,0,0
+			DD	660,0,0,0,offset IDR_EC_Window1_PassBar_TOOLTIPTEXT,Offset IDR_EC_Window1_PassBar_NAME,0
+			DD	0,0,0,0,0,0,1,100,0,0
+			DD	6,0,offset IDR_EC_Window1_PassBar_TEXT,0,0,0,0,1260
+			DD	0,21,0,1,3840,0,0,0,0,0
+			DD	00020210h,54000000h,0,0
+
+IDR_EC_Window1_Static2_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Static2_FONT
+			DD	8,0,0,80000012h,0,180,0,0,0,0,0,-1,0,0
+			DD	60,0,0,0,offset IDR_EC_Window1_Static2_TOOLTIPTEXT,Offset IDR_EC_Window1_Static2_NAME,0
+			DD	0,0,0,0,0,0,1,255,0,0
+			DD	5,0,offset IDR_EC_Window1_Static2_TEXT,0,0,0,0,960
+			DD	0,4,0,1,540,0,0,0,0,0
+			DD	00000010h,5400010Ch,0,0
+
+IDR_EC_Window1_TotalBar_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_TotalBar_FONT
+			DD	8,0,0,8000000Dh,0,300,0,0,0,0,0,-1,0,0
+			DD	660,0,0,0,offset IDR_EC_Window1_TotalBar_TOOLTIPTEXT,Offset IDR_EC_Window1_TotalBar_NAME,0
+			DD	0,0,0,0,0,0,1,100,0,0
+			DD	4,0,offset IDR_EC_Window1_TotalBar_TEXT,0,0,0,0,900
+			DD	0,21,0,1,3840,0,0,0,0,0
+			DD	00020210h,54000000h,0,0
+
+IDR_EC_Window1_Static1_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Static1_FONT
+			DD	8,0,0,80000012h,0,180,0,0,0,0,0,-1,0,0
+			DD	60,0,0,0,offset IDR_EC_Window1_Static1_TOOLTIPTEXT,Offset IDR_EC_Window1_Static1_NAME,0
+			DD	0,0,0,0,0,0,1,255,0,0
+			DD	3,0,offset IDR_EC_Window1_Static1_TEXT,0,0,0,0,540
+			DD	0,4,0,1,540,0,0,0,0,0
+			DD	00000010h,5400010Ch,0,0
+
+IDR_EC_Window1_PassSlider_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_PassSlider_FONT
+			DD	8,0,0,00000000h,0,480,0,0,0,0,0,-1,0,0
+			DD	600,0,0,0,offset IDR_EC_Window1_PassSlider_TOOLTIPTEXT,Offset IDR_EC_Window1_PassSlider_NAME,0
+			DD	0,0,0,0,0,0,1,30,0,0
+			DD	2,1,offset IDR_EC_Window1_PassSlider_TEXT,0,0,0,0,420
+			DD	1,22,0,1,3900,0,0,0,0,0
+			DD	00000010h,54000101h,0,0
+
+IDR_EC_Window1_BrowseButton_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_BrowseButton_FONT
+			DD	8,0,0,80000012h,0,300,0,0,0,0,0,-1,0,0
+			DD	3840,0,0,0,offset IDR_EC_Window1_BrowseButton_TOOLTIPTEXT,Offset IDR_EC_Window1_BrowseButton_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	1,1,offset IDR_EC_Window1_BrowseButton_TEXT,0,0,0,0,60
+			DD	1,7,0,1,720,0,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_Window1_FileBox_DATA	DD	0,0,080000005h,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_FileBox_FONT
+			DD	8,0,0,80000008h,0,300,0,0,0,0,0,-1,0,0
+			DD	60,0,0,0,offset IDR_EC_Window1_FileBox_TOOLTIPTEXT,Offset IDR_EC_Window1_FileBox_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	0,1,offset IDR_EC_Window1_FileBox_TEXT,0,0,0,0,60
+			DD	0,5,0,1,3780,0,0,0,0,0
+			DD	00000210h,54000080h,0,0
+
+
+App	ECApplication	<0,0,0,0,0,0,0,0,0,0,0>
+Error	ECErrorStruct	<0,0,0,0,0>
+ECdwOldErrorHandler		dd	0
+ECProcessMessagesAddress		dd	0
+
+.code
+
+align 4
+
+start:
+	invoke SetUnhandledExceptionFilter,addr ECLibFinalHandler
+	mov [ECdwOldErrorHandler],eax
+	invoke GetModuleHandle,NULL
+	mov [App.Instance],eax
+	mov D[App.Major],1
+	mov D[App.Minor],0
+	mov D[App.Revision],1
+	invoke ECStcGo.lib:ECLibInitLibrary,[App.Instance],'BieberWorksFileShredder','BieberWorksFileShredder.exe','BieberWorks File Shredder',3
+
+	invoke ECInitProc,[App.Instance],NULL,[App.CommandLine],SW_SHOWDEFAULT
+	push eax
+	invoke SetUnhandledExceptionFilter,[ECdwOldErrorHandler]
+	pop eax
+	invoke ExitProcess,eax
+
+ECErrorHandle FRAME pExcept,pFrame,pContext,pDispatch
+	mov eax,[pExcept]
+	mov eax,[eax]
+	mov [Error.Code],eax
+	mov eax,[pContext]
+	push [Error.dwEip]
+	pop [eax+CONTEXT.Eip]
+	push [Error.dwEsp]
+	pop [eax+CONTEXT.Esp]
+	push [Error.dwEbp]
+	pop [eax+CONTEXT.Ebp]
+	mov eax,0 ;ExceptionContinueExecution
+	ret
+ENDF
+
+ECInitProc FRAME hInst,hPrevInst,CmdLine,CmdShow uses ebx,edi,esi
+	local bOnIdle:D,lCount:D,OnIdleAddress:D,msg:MSG
+	mov D[bOnIdle],1
+	mov D[lCount],0
+	invoke ECStcGo.lib:ECLibGetWindowPointer
+	lea esi,IDR_EC_Window1_DATA
+	mov [eax],esi
+	invoke ECStcGo.lib:ECLibCreateWindow,esi,NULL,FALSE,NULL
+	cmp eax,NULL
+	je > ECEndLoop
+	invoke LoadAccelerators,[App.Instance],IDR_EC_ACCEL_TABLE
+	mov [App.Accel],eax
+ECBeginLoop:
+	invoke GetMessage,addr msg,NULL,0,0
+	cmp eax,0
+	jle > ECEndLoop
+	invoke TranslateAccelerator,[App.Main],[App.Accel],addr msg
+	or eax,eax
+	jnz < ECBeginLoop
+	invoke TranslateMessage,addr msg
+	invoke DispatchMessage,addr msg
+	jmp < ECBeginLoop
+ECEndLoop:
+	invoke ECStcGo.lib:ECLibEndLibrary
+	cmp D[App.Accel],0
+	je >
+	invoke DestroyAcceleratorTable,[App.Accel]
+:	mov eax,[msg.wParam]
+	ret
+ENDF
+
+#include "Window1.asm"
+

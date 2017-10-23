@@ -1,0 +1,92 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = w
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 0
+  Caption         = 0
+  CenterWindow    = 2
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 70
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56080000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Window1
+  TimerInterval   = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 204
+End
+
+.Const
+
+.Data
+
+MN_MESSAGES	DD ECM_AFTERCREATE, OnmnAfterCreate
+			DD WM_CLOSE, OnmnClose
+
+.Code
+
+wProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf MN_MESSAGES / 8
+	Mov Edx, Addr MN_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnmnAfterCreate:
+	UseData wProcedure
+
+	Invoke MoveWindow, [hWnd], 0, 0, 0, 0, 1
+	Invoke Create, TEXT("mn"), 0, ecModal, 0
+	Mov Eax, (-1)	;Return (-1)
+	Ret
+EndU
+
+OnwClose:
+	UseData wProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU

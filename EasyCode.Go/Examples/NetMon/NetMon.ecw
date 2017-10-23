@@ -1,0 +1,3238 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = NetMon
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040181
+  Font            = Tahoma,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 290
+  IconBig         = IDI_ICON_BOTH
+  IconSmall       = IDI_ICON_BOTH
+  ImageType       = -1
+  KeepSize        = 1
+  KeyPreview      = 0
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80200
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = IDS_CAPTION
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 1
+  Top             = 0
+  Visible         = 0
+  Width           = 264
+  Begin Group = grpListView
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 237
+    Left            = 5
+    NormalStyle     = 0x56000107
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 20
+    Text            = 
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 26
+    Visible         = 0
+    Width           = 248
+    Begin ListView = ListView1
+      Alignment       = 0
+      AutoArrange     = 1
+      BackColor       = 0x80000005
+      Border          = 0
+      CheckBoxes      = 0
+      ClientEdge      = 1
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1001
+      EditLabels      = 0
+      Enabled         = 1
+      ExStyle         = 0x00000200
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000008
+      FullRowSelect   = 1
+      GridLines       = 1
+      Height          = 237
+      HideSelection   = 0
+      Left            = 0
+      MultiSelect     = 0
+      NoColumnHeader  = 0
+      NoLabelWrap     = 0
+      NormalStyle     = 0x5400010F
+      NoSortHeader    = 0
+      RightToLeft     = 0
+      ShareImageList  = 0
+      Sort            = 0
+      StaticEdge      = 0
+      TabOrder        = 21
+      TabStop         = 1
+      ToolTipText     = 
+      Top             = 0
+      View            = 3
+      Visible         = 0
+      Width           = 248
+    End
+    Begin ListView = ListView2
+      Alignment       = 0
+      AutoArrange     = 1
+      BackColor       = 0x80000005
+      Border          = 0
+      CheckBoxes      = 0
+      ClientEdge      = 1
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1002
+      EditLabels      = 0
+      Enabled         = 1
+      ExStyle         = 0x00000200
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000008
+      FullRowSelect   = 1
+      GridLines       = 1
+      Height          = 237
+      HideSelection   = 0
+      Left            = 0
+      MultiSelect     = 0
+      NoColumnHeader  = 0
+      NoLabelWrap     = 0
+      NormalStyle     = 0x5400010F
+      NoSortHeader    = 0
+      RightToLeft     = 0
+      ShareImageList  = 0
+      Sort            = 0
+      StaticEdge      = 0
+      TabOrder        = 22
+      TabStop         = 1
+      ToolTipText     = 
+      Top             = 0
+      View            = 3
+      Visible         = 0
+      Width           = 248
+    End
+  End
+  Begin Group = Group3
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1003
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 60
+    Left            = 7
+    NormalStyle     = 0x56000307
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 15
+    Text            = IDS_SECOND_TRASNFER_SPEED
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 201
+    Visible         = 1
+    Width           = 244
+    Begin Static = stcSpeedOut
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1004
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 180
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 19
+      Text            = IDS_KBYTES
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 35
+      Transparent     = 0
+      Visible         = 1
+      Width           = 55
+      WordWrap        = 1
+    End
+    Begin Static = stcSpeedIn
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1005
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 180
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 17
+      Text            = IDS_KBYTES
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 18
+      Transparent     = 0
+      Visible         = 1
+      Width           = 55
+      WordWrap        = 1
+    End
+    Begin Static = imgUp
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 1
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1006
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 170
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000300
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 18
+      Text            = 
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 38
+      Transparent     = 0
+      Visible         = 1
+      Width           = 16
+      WordWrap        = 0
+    End
+    Begin Static = imgDown
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 1
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1007
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 170
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000300
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 16
+      Text            = 
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 21
+      Transparent     = 0
+      Visible         = 1
+      Width           = 16
+      WordWrap        = 0
+    End
+  End
+  Begin Group = Group1
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1008
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 106
+    Left            = 7
+    NormalStyle     = 0x56000307
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = IDS_ADAPTER
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 27
+    Visible         = 1
+    Width           = 244
+    Begin Static = Static1
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1009
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 10
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 7
+      Text            = IDS_SPEED
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 83
+      Transparent     = 0
+      Visible         = 1
+      Width           = 142
+      WordWrap        = 0
+    End
+    Begin Static = stcSubMask
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1010
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 146
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 6
+      Text            = 
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 67
+      Transparent     = 0
+      Visible         = 1
+      Width           = 88
+      WordWrap        = 1
+    End
+    Begin Static = stcIP
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1011
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 146
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 4
+      Text            = 
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 51
+      Transparent     = 0
+      Visible         = 1
+      Width           = 88
+      WordWrap        = 1
+    End
+    Begin Static = Static2
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1012
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 10
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 5
+      Text            = IDS_SUBMASK
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 67
+      Transparent     = 0
+      Visible         = 1
+      Width           = 142
+      WordWrap        = 0
+    End
+    Begin Static = StcNetSpeed
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1013
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 146
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 8
+      Text            = 
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 83
+      Transparent     = 0
+      Visible         = 1
+      Width           = 88
+      WordWrap        = 1
+    End
+    Begin Static = stcLblIP
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1014
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 10
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 3
+      Text            = IDS_IP_ADDRESS
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 51
+      Transparent     = 0
+      Visible         = 1
+      Width           = 107
+      WordWrap        = 0
+    End
+    Begin Combo = Combo1
+      BackColor       = 0x80000005
+      CaseStyle       = 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1015
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000008
+      Height          = 21
+      IntegralHeight  = 1
+      Left            = 10
+      OwnerDraw       = 0
+      NormalStyle     = 0x54000603
+      RightToLeft     = 0
+      ScrollBars      = 0
+      Sorted          = 0
+      StaticEdge      = 0
+      Style           = 2
+      TabOrder        = 2
+      TabStop         = 1
+      Text            = 
+      ToolTipText     = 
+      Top             = 18
+      Visible         = 1
+      VisibleRows     = 4
+      Width           = 222
+    End
+  End
+  Begin Group = Group2
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1016
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 58
+    Left            = 7
+    NormalStyle     = 0x56000307
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 9
+    Text            = Bytes
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 138
+    Visible         = 1
+    Width           = 244
+    Begin Static = Image1
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 1
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1017
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 32
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 106
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000300
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 11
+      Text            = 
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 16
+      Transparent     = 0
+      Visible         = 1
+      Width           = 32
+      WordWrap        = 0
+    End
+    Begin Static = stcSent
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1018
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 156
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 14
+      Text            = 
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 34
+      Transparent     = 0
+      Visible         = 1
+      Width           = 78
+      WordWrap        = 1
+    End
+    Begin Static = stcReceived
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1019
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 10
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 13
+      Text            = 
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 34
+      Transparent     = 0
+      Visible         = 1
+      Width           = 78
+      WordWrap        = 0
+    End
+    Begin Static = Static4
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1020
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 156
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 12
+      Text            = IDS_SENT
+      TextAlignment   = 2
+      ToolTipText     = 
+      Top             = 18
+      Transparent     = 0
+      Visible         = 1
+      Width           = 78
+      WordWrap        = 1
+    End
+    Begin Static = Static3
+      AutoSize        = 0
+      BackColor       = 0x8000000F
+      Border          = 0
+      CenterVertically= 0
+      ClientEdge      = 0
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      DragAndDrop     = 1021
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 16
+      HyperColor      = 0x000000FF
+      HyperLink       = 0
+      Left            = 10
+      NoPrefix        = 0
+      PathEllipsis    = 0
+      NormalStyle     = 0x54000100
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 10
+      Text            = IDS_RECEIVED
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 18
+      Transparent     = 0
+      Visible         = 1
+      Width           = 78
+      WordWrap        = 1
+    End
+  End
+  Begin TabStrip = TabStrip1
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1022
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    Height          = 268
+    Left            = 0
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54008000
+    Placement       = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    Style           = 0
+    TabOrder        = 0
+    Tabs            = 3
+    TabStruct       = IDS_ACTIVITY,IDS_TCP_PORTS,IDS_UDP_PORTS
+    TabStop         = 1
+    TabWidthStyle   = 0
+    ToolTipText     = 
+    Top             = 0
+    Visible         = 1
+    Width           = 259
+  End
+End
+
+.Const
+
+MIB_IF_OPER_STATUS_NON_OPERATIONAL	Equ			0
+MIB_IF_OPER_STATUS_UNREACHABLE		Equ 		1
+MIB_IF_OPER_STATUS_DISCONNECTED		Equ 		2
+MIB_IF_OPER_STATUS_CONNECTING		Equ 		3
+MIB_IF_OPER_STATUS_CONNECTED		Equ 		4
+MIB_IF_OPER_STATUS_OPERATIONAL		Equ 		5
+
+MIB_IF_TYPE_OTHER					Equ			1
+MIB_IF_TYPE_ETHERNET				Equ			6
+MIB_IF_TYPE_TOKENRING				Equ			9
+MIB_IF_TYPE_FDDI					Equ			15
+MIB_IF_TYPE_PPP						Equ			23
+MIB_IF_TYPE_LOOPBACK				Equ			24
+MIB_IF_TYPE_SLIP					Equ			28
+
+TCP_TABLE_BASIC_LISTENER			Equ			0
+TCP_TABLE_BASIC_CONNECTIONS			Equ			1
+TCP_TABLE_BASIC_ALL					Equ			2
+TCP_TABLE_OWNER_PID_LISTENER		Equ			3
+TCP_TABLE_OWNER_PID_CONNECTIONS		Equ			4
+TCP_TABLE_OWNER_PID_ALL				Equ			5
+TCP_TABLE_OWNER_MODULE_LISTENER		Equ			6
+TCP_TABLE_OWNER_MODULE_CONNECTIONS	Equ			7
+TCP_TABLE_OWNER_MODULE_ALL			Equ			8
+
+UDP_TABLE_BASIC						Equ			0
+UDP_TABLE_OWNER_PID					Equ			1
+UDP_TABLE_OWNER_MODULE				Equ			2
+
+STATUS_DISCONN 						Equ			(-1)
+STATUS_NONE							Equ			0
+STATUS_RECEIVE 						Equ			1
+STATUS_SEND							Equ			2
+
+MC_RESIZE							Equ			9999
+
+WM_TRAYMESSAGE						Equ			(WM_USER + 2048)
+
+
+.Data
+
+NETMON_MESSAGES						DD 			WM_CREATE, OnNetMonCreate
+									DD			WM_COMMAND, OnNetMonCommand
+									DD			WM_NOTIFY, OnNetMonNotify
+									DD			WM_SYSCOMMAND, OnNetMonSysCommand
+									DD			WM_NCLBUTTONDBLCLK, OnNetMonNCLButtonDblClk
+									DD			WM_TRAYMESSAGE, OnNetMonTrayMessage
+									DD			WM_EXITSIZEMOVE, OnNetMonExitSizeMove
+									DD			WM_TIMER, OnNetMonTimer
+									DD 			WM_CLOSE, OnNetMonClose
+									DD 			WM_DESTROY, OnNetMonDestroy
+
+dwIfTableIndex						DD			64 Dup ?
+
+rcLarge								RECT		<>
+rcSmall								RECT		<>
+
+
+szLeft								DB			'Left', 0
+szTop								DB			'Top', 0
+dwCurrentIndex						DD			(-1)
+dwNumConns							DD			0
+dwNetState							DD			STATUS_NONE
+dwPtrSize							DD			64
+dwCounter1							DD			0
+dwCounter2							DD			0
+dwCounter3							DD			0
+bFirst								DD			TRUE
+bDoThread							DD			TRUE
+bLocalTcpDescending					DD			TRUE
+bLocalUdpDescending					DD			TRUE
+bModalWindowOn						DD			FALSE
+bRefreshingTcp						DD			FALSE
+bRefreshingUdp						DD			FALSE
+bRemoteTcpDescending				DD			FALSE
+bRemoteUdpDescending				DD			FALSE
+bScrolling							DD			FALSE
+bShowIcon							DD			FALSE
+bSmallSize							DD			FALSE
+bStateTcpDescending					DD			TRUE
+bStateUdpDescending					DD			TRUE
+bThreadActive						DD			FALSE
+bTcpPortsTab						DD			FALSE
+bUdpPortsTab						DD			FALSE
+lCurrentTdpSort						DD			1
+lCurrentUdpSort						DD			1
+lLeft								DD			0
+lLargeTop							DD			0
+lSmallTop							DD			0
+lTimer1								DD			0
+lTimer2								DD			0
+hWndCombo							DD			NULL
+hWndLvTcp							DD			NULL
+hWndLvUdp							DD			NULL
+lpPtr								DD			NULL
+hIpHlpApi							DD			NULL
+hMainMenu							DD			NULL
+hMainSubMenu						DD			NULL
+hTcpMenu							DD			NULL
+hTcpSubMenu							DD			NULL
+hUdpMenu							DD			NULL
+hUdpSubMenu							DD			NULL
+hIconDisconn						DD			NULL
+hCursorHand							DD			NULL
+hMutex								DD			NULL
+
+MibIfRow							MIB_IFROW	<>
+
+
+.Code
+
+NetMonProcedure Frame hWnd, uMsg, wParam, lParam
+	Local rc:RECT, pt:POINTL
+
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf NETMON_MESSAGES / 8
+	Mov Edx, Addr NETMON_MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+NetMonListView1 Frame hWnd, uMsg, wParam, lParam
+	Cmp D[uMsg], WM_VSCROLL
+	Jne > L2
+	Cmp D[wParam], SB_ENDSCROLL
+	Jne >
+	Mov D[bScrolling], FALSE
+	Jmp > L2
+:	Mov D[bScrolling], TRUE
+L2:	Xor Eax, Eax
+	Ret
+EndF
+
+NetMonListView2 Frame hWnd, uMsg, wParam, lParam
+	Invoke NetMonListView1, [hWnd], [uMsg], [wParam], [lParam]
+	Ret
+EndF
+
+OnNetMonCreate: UseData NetMonProcedure
+	Xor Edi, Edi
+	Invoke CreateMutex, NULL, TRUE, TEXT("RSNetMon")
+    Mov [hMutex], Eax
+    Invoke GetLastError
+	Cmp Eax, ERROR_ALREADY_EXISTS
+	Jne >
+	Mov Edi, (-1)
+:	Cmp D[App.Previous], NULL
+	Je > L2
+	Invoke IsWindowVisible, [App.Previous]
+	Or Eax, Eax
+	Jnz >
+	Invoke SendMessage, [App.Previous], WM_COMMAND, IDM_MENU_MONITOR, NULL
+:	Invoke SetActiveWindow, [App.Previous]
+	Invoke SetForegroundWindow, [App.Previous]
+:	Mov Eax, (-1)
+	Ret
+
+L2:	Cmp Edi, (-1)
+	Je <
+	Invoke GetPlatform, NULL
+	Mov D[lPlatForm], Eax
+;	Cmp Eax, ecWin95
+;	Jg >
+;	Lea Ebx, szBuffer
+;	Invoke LoadString, [App.Instance], IDS_CAPTION, Ebx, 64
+;	Lea Edx, [dwIfTableIndex]
+;	Push Edx
+;	Invoke LoadString, [App.Instance], IDS_BAD_SYSTEM, Edx, 128
+;	Pop Edx
+;	Invoke MessageBox, NULL, Edx, Ebx, MB_OK
+;	Return (-1)
+:	Invoke LoadLibrary, TEXT("IPHLPAPI.dll")
+	Mov [hIpHlpApi], Eax
+	Or Eax, Eax
+	Jz >
+	Invoke GetProcAddress, [hIpHlpApi], TEXT("GetExtendedTcpTable")
+	Mov [lpGetExtendedTcpTable], Eax
+	Invoke GetProcAddress, [hIpHlpApi], TEXT("GetExtendedUdpTable")
+	Mov [lpGetExtendedUdpTable], Eax
+:	Lea Ebx, [dwIfTableIndex]
+	Xor Eax, Eax
+	Mov Ecx, 64
+:	Mov [Ebx], Eax
+	Add Ebx, 4
+	Loop <
+
+	Invoke GetSystemMenu, [hWnd], FALSE
+	Mov Edi, Eax
+	Invoke DeleteMenu, Edi, SC_RESTORE, MF_BYCOMMAND
+	Invoke DeleteMenu, Edi, SC_SIZE, MF_BYCOMMAND
+	Invoke DeleteMenu, Edi, SC_MAXIMIZE, MF_BYCOMMAND
+	Invoke DeleteMenu, Edi, SC_MINIMIZE, MF_BYCOMMAND
+	Lea Esi, szBuffer
+	Invoke LoadString, [App.Instance], IDS_RESIZE, Esi, 64
+	Add Esi, 128
+	Mov D[Esi + MENUITEMINFO.cbSize], SizeOf MENUITEMINFO
+	Mov D[Esi + MENUITEMINFO.fType], MFT_STRING
+	Mov D[Esi + MENUITEMINFO.fMask], (MIIM_TYPE | MIIM_ID | MIIM_STATE)
+	Mov D[Esi + MENUITEMINFO.wID], MC_RESIZE
+	Mov D[Esi + MENUITEMINFO.fState], MFS_ENABLED
+	Mov D[Esi + MENUITEMINFO.dwTypeData], Offset szBuffer
+	Invoke InsertMenuItem, Edi, 1, TRUE, Esi
+
+	Mov Eax, [hWnd]
+	Mov [IconData.hWnd], Eax
+	Mov D[IconData.cbSize], SizeOf NOTIFYICONDATA
+	Mov D[IconData.uFlags], (NIF_ICON | NIF_MESSAGE | NIF_TIP)
+	Mov D[IconData.uCallbackMessage], WM_TRAYMESSAGE
+	Invoke LoadString, [App.Instance], IDS_CAPTION, Addr IconData.szTip, 64
+	Invoke GlobalAlloc, GPTR, [dwPtrSize]
+	Mov [lpPtr], Eax
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_COMBO1
+	Mov [hWndCombo], Eax
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_IMAGE1
+	Mov [hWndImage], Eax
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_IMGDOWN
+	Mov [hWndImgDown], Eax
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_IMGUP
+	Mov [hWndImgUp], Eax
+	Invoke GetWindowLong, Eax, GWL_STYLE
+	And Eax, 0FFFFFFF0H
+	Or Eax, SS_ICON
+	Mov Edi, Eax
+	Invoke SetWindowLong, [hWndImage], GWL_STYLE, Eax
+	Invoke SetWindowLong, [hWndImgDown], GWL_STYLE, Edi
+	Invoke SetWindowLong, [hWndImgUp], GWL_STYLE, Edi
+	Invoke GetMeterRegistrySettings
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP3
+	Mov Edi, Eax
+	Invoke CreateMeter, Edi, 8, 20, RSMETER_INSET
+	Mov [lMeterDownIndex], Eax
+	Invoke SetMeterMaxValue, Eax, [lMeterDownMaxValue]
+	Invoke SetMeterWidth, [lMeterDownIndex], 4
+	Invoke SetMeterHeight, [lMeterDownIndex], 13
+	Invoke CreateMeter, Edi, 8, 37, RSMETER_INSET
+	Mov [lMeterUpIndex], Eax
+	Invoke SetMeterMaxValue, Eax, [lMeterUpMaxValue]
+	Invoke SetMeterWidth, [lMeterUpIndex], 4
+	Invoke SetMeterHeight, [lMeterUpIndex], 13
+
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_LISTVIEW1
+	Mov [hWndLvTcp], Eax
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_LISTVIEW2
+	Mov [hWndLvUdp], Eax
+	
+	Invoke GetClientRect, [hWndLvTcp], Addr rc
+	Invoke GetSystemMetrics, SM_CXVSCROLL
+	Sub [rc.right], Eax
+	Xor Edx, Edx
+	Mov Eax, 3
+	Xchg Eax, [rc.right]
+	Push Eax
+	Div D[rc.right]
+	Sub Eax, 10
+	Mov [rc.right], Eax
+
+	Mov Ebx, 32
+	Mov Ecx, [rc.right]
+	Shl Ecx, 1
+	Add Ecx, [rc.right]
+	Add Ecx, Ebx
+	Pop Eax
+	Cmp Ecx, Eax
+	Jle >
+	Sub Ecx, Eax
+	Sub Ebx, Ecx
+:	Mov W[szBuffer], 0
+	Invoke AddListViewColumn, [hWndLvTcp], Addr szBuffer, (-1), 0, LVCFMT_LEFT
+
+	Mov W[szBuffer], 0
+	Invoke AddListViewColumn, [hWndLvUdp], Addr szBuffer, (-1), 0, LVCFMT_LEFT
+	
+	Invoke LoadString, [App.Instance], IDS_LOCAL, Addr szBuffer, 64
+	Invoke AddListViewColumn, [hWndLvTcp], Addr szBuffer, [rc.right], 1, LVCFMT_CENTER
+
+	Invoke LoadString, [App.Instance], IDS_PORT, Addr szBuffer, 64
+	Mov Eax, [rc.right]
+	Sub Eax, 20
+	Invoke AddListViewColumn, [hWndLvUdp], Addr szBuffer, Eax, 1, LVCFMT_CENTER
+
+	Invoke LoadString, [App.Instance], IDS_REMOTE, Addr szBuffer, 64
+	Invoke AddListViewColumn, [hWndLvTcp], Addr szBuffer, [rc.right], 2, LVCFMT_CENTER
+
+	Invoke LoadString, [App.Instance], IDS_IP_ADDRESS, Addr szBuffer, 64
+	Add Eax, Offset szBuffer
+	Dec Eax
+	Mov B[Eax], 0
+	Mov Eax, [rc.right]
+	Add Eax, 20
+	Invoke AddListViewColumn, [hWndLvUdp], Addr szBuffer, Eax, 2, LVCFMT_CENTER
+	
+	Add [rc.right], Ebx
+
+	Invoke LoadString, [App.Instance], IDS_STATE, Addr szBuffer, 64
+	Invoke AddListViewColumn, [hWndLvTcp], Addr szBuffer, [rc.right], 3, LVCFMT_CENTER
+
+	Invoke LoadString, [App.Instance], IDS_PROCESS, Addr szBuffer, 64
+	Add Eax, Offset szBuffer
+	Dec Eax
+	Mov B[Eax], 0
+	Invoke AddListViewColumn, [hWndLvUdp], Addr szBuffer, [rc.right], 3, LVCFMT_CENTER
+
+	Cmp D[lPlatForm], ecWin98
+	Jle > L4
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, TEXT("Control Panel\International"), TEXT("sDecimal"), Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Mov Al, [szBuffer]
+	Mov [sDecimal], Al
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, TEXT("Control Panel\International"), TEXT("sThousand"), Addr szBuffer
+	Or Eax, Eax
+	Jz > L6
+	Mov Al, [szBuffer]
+	Mov [sThousand], Al
+	Jmp > L6
+L4:
+	Invoke GetProfileString, TEXT("intl"), TEXT("sDecimal"), Addr sDecimal, Addr szBuffer, 63
+	Or Eax, Eax
+	Jz >
+	Mov Al, [szBuffer]
+	Mov [sDecimal], Al
+:	Invoke GetProfileString, TEXT("intl"), TEXT("sThousand"), Addr sThousand, Addr szBuffer, 63
+	Or Eax, Eax
+	Jz > L6
+	Mov Al, [szBuffer]
+	Mov [sThousand], Al
+L6:	Invoke LoadMenu, [App.Instance], IDR_MAIN_MENU
+	Mov [hMainMenu], Eax
+	Invoke GetSubMenu, Eax, 0
+	Mov [hMainSubMenu], Eax
+	Invoke LoadMenu, [App.Instance], IDR_TCP_MENU
+	Mov [hTcpMenu], Eax
+	Invoke GetSubMenu, Eax, 0
+	Mov [hTcpSubMenu], Eax
+	Invoke LoadMenu, [App.Instance], IDR_UDP_MENU
+	Mov [hUdpMenu], Eax
+	Invoke GetSubMenu, Eax, 0
+	Mov [hUdpSubMenu], Eax
+	Cmp D[lpGetExtendedTcpTable], 0
+	Jne >
+	Invoke DeleteMenu, [hTcpSubMenu], IDM_MENU_TERMINATE_PROCESS, MF_BYCOMMAND
+:	Cmp D[lpGetExtendedUdpTable], 0
+	Jne >
+	Invoke DeleteMenu, [hUdpSubMenu], 1, MF_BYPOSITION
+	Invoke DeleteMenu, [hUdpSubMenu], IDM_MENU_TERMINATE_PROCESS_UDP, MF_BYCOMMAND
+:	Invoke LoadImage, [App.Instance], IDI_ICON_BOTH, IMAGE_ICON, 32, 32, LR_LOADMAP3DCOLORS
+	Mov [hIconBoth], Eax
+	Invoke LoadImage, [App.Instance], IDI_ICON_NO_NET, IMAGE_ICON, 32, 32, LR_LOADMAP3DCOLORS
+	Mov [hIconDisconn], Eax
+	Invoke LoadImage, [App.Instance], IDI_ICON_DOWN_OFF, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Mov [hIconDownOff], Eax
+	Invoke SendMessage, [hWndImgDown], STM_SETICON, Eax, 0
+	Invoke LoadImage, [App.Instance], IDI_ICON_DOWN_ON, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Mov [hIconDownOn], Eax
+	Invoke LoadImage, [App.Instance], IDI_ICON_NONE, IMAGE_ICON, 32, 32, LR_LOADMAP3DCOLORS
+	Mov [hIconNone], Eax
+	Mov [IconData.hIcon], Eax
+	Invoke SendMessage, [hWndImage], STM_SETICON, Eax, 0
+	Invoke LoadImage, [App.Instance], IDI_ICON_RECEIVE, IMAGE_ICON, 32, 32, LR_LOADMAP3DCOLORS
+	Mov [hIconReceive], Eax
+	Invoke LoadImage, [App.Instance], IDI_ICON_SEND, IMAGE_ICON, 32, 32, LR_LOADMAP3DCOLORS
+	Mov [hIconSend], Eax
+	Invoke LoadImage, [App.Instance], IDI_ICON_UP_OFF, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Mov [hIconUpOff], Eax
+	Invoke SendMessage, [hWndImgUp], STM_SETICON, Eax, 0
+	Invoke LoadImage, [App.Instance], IDI_ICON_UP_ON, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Mov [hIconUpOn], Eax
+	Invoke LoadImage, [App.Instance], IDC_CURSOR_HAND, IMAGE_CURSOR, 32, 32, LR_LOADMAP3DCOLORS
+	Mov [hCursorHand], Eax
+	Invoke SetMeterDownNewColor, 00FFFF00H
+	Invoke SetMeterUpNewColor, 0000FFFFH
+
+	Invoke GetWindowRect, [hWnd], Addr rc
+	Mov Eax, [rc.right]
+	Sub Eax, [rc.left]
+	Mov [rc.right], Eax
+	Mov Eax, [rc.bottom]
+	Sub Eax, [rc.top]
+	Mov [rc.bottom], Eax
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szLeft, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [rc.left], Eax
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szTop, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [rc.top], Eax
+:	Invoke CopyRect, Addr rcLarge, Addr rc
+	Invoke CopyRect, Addr rcSmall, Addr rc
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szSmallLeft, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [rcSmall.left], Eax
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szSmallTop, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [rcSmall.top], Eax
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szAutoRefreshPorts, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Cmp Eax, 0
+	Jl >
+	Cmp Eax, 10
+	Jl > L8
+:	Xor Eax, Eax
+L8:	Mov [lAutoRefreshPorts], Eax
+	Invoke GetWindowLong, [hWnd], GWL_EXSTYLE
+	Mov Ecx, WS_EX_APPWINDOW
+	Not Ecx
+	And Eax, Ecx
+	Invoke SetWindowLong, [hWnd], GWL_EXSTYLE, Eax
+	Invoke SetWindowPos, [hWnd], Edi, 0, 0, 0, 0, (SWP_NOMOVE | SWP_NOSIZE | SWP_FRAMECHANGED | SWP_HIDEWINDOW)
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP3
+	Mov Edx, Eax
+	Invoke GetWindowRect, Edx, Addr rc
+	Invoke ScreenToClient, [hWnd], Addr rc
+	Push [rc.left]
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_TABSTRIP1
+	Mov Edx, Eax
+	Invoke GetWindowRect, Edx, Addr rc
+	Invoke ScreenToClient, [hWnd], Addr rc
+	Pop [lLeft]
+	Mov Eax, [rc.top]
+	Add Eax, 2
+	Mov [lSmallTop], Eax
+	Push Eax
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP3
+	Mov Edx, Eax
+	Invoke GetWindowRect, Edx, Addr rc
+	Invoke ScreenToClient, [hWnd], Addr rc
+	Mov Edi, [rc.top]
+	Mov [lLargeTop], Edi
+	Pop Eax
+	Sub Edi, Eax
+	Sub [rcSmall.bottom], Edi
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szSmallSize, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [bSmallSize], Eax
+:	Invoke SetMonitorSize, [hWnd]
+
+	Invoke RefreshTcpOpenPorts, [hWnd]
+	Invoke RefreshUdpOpenPorts, [hWnd]
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GRPLISTVIEW
+	Invoke ShowWindow, Eax, SW_HIDE
+	Invoke InitInterfaces
+	Cmp Eax, NO_ERROR
+	Je >
+L9:	Invoke SendMessage, [hWnd], WM_DESTROY, 0, 0
+	Mov Eax, (-1)
+	Ret
+:	Cmp D[lPlatForm], ecWin95
+	Jg >
+	Invoke GetSubMenu, [hMainMenu], 0
+	Invoke DeleteMenu, Eax, 7, MF_BYPOSITION
+	Invoke SetTimer, [hWnd], 10, 500, NULL
+	Mov [lTimer1], Eax
+	Or Eax, Eax
+	Jz < L9
+	Jmp >> L10
+:	Invoke CreateThread, 0, 0, Addr ThreadProc, 0, 0, NULL
+	Push Eax
+	Invoke GetCurrentProcess
+	Mov Edi, Eax
+	Invoke GetProcessAffinityMask, Edi, Addr rc.left, Addr rc.right
+	Invoke GetSubMenu, [hMainMenu], 0
+	Cmp D[rc.left], 1
+	Jne >
+	Invoke DeleteMenu, Eax, 7, MF_BYPOSITION
+	Jmp > L9A
+:	Invoke String, [rc.left], Addr szBuffer, ecDecimal
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szAffinity, Addr szBuffer
+	Invoke Value, Addr szBuffer
+	Or Eax, Eax
+	Jz > L9A
+	Invoke SetAffinityMask, Edi, Eax
+L9A:
+	Pop Eax
+	Or Eax, Eax
+	Jz << L9
+L10:
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szVisible, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke String, 1, Addr szBuffer, ecDecimal
+	Invoke SendMessage, [hWnd], WM_COMMAND, IDM_MENU_MONITOR, NULL
+
+:	Invoke String, MFS_CHECKED, Addr szBuffer, ecDecimal
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szOnTop, Addr szBuffer
+	Invoke Value, Addr szBuffer
+	Test Eax, MFS_CHECKED
+	Jz >
+	Invoke SendMessage, [hWnd], WM_COMMAND, IDM_MENU_ONTOP, 0
+
+:	Invoke String, BELOW_NORMAL_PRIORITY_CLASS, Addr szBuffer, ecDecimal
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szPriority, Addr szBuffer
+	Invoke Value, Addr szBuffer
+	Mov Ecx, IDM_MENU_NORMAL
+	Cmp Eax, NORMAL_PRIORITY_CLASS
+	Je >
+	Mov Ecx, IDM_MENU_HIGH
+	Cmp Eax, ABOVE_NORMAL_PRIORITY_CLASS
+	Je >
+	Mov Ecx, IDM_MENU_LOW
+:	Invoke SendMessage, [hWnd], WM_COMMAND, Ecx, 0
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_TABSTRIP1
+	Invoke SetFocus, Eax
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnNetMonCommand: UseData NetMonProcedure
+	HiWord ([wParam])
+	Or Ax, Ax
+	Jnz >> L16
+	Cmp D[lParam], NULL
+	Jne >> L16
+	Mov Eax, [wParam]
+	Cmp Ax, IDM_MENU_MONITOR
+	Jne > L2
+	Invoke IsWindowVisible, [hWnd]
+	Or Eax, Eax
+	Jz >
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	Ret
+:	Invoke ShowWindow, [hWnd], SW_SHOWNORMAL
+	Invoke UpdateWindow, [hWnd]
+	Invoke SetActiveWindow, [hWnd]
+	Invoke SetForegroundWindow, [hWnd]
+	Invoke CheckMenu, IDM_MENU_MONITOR
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, MFS_CHECKED
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szVisible, Addr szBuffer
+	Return (TRUE)
+L2:	Cmp Ax, IDM_MENU_ABOUT
+	Jne >
+	Invoke CheckMainWindow, [hWnd]
+	Mov D[bModalWindowOn], TRUE
+	Invoke Create, TEXT("RSAbout"), [hWnd], ecModal, NULL
+	Mov D[bModalWindowOn], FALSE
+	Return (TRUE)
+:	Cmp Ax, IDM_MENU_ONTOP
+	Jne > L6
+	Invoke CheckMenu, IDM_MENU_ONTOP
+	Cmp Eax, MFS_CHECKED
+	Jne >
+	Mov Edi, Eax
+	Mov Eax, HWND_TOPMOST
+	Jmp > L4
+:	Mov Edi, MFS_UNCHECKED
+	Mov Eax, HWND_NOTOPMOST
+L4:	Invoke SetWindowPos, [hWnd], Eax, 0, 0, 0, 0, (SWP_NOMOVE | SWP_NOSIZE | SWP_FRAMECHANGED)
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, Edi
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szOnTop, Addr szBuffer
+	Return (TRUE)
+L6:	Cmp Ax, IDM_MENU_SETTINGS
+	Jne >
+	Invoke CheckMainWindow, [hWnd]
+	Mov D[bModalWindowOn], TRUE
+	Invoke Create, TEXT("Settings"), [hWnd], ecModal, NULL
+	Mov D[bModalWindowOn], FALSE
+	Return (TRUE)
+:	Cmp Ax, IDM_MENU_NETWORK
+	Jne >
+	Invoke OpenNetworkConnections, [hWnd]
+	Return (TRUE)
+:	Cmp Ax, IDM_MENU_LOW
+	Je >
+	Cmp Ax, IDM_MENU_NORMAL
+	Je >
+	Cmp Ax, IDM_MENU_HIGH
+	Jne >> L7
+:	Push Eax
+	Invoke CheckMenuItem, [hMainSubMenu], IDM_MENU_LOW, (MF_BYCOMMAND | MF_UNCHECKED)
+	Invoke CheckMenuItem, [hMainSubMenu], IDM_MENU_NORMAL, (MF_BYCOMMAND | MF_UNCHECKED)
+	Invoke CheckMenuItem, [hMainSubMenu], IDM_MENU_HIGH, (MF_BYCOMMAND | MF_UNCHECKED)
+	Pop Eax
+	Mov Edi, BELOW_NORMAL_PRIORITY_CLASS
+	Cmp D[lPlatForm], ecWinNT
+	Jg >
+	Mov Edi, IDLE_PRIORITY_CLASS
+:	Cmp Ax, IDM_MENU_LOW
+	Je >
+	Mov Edi, NORMAL_PRIORITY_CLASS
+	Cmp Ax, IDM_MENU_NORMAL
+	Je >
+	Mov Edi, ABOVE_NORMAL_PRIORITY_CLASS
+	Cmp D[lPlatForm], ecWinNT
+	Jg >
+	Mov Edi, HIGH_PRIORITY_CLASS
+:	Invoke CheckMenu, Eax
+	Invoke GetCurrentProcess
+	Invoke SetPriorityClass, Eax, Edi
+	Invoke String, Edi, Addr szBuffer, ecDecimal
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szPriority, Addr szBuffer
+	Return (TRUE)
+L7: Cmp Ax, IDM_MENU_AFFINITY
+    Jne > L8
+	Invoke CheckMainWindow, [hWnd]
+	Mov D[bModalWindowOn], TRUE
+	Invoke Create, TEXT("Affinity"), [hWnd], ecModal, NULL
+	Mov D[bModalWindowOn], FALSE
+	Return (TRUE)
+L8:	Cmp Ax, IDM_MENU_EXIT
+	Jne >
+	Invoke SendMessage, [hWnd], WM_DESTROY, 0, 0
+	Ret
+:	Cmp Ax, IDM_MENU_REFRESH
+	Jne >
+	Invoke RefreshTcpOpenPorts, [hWnd]
+	Return (TRUE)
+:	Cmp Ax, IDM_MENU_REFRESH_UDP
+	Jne >
+	Invoke RefreshUdpOpenPorts, [hWnd]
+	Return (TRUE)
+:	Cmp Ax, IDM_MENU_TERMINATE_PROCESS_UDP
+	Jne > L10
+	Invoke SetWaitCursor, [hWnd]
+	Invoke GetUdpEntry, Addr szBuffer
+	Or Eax, Eax
+	Jz > L9
+	Invoke GetCurrentProcess
+	Mov Esi, Eax
+	Invoke SetPrivileges, Esi, TRUE
+	Xor Ebx, Ebx
+	Lea Edi, szBuffer
+	Mov Eax, [Edi + MIB_UDPROW_OWNER_PID.dwOwningPid]
+	Invoke OpenProcess, PROCESS_TERMINATE, FALSE, [Edi + MIB_UDPROW_OWNER_PID.dwOwningPid]
+	Or Eax, Eax
+	Jz >
+	Mov Ebx, Eax
+	Invoke TerminateProcess, Ebx, 0
+:	Or Ebx, Ebx
+	Jz >
+	Invoke CloseHandle, Ebx
+	Invoke Sleep, 500
+	Invoke RefreshUdpOpenPorts, [hWnd]
+:	Invoke SetPrivileges, Esi, FALSE
+L9:	Invoke SetDefaultCursor
+
+L10:
+	Cmp Ax, IDM_MENU_CLOSE_PORT
+	Je >
+	Cmp Ax, IDM_MENU_TERMINATE_PROCESS
+	Je >
+	Cmp Ax, IDM_MENU_DETAILS
+	Jne >> L16
+:	Mov Ebx, Eax
+	Invoke Refresh, [hWnd]
+	Invoke GetTcpEntry, (-1), Addr szBuffer
+	Or Eax, Eax
+	Jz >> L16
+	Invoke GetCurrentProcess
+	Mov Esi, Eax
+	Invoke SetPrivileges, Esi, TRUE
+	Mov Eax, Ebx
+	Cmp Ax, IDM_MENU_CLOSE_PORT
+	Jne >
+	Lea Eax, szBuffer
+	Mov D[Eax + MIB_TCPROW.dwState], MIB_TCP_STATE_DELETE_TCB
+	Invoke SetTcpEntry, Addr szBuffer
+	Cmp Eax, NO_ERROR
+	Jne >> L14
+	Invoke Sleep, 200
+	Invoke RefreshTcpOpenPorts, [hWnd]
+	Jmp >> L14
+:	Cmp Ax, IDM_MENU_TERMINATE_PROCESS
+	Jne > L12
+	Invoke SetWaitCursor, [hWnd]
+	Xor Ebx, Ebx
+	Lea Edi, szBuffer
+	Invoke OpenProcess, PROCESS_TERMINATE, FALSE, [Edi + MIB_TCPROW_OWNER_PID.dwOwningPid]
+	Or Eax, Eax
+	Jz >
+	Mov Ebx, Eax
+	Mov D[Edi + MIB_TCPROW.dwState], MIB_TCP_STATE_DELETE_TCB
+	Invoke SetTcpEntry, Addr szBuffer
+	Invoke TerminateProcess, Ebx, 0
+:	Or Ebx, Ebx
+	Jz >
+	Invoke CloseHandle, Ebx
+	Invoke Sleep, 500
+	Invoke RefreshTcpOpenPorts, [hWnd]
+:	Invoke SetDefaultCursor
+	Jmp > L14
+L12:
+	Cmp Ax, IDM_MENU_DETAILS
+	Jne > L14
+	Mov D[bModalWindowOn], TRUE
+	Invoke Create, TEXT("Details"), [hWnd], ecModal, 0
+	Mov D[bModalWindowOn], FALSE
+L14:
+	Invoke SetPrivileges, Esi, FALSE
+	Return (TRUE)
+L16:
+	Cmp Ax, CBN_SELCHANGE
+	Jne > L18
+	LoWord ([wParam])
+	Cmp Ax, IDC_NETMON_COMBO1
+	Jne > L18
+	Invoke SendMessage, [hWndCombo], CB_GETCURSEL, 0, 0
+	Cmp Eax, [dwCurrentIndex]
+	Je >
+	Mov [dwCurrentIndex], Eax
+	Invoke SelectAdapter, (-1)
+	Invoke ReadIfTable, TRUE
+	Invoke InitAdapterValues
+:	Invoke UpdateLights, TRUE, FALSE
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_TABSTRIP1
+	Invoke SetFocus, Eax
+	Return (TRUE)
+L18:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnNetMonNotify: UseData NetMonProcedure
+	Cmp D[wParam], IDC_NETMON_TABSTRIP1
+	Jne >> L6
+	Mov Edi, [lParam]
+	Cmp D[Edi + NMHDR.code], TCN_SELCHANGE
+	Jne >> L28
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_TABSTRIP1
+	Invoke SendMessage, Eax, TCM_GETCURSEL, 0, 0
+	Or Eax, Eax	;Is Tab 0 (Activity)?
+	Jnz >
+	Mov D[bTcpPortsTab], FALSE
+	Mov D[bUdpPortsTab], FALSE
+	Mov Esi, SW_SHOWNORMAL
+	Jmp > L2
+:	Cmp Eax, 1	;Is Tab 1 (TCP Ports)?
+	Jne >
+	Mov D[bTcpPortsTab], TRUE
+	Mov D[bUdpPortsTab], FALSE
+	Mov Esi, SW_HIDE
+	Jmp > L2
+:	Cmp Eax, 2	;Is Tab 2 (UDP Ports)?
+	Jne > L2
+	Mov D[bUdpPortsTab], TRUE
+	Mov D[bTcpPortsTab], FALSE
+	Mov Esi, SW_HIDE
+L2:	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP1
+	Invoke ShowWindow, Eax, Esi
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP2
+	Invoke ShowWindow, Eax, Esi
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP3
+	Invoke ShowWindow, Eax, Esi
+	Cmp D[bTcpPortsTab], FALSE
+	Je >
+	Invoke ShowWindow, [hWndLvTcp], SW_SHOWNORMAL
+	Invoke ShowWindow, [hWndLvUdp], SW_HIDE
+	Invoke RefreshTcpOpenPorts, [hWnd]
+	Mov Esi, SW_SHOWNORMAL
+	Jmp > L4
+:	Cmp D[bUdpPortsTab], FALSE
+	Je >
+	Invoke ShowWindow, [hWndLvUdp], SW_SHOWNORMAL
+	Invoke ShowWindow, [hWndLvTcp], SW_HIDE
+	Invoke RefreshUdpOpenPorts, [hWnd]
+	Mov Esi, SW_SHOWNORMAL
+	Jmp > L4
+:	Invoke ShowWindow, [hWndLvTcp], SW_HIDE
+	Invoke ShowWindow, [hWndLvUdp], SW_HIDE
+	Mov Esi, SW_HIDE
+L4:	Invoke GetWindowItem, [hWnd], IDC_NETMON_GRPLISTVIEW
+	Mov Edi, Eax
+	Invoke ShowWindow, Eax, Esi
+	Invoke Refresh, Edi
+	Jmp >> L28
+L6:	Cmp D[wParam], IDC_NETMON_LISTVIEW1
+	Jne >> L22
+	Mov Edi, [lParam]
+	Cmp D[Edi + NMHDR.code], NM_RCLICK
+	Jne >> L12
+	Invoke GetCursorPos, Addr rc
+	Lea Edi, szBuffer
+	Mov D[Edi + LV_HITTESTINFO.flags], LVHT_ONITEM
+	Mov Eax, [rc.left]
+	Mov [Edi + LV_HITTESTINFO.pt.x], Eax
+	Mov Eax, [rc.top]
+	Mov [Edi + LV_HITTESTINFO.pt.y], Eax
+	Lea Eax, [Edi + LV_HITTESTINFO.pt]
+	Invoke ScreenToClient, [hWndLvTcp], Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_HITTEST, 0, Edi
+	Xor Edi, Edi
+	Xor Esi, Esi
+	Cmp Eax, (-1)
+	Je > L10
+	Invoke GetTcpEntry, (-1), Addr szBuffer
+	Or Eax, Eax
+	Jz > L10
+	Lea Eax, szBuffer
+	Cmp D[Eax + MIB_TCPROW_OWNER_PID.dwOwningPid], (-1)
+	Je >
+	Inc Esi
+:	Inc Edi
+L10:
+	Invoke EnableMenu, [hTcpSubMenu], IDM_MENU_CLOSE_PORT, Edi
+	Invoke EnableMenu, [hTcpSubMenu], IDM_MENU_TERMINATE_PROCESS, Esi
+	Invoke EnableMenu, [hTcpSubMenu], IDM_MENU_DETAILS, Edi
+	Invoke TrackPopupMenu, [hTcpSubMenu], (TPM_LEFTALIGN Or TPM_LEFTBUTTON), [rc.left], [rc.top], 0, [hWnd], NULL
+	Return (TRUE)
+L12:
+	Cmp D[Edi + NMHDR.code], NM_DBLCLK
+	Jne >
+	Invoke SendMessage, [hWnd], WM_COMMAND, IDM_MENU_DETAILS, 0
+	Return (TRUE)
+:	Cmp D[Edi + NMHDR.code], LVN_KEYDOWN
+	Jne > L14
+	Cmp D[Edi + NMLVKEYDOWN.wVKey], VK_RETURN
+	Jne >> L28
+	Invoke SendMessage, [hWnd], WM_COMMAND, IDM_MENU_DETAILS, NULL
+	Ret
+L14:
+	Cmp D[Edi + NMHDR.code], LVN_HOTTRACK
+	Jne >> L18
+	Cmp D[lPlatForm], ecWin2K
+	Jl >> L28
+	Mov Edi, [lParam]
+	Cmp D[Edi + NM_LISTVIEW.iItem], (-1)
+	Je >> L28
+	Cmp D[bRefreshingTcp], FALSE
+	Jne >> L28
+	Invoke GetTcpEntry, [Edi + NM_LISTVIEW.iItem], Addr szBuffer
+	Or Eax, Eax
+	Jz >> L28
+	Cmp D[lTimer2], FALSE
+	Je >
+	Invoke KillTimer, [hWnd], [lTimer2]
+	Mov D[lTimer2], 0
+:	Lea Edi, szBuffer
+	Mov Ebx, [Edi + MIB_TCPROW_OWNER_PID.dwOwningPid]
+	Mov Esi, Edi
+	Invoke RtlZeroMemory, Edi, SizeOf PROCESSENTRY32
+	Add Esi, 128
+	Mov Eax, Esi
+	Mov B[Eax], ' '
+	Inc Eax
+	Invoke LoadString, [App.Instance], IDS_PROCESS, Eax, 64
+	Add Eax, Esi
+	Inc Eax
+	Mov B[Eax], ' '
+	Inc Eax
+	Invoke GetProcessInfo, Ebx, Eax, Edi
+	Invoke SetWindowText, [hWnd], Esi
+	Invoke SetTimer, [hWnd], 20, 1200, NULL
+	Mov [lTimer2], Eax
+	Jmp >> L28
+L18:
+	Cmp D[Edi + NMHDR.code], LVN_COLUMNCLICK
+	Jne >> L28
+	Mov Edx, [Edi + NM_LISTVIEW.iSubItem]
+	Mov [lCurrentTdpSort], Edx
+	Cmp Edx, 1
+	Jne >
+	Xor D[bLocalTcpDescending], 1
+	Jmp > L20
+:	Cmp Edx, 2
+	Jne >
+	Xor D[bRemoteTcpDescending], 1
+	Jmp > L20
+:	Cmp Edx, 3
+	Jne > L20
+	Xor D[bStateTcpDescending], 1
+L20:
+	Invoke SendMessage, [Edi + NMHDR.hwndFrom], LVM_SORTITEMSEX, Edx, Addr CompareTcpFunction
+	Invoke SendMessage, [hWndLvTcp], LVM_GETNEXTITEM, (-1), LVNI_SELECTED
+	Cmp Eax, (-1)
+	Jne >
+	Xor Eax, Eax
+:	Invoke SendMessage, [hWndLvTcp], LVM_ENSUREVISIBLE, Eax, FALSE
+	Jmp >> L28
+L22:
+	Cmp D[wParam], IDC_NETMON_LISTVIEW2
+	Jne >> L28
+	Mov Edi, [lParam]
+	Cmp D[Edi + NMHDR.code], LVN_COLUMNCLICK
+	Jne > L26
+	Mov Edx, [Edi + NM_LISTVIEW.iSubItem]
+	Mov [lCurrentUdpSort], Edx
+	Cmp Edx, 1
+	Jne >
+	Xor D[bLocalUdpDescending], 1
+	Jmp > L24
+:	Cmp Edx, 2
+	Jne >
+	Xor D[bRemoteUdpDescending], 1
+	Jmp > L24
+:	Cmp Edx, 3
+	Jne > L24
+	Xor D[bStateUdpDescending], 1
+L24:
+	Invoke SendMessage, [Edi + NMHDR.hwndFrom], LVM_SORTITEMSEX, Edx, Addr CompareUdpFunction
+	Invoke SendMessage, [hWndLvUdp], LVM_GETNEXTITEM, (-1), LVNI_SELECTED
+	Cmp Eax, (-1)
+	Jne >
+	Xor Eax, Eax
+:	Invoke SendMessage, [hWndLvUdp], LVM_ENSUREVISIBLE, Eax, FALSE
+	Jmp >> L28
+L26:
+	Cmp D[Edi + NMHDR.code], NM_RCLICK
+	Jne >> L28
+	Invoke GetCursorPos, Addr rc
+	Lea Edi, szBuffer
+	Mov D[Edi + LV_HITTESTINFO.flags], LVHT_ONITEM
+	Mov Eax, [rc.left]
+	Mov [Edi + LV_HITTESTINFO.pt.x], Eax
+	Mov Eax, [rc.top]
+	Mov [Edi + LV_HITTESTINFO.pt.y], Eax
+	Lea Eax, [Edi + LV_HITTESTINFO.pt]
+	Invoke ScreenToClient, [hWndLvUdp], Eax
+	Invoke SendMessage, [hWndLvUdp], LVM_HITTEST, 0, Edi
+	Xor Esi, Esi
+	Cmp Eax, (-1)
+	Je >
+	Invoke GetUdpEntry, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Lea Eax, szBuffer
+	Cmp D[Eax + MIB_UDPROW_OWNER_PID.dwOwningPid], (-1)
+	Je >
+	Inc Esi
+:	Invoke EnableMenu, [hUdpSubMenu], IDM_MENU_TERMINATE_PROCESS_UDP, Esi
+	Invoke TrackPopupMenu, [hUdpSubMenu], (TPM_LEFTALIGN | TPM_LEFTBUTTON), [rc.left], [rc.top], 0, [hWnd], NULL
+	Return (TRUE)
+L28:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnNetMonSysCommand: UseData NetMonProcedure
+	Cmp D[wParam], MC_RESIZE
+	Jne >
+	Invoke NCLButtonDblClk, [hWnd]
+	Ret
+:	Xor Eax, Eax
+	Ret
+EndU
+
+OnNetMonNCLButtonDblClk: UseData NetMonProcedure
+	Invoke NCLButtonDblClk, [hWnd]
+	Ret
+EndU
+
+OnNetMonTrayMessage: UseData NetMonProcedure
+	Cmp D[lParam], WM_LBUTTONDOWN
+	Jne >
+L2:	Invoke IsWindowEnabled, [hWnd]
+	Or Eax, Eax
+	Jz >> L4
+	Invoke SetForegroundWindow, [hWnd]
+	Return (TRUE)
+:	Cmp D[lParam], WM_LBUTTONDBLCLK
+	Jne >
+	Invoke IsWindowVisible, [hWnd]
+	Or Eax, Eax
+	Jnz < L2
+	Invoke SendMessage, [hWnd], WM_COMMAND, IDM_MENU_MONITOR, NULL
+	Ret
+:	Cmp D[lParam], WM_RBUTTONUP
+	Je >
+	Ret
+:	Invoke IsWindowEnabled, [hWnd]
+	Or Eax, Eax
+	Jz >
+	Invoke SetForegroundWindow, [hWnd]
+   	;Gets cursor coordinates
+:	Invoke GetCursorPos, Addr pt
+   	;Displays the menu in the right position
+   	Cmp D[bModalWindowOn], FALSE
+   	Je >
+	Invoke MessageBeep, 0
+	Jmp > L4
+:	Invoke TrackPopupMenu, [hMainSubMenu], 0, [pt.x], [pt.y], 0, [hWnd], NULL
+L4:	Return (TRUE)
+EndU
+
+OnNetMonExitSizeMove: UseData NetMonProcedure
+	Invoke SaveMonitorPosition, [hWnd]
+	Ret
+EndU
+
+OnNetMonTimer: UseData NetMonProcedure
+	Mov Eax, [wParam]
+	Cmp Eax, [lTimer1]
+	Jne >
+	Call Timer1Proc
+	Ret
+:	Cmp Eax, [lTimer2]
+	Jne > L2
+	Invoke KillTimer, [hWnd], [lTimer2]
+	Mov D[lTimer2], 0
+	Invoke LoadString, [App.Instance], IDS_CAPTION, Addr szBuffer, 64
+	Invoke SetWindowText, [hWnd], Addr szBuffer
+:	Mov Eax, TRUE
+	Ret
+L2:	Xor Eax, Eax
+	Ret
+EndU
+
+OnNetMonClose: UseData NetMonProcedure
+	Invoke ShowWindow, [hWnd], SW_HIDE
+	Invoke CheckMenu, IDM_MENU_MONITOR
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, MFS_UNCHECKED
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szVisible, Addr szBuffer
+	Mov Eax, TRUE	;Return (TRUE)
+	Ret
+EndU
+
+OnNetMonDestroy: UseData NetMonProcedure
+	Cmp D[lTimer1], 0
+	Je >
+	Invoke KillTimer, [hWnd], [lTimer1]
+:	Cmp D[lTimer2], 0
+	Je >
+	Invoke KillTimer, [hWnd], [lTimer2]
+:	Invoke GetTickCount
+	Mov Edi, Eax
+	Add Edi, 1000
+	Mov D[bDoThread], FALSE
+:	Cmp D[bThreadActive], FALSE
+	Je >
+	Invoke GetTickCount
+	Cmp Eax, Edi
+	Jge >
+	Invoke Sleep, 1
+	Jmp <
+:	Invoke CloseHandle, [hMutex]
+	Invoke Shell_NotifyIcon, NIM_DELETE, Addr IconData
+	Invoke DestroyMeter, [lMeterDownIndex]
+	Invoke DestroyMeter, [lMeterUpIndex]
+	Invoke DestroyIcon, [hIconBoth]
+	Invoke DestroyIcon, [hIconDisconn]
+	Invoke DestroyIcon, [hIconDownOff]
+	Invoke DestroyIcon, [hIconDownOn]
+	Invoke DestroyIcon, [hIconNone]
+	Invoke DestroyIcon, [hIconReceive]
+	Invoke DestroyIcon, [hIconSend]
+	Invoke DestroyIcon, [hIconUpOff]
+	Invoke DestroyIcon, [hIconUpOn]
+	Invoke DestroyCursor, [hCursorHand]
+	Invoke DestroyMenu, [hMainMenu]
+	Invoke DestroyMenu, [hTcpMenu]
+	Invoke DestroyMenu, [hUdpMenu]
+	Invoke GlobalFree, [lpPtr]
+	Invoke FreeAdaptersMemory
+	Cmp D[hIpHlpApi], FALSE
+	Je >
+	Invoke FreeLibrary, [hIpHlpApi]
+:	Xor Eax, Eax
+	Ret
+EndU
+
+AddListViewColumn Frame hListView, lpszText, lWidth, lPos, lAlignment
+	Local lvc:LVCOLUMN
+
+	Mov D[lvc.mask], (LVCF_FMT | LVCF_TEXT | LVCF_WIDTH)
+	Mov Eax, [lAlignment]
+	Mov [lvc.fmt], Eax
+	Mov Eax, [lWidth]
+	Mov [lvc.cx], Eax
+	Mov Eax, [lpszText]
+	Mov [lvc.pszText], Eax
+	Invoke lstrlen, [lpszText]
+	Mov [lvc.cchTextMax], Eax
+	Mov D[lvc.iSubItem], 0
+	Mov D[lvc.iImage], 0
+	Mov D[lvc.iOrder], 0
+	Invoke SendMessage, [hListView], LVM_INSERTCOLUMN, [lPos], Addr lvc
+	Ret
+EndF
+
+CheckMainWindow Frame hWnd
+	Invoke IsWindowVisible, [hWnd]
+	Or Eax, Eax
+	Jnz >
+	Invoke SendMessage, [hWnd], WM_COMMAND, IDM_MENU_MONITOR, NULL
+	Invoke Sleep, 150
+:	Cmp D[bSmallSize], FALSE
+	Je >
+	Mov D[bSmallSize], FALSE
+	Invoke SetMonitorSize, [hWnd]
+:	Ret
+EndF
+
+CheckMenu Frame ulMenu
+	Invoke GetMenuState, [hMainSubMenu], [ulMenu], MF_BYCOMMAND
+	And Eax, MFS_CHECKED
+	Jnz >
+	Mov Eax, MFS_CHECKED
+	Jmp > L2
+:	Mov Eax, MFS_UNCHECKED
+L2:	Push Eax
+	Or Eax, MF_BYCOMMAND
+	Invoke CheckMenuItem, [hMainSubMenu], [ulMenu], Eax
+	Pop Eax
+	Ret
+EndF
+
+CompareTcpFunction Frame lParam1, lParam2, lParamSort Uses Ebx, Edi, Esi
+	Local lvi:LVITEM
+
+	Lea Edi, szBuffer
+	Add Edi, 192
+	Mov Esi, Edi
+	Add Esi, 16
+	Mov Eax, [lParamSort]
+	Or Eax, Eax
+	Jz >> L6
+	Mov [lvi.iSubItem], Eax
+	Mov D[lvi.mask], LVIF_TEXT
+	Mov Eax, [lParam1]
+	Mov [lvi.iItem], Eax
+	Mov [lvi.pszText], Edi
+	Mov D[lvi.cchTextMax], 12
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEM, 0, Addr lvi
+	Mov Eax, [lParam2]
+	Mov [lvi.iItem], Eax
+	Mov [lvi.pszText], Esi
+	Mov D[lvi.cchTextMax], 12
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEM, 0, Addr lvi
+	Cmp D[lParamSort], 2
+	Jle > L2
+	Cmp D[bStateTcpDescending], 0
+	Je >
+	Xchg Edi, Esi
+:	Invoke lstrcmpi, Edi, Esi
+	Ret
+L2:	Cmp D[lParamSort], 1
+	Jne >
+	Mov Ebx, [bLocalTcpDescending]
+	Jmp > L4
+:	Cmp D[lParamSort], 2
+	Jne > L4
+	Mov Ebx, [bRemoteTcpDescending]
+L4:	Invoke Value, Edi
+	Mov Edx, Eax
+	Invoke Value, Esi
+	Or Ebx, Ebx
+	Jz >
+	Xchg Eax, Edx
+:	Sub Eax, Edx	;Eax < 0 = De petit a gran
+	Ret
+L6:	Xor Eax, Eax
+	Ret
+EndF
+
+CompareUdpFunction Frame lParam1, lParam2, lParamSort Uses Ebx, Edi, Esi
+	Local lvi:LVITEM
+
+	Lea Edi, szBuffer
+	Add Edi, 192
+	Mov Esi, Edi
+	Add Esi, 16
+	Mov Eax, [lParamSort]
+	Or Eax, Eax
+	Jz >> L6
+	Mov [lvi.iSubItem], Eax
+	Mov D[lvi.mask], LVIF_TEXT
+	Mov Eax, [lParam1]
+	Mov [lvi.iItem], Eax
+	Mov [lvi.pszText], Edi
+	Mov D[lvi.cchTextMax], 12
+	Invoke SendMessage, [hWndLvUdp], LVM_GETITEM, 0, Addr lvi
+	Mov Eax, [lParam2]
+	Mov [lvi.iItem], Eax
+	Mov [lvi.pszText], Esi
+	Mov D[lvi.cchTextMax], 12
+	Invoke SendMessage, [hWndLvUdp], LVM_GETITEM, 0, Addr lvi
+	Cmp D[lParamSort], 2
+	Jle > L2
+	Cmp D[bStateUdpDescending], 0
+	Je >
+	Xchg Edi, Esi
+:	Invoke lstrcmpi, Edi, Esi
+	Ret
+L2:	Cmp D[lParamSort], 1
+	Jne >
+	Mov Ebx, [bLocalUdpDescending]
+	Jmp > L4
+:	Cmp D[lParamSort], 2
+	Jne > L4
+	Mov Ebx, [bRemoteUdpDescending]
+L4:	Invoke Value, Edi
+	Mov Edx, Eax
+	Invoke Value, Esi
+	Or Ebx, Ebx
+	Jz >
+	Xchg Eax, Edx
+:	Sub Eax, Edx	;Eax < 0 = De petit a gran
+	Ret
+L6:	Xor Eax, Eax
+	Ret
+EndF
+
+ConvertToScale Frame dwBytesSecond
+	Mov Eax, [dwBytesSecond]
+	Or Eax, Eax
+	Jnz >
+	Ret
+:	Cmp Eax, 101
+	Jg >
+	Mov Eax, 102
+:	Cmp D[bBits], FALSE
+	Je >
+	Shl Eax, 3
+:	Ret
+EndF
+
+EnableMenu Frame hMenu, ulID, bEnable
+	Mov Eax, MF_GRAYED
+	Cmp D[bEnable], FALSE
+	Je >
+	Mov Eax, MF_ENABLED
+:	Or Eax, MF_BYCOMMAND
+	Invoke EnableMenuItem, [hMenu], [ulID], Eax
+	Ret
+EndF
+
+FreeAdaptersMemory: Uses Edi
+	Lea Edi, [dwIfTableIndex]
+	Mov Ecx, 64
+L2:	Mov Eax, [Edi]
+	Or Eax, Eax
+	Jz >
+	Push Ecx
+	Invoke GlobalFree, Eax
+	Pop Ecx
+:	Add Edi, 4
+	Loop < L2
+	Ret
+EndU
+
+GetIPAddressTables:
+	Invoke GetIpAddrTable, [lpPtr], Addr dwPtrSize, FALSE
+	Cmp Eax, ERROR_INSUFFICIENT_BUFFER
+	Jne >
+	Invoke GlobalFree, [lpPtr]
+	Invoke GlobalAlloc, GPTR, [dwPtrSize]
+	Mov [lpPtr], Eax
+	Invoke GetIpAddrTable, [lpPtr], Addr dwPtrSize, FALSE
+:	Cmp Eax, NO_ERROR
+	Je >
+	Mov Eax, (-1)
+	Ret
+:	Mov Eax, [lpPtr]
+	Mov Eax, [Eax]	;Eax = Number of entries
+	Ret
+
+
+GetMeterRegistrySettings:
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szBits, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [bBits], Eax
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterDownColor, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [crMeterDownColor], Eax
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterUpColor, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [crMeterUpColor], Eax
+:	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterDownMaxValueEnum, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [lMeterDownMaxValueEnum], Eax
+:	Invoke CheckMeterMaxValue, [lMeterDownMaxValueEnum], Addr lMeterDownMaxValue
+	Invoke GetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterUpMaxValueEnum, Addr szBuffer
+	Or Eax, Eax
+	Jz >
+	Invoke Value, Addr szBuffer
+	Mov [lMeterUpMaxValueEnum], Eax
+:	Invoke CheckMeterMaxValue, [lMeterUpMaxValueEnum], Addr lMeterUpMaxValue
+	Ret
+
+GetSpeedString Frame dwValue, dwDiv1, dwDiv2 Uses Esi
+	Mov Eax, [dwValue]
+	Xor Edx, Edx
+	Div D[dwDiv1]
+	Mov Esi, Edx
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, Eax
+	Add Esp, 12
+	Invoke lstrlen, Addr szBuffer
+	Xchg Eax, Esi
+	Add Esi, Offset szBuffer
+	Xor Edx, Edx
+	Div D[dwDiv2]
+	Cmp Eax, 10
+	Jl >
+	Mov Eax, 9
+:	Mov Cl, [sDecimal]
+	Mov [Esi], Cl
+	Inc Esi
+	Invoke wsprintf, Esi, Addr szFormat, Eax
+	Add Esp, 12
+	Ret
+EndF
+
+GetTcpEntry Frame lItem, lpMibTcpRow Uses Ebx, Edi, Esi
+	Local lStructSize:D, lvi:LVITEM
+
+	Mov Edi, [lpMibTcpRow]
+	Mov Eax, [lItem]
+	Cmp Eax, (-1)
+	Jne >
+	Invoke SendMessage, [hWndLvTcp], LVM_GETNEXTITEM, (-1), LVNI_SELECTED
+:	Cmp Eax, (-1)
+	Jne >
+L2:	Xor Eax, Eax
+	Ret
+:	Mov Edx, SizeOf MIB_TCPROW
+	Cmp D[lpGetExtendedTcpTable], 0
+	Je >
+	Mov Edx, SizeOf MIB_TCPROW_OWNER_PID
+:	Mov [lStructSize], Edx
+	Mov [lvi.iItem], Eax
+	Mov D[lvi.mask], LVIF_TEXT
+	Mov D[lvi.iSubItem], 1
+	Lea Eax, [szBuffer]
+	Mov [lvi.pszText], Eax
+	Mov D[lvi.cchTextMax], 12
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEM, 0, Addr lvi
+	Invoke Value, Addr szBuffer
+	Push Eax
+	Inc D[lvi.iSubItem]
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEM, 0, Addr lvi
+	Invoke Value, Addr szBuffer
+	Push Eax
+	Invoke ReadTcpTableEx, [lStructSize]
+	Pop Edx
+	Pop Ecx
+	Or Eax, Eax
+	Jz << L2
+	Mov Esi, Eax
+	Push Eax
+	Xchg Cl, Ch
+	Xchg Dl, Dh
+	Mov Ebx, [Esi]
+	Add Esi, 4
+L4:	Or Ebx, Ebx
+	Jz > L8
+	Cmp Ecx, [Esi + 8]
+	Jne > L6
+	Cmp Edx, [Esi + 16]
+	Jne > L6
+	Mov [Edi + 8], Ecx	;Local port
+	Mov [Edi + 16], Edx	;dwRemotePort
+	Mov Eax, [Esi]	;dwState
+	Mov [Edi], Eax
+	Mov Eax, [Esi + 4]	;dwLocalAddr
+	Mov [Edi + 4], Eax
+	Mov Eax, [Esi + 12]	;dwRemoteAddr
+	Mov [Edi + 12], Eax
+	Mov D[Edi + 20], (-1)
+	Cmp D[lpGetExtendedTcpTable], 0
+	Je >
+	Mov Eax, [Esi + 20]	;dwOwningPid
+	Mov [Edi + 20], Eax
+:	Pop Eax
+	Invoke GlobalFree, Eax
+	Mov Eax, TRUE
+	Ret
+L6:	Add Esi, [lStructSize]
+	Dec Ebx
+	Jmp < L4
+L8:	Pop Eax
+	Invoke GlobalFree, Eax
+	Xor Eax, Eax
+	Ret
+EndF
+
+GetTcpOpenPorts Frame NoParam Uses Ebx, Edi, Esi
+	Local lStructSize:D, lp:D, lvi:LVITEM
+
+	Mov Eax, SizeOf MIB_TCPROW
+	Cmp D[lpGetExtendedTcpTable], 0
+	Je >
+	Mov Eax, SizeOf MIB_TCPROW_OWNER_PID
+:	Mov [lStructSize], Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_DELETEALLITEMS, 0, 0
+	Invoke ReadTcpTableEx, [lp]
+	Or Eax, Eax
+	Jz >> L2
+	Mov [lp], Eax
+	Mov Esi, Eax
+	Mov D[lvi.mask], LVIF_TEXT
+	Xor Edi, Edi
+	Mov Ebx, [Esi]
+	Add Esi, 4
+	Lea Eax, [szBuffer]
+	Mov [lvi.pszText], Eax
+:	Or Ebx, Ebx
+	Jz >>
+	Mov W[szBuffer], 0
+	Mov [lvi.iItem], Edi
+	Mov D[lvi.iSubItem], 0
+	Invoke SendMessage, [hWndLvTcp], LVM_INSERTITEM, 0, Addr lvi
+	Mov [lvi.iItem], Eax
+	Inc D[lvi.iSubItem]
+	Mov Eax, [Esi + 8]		;dwLocalPort
+	Invoke PortToStr, Eax, Addr szBuffer
+	Invoke SendMessage, [hWndLvTcp], LVM_SETITEM, 0, Addr lvi
+	Inc D[lvi.iSubItem]
+	Mov Eax, [Esi + 16]		;dwRemotePort
+	Invoke PortToStr, Eax, Addr szBuffer
+	Invoke SendMessage, [hWndLvTcp], LVM_SETITEM, 0, Addr lvi
+	Inc D[lvi.iSubItem]
+	Mov Eax, [Esi]			;dwState
+	Invoke GetStateString, Eax, Addr szBuffer
+	Invoke SendMessage, [hWndLvTcp], LVM_SETITEM, 0, Addr lvi
+	Add Esi, [lStructSize] ;SizeOf MIB_TCPROW
+	Inc Edi
+	Dec Ebx
+	Jmp <<
+:	Invoke GlobalFree, [lp]
+	Invoke SendMessage, [hWndLvTcp], LVM_SORTITEMSEX, [lCurrentTdpSort], Addr CompareTcpFunction
+L2:	Ret
+EndF
+
+GetUdpEntry Frame lpMibUdpRow Uses Ebx, Edi, Esi
+	Local lStructSize:D, lvi:LVITEM
+
+	Mov Edi, [lpMibUdpRow]
+	Invoke SendMessage, [hWndLvUdp], LVM_GETNEXTITEM, (-1), LVNI_SELECTED
+	Cmp Eax, (-1)
+	Je >> L8
+	Mov Edx, SizeOf MIB_UDPROW
+	Cmp D[lpGetExtendedUdpTable], FALSE
+	Je >
+	Mov Edx, SizeOf MIB_UDPROW_OWNER_PID
+:	Mov [lStructSize], Edx
+	Mov [lvi.iItem], Eax
+	Mov D[lvi.mask], LVIF_TEXT
+	Mov D[lvi.iSubItem], 1
+	Lea Eax, szBuffer
+	Mov [lvi.pszText], Eax
+	Mov D[lvi.cchTextMax], 16
+	Invoke SendMessage, [hWndLvUdp], LVM_GETITEM, 0, Addr lvi
+	Invoke Value, Addr szBuffer
+	Push Eax
+	Inc D[lvi.iSubItem]
+	Invoke SendMessage, [hWndLvUdp], LVM_GETITEM, 0, Addr lvi
+	Invoke StrToIP, Addr szBuffer
+	Push Eax
+	Invoke ReadUdpTableEx
+	Pop Edx
+	Pop Ecx
+	Or Eax, Eax
+	Jz > L8
+	Mov Esi, Eax
+	Push Eax
+	Xchg Cl, Ch
+	;Xchg Dl, Dh
+	Mov Ebx, [Esi]
+	Add Esi, 4
+L2:	Or Ebx, Ebx
+	Jz > L6
+	Cmp Ecx, [Esi + 4]
+	Jne > L4
+	Cmp Edx, [Esi]
+	Jne > L4
+	Mov [Edi], Edx		;dwLocalAddr
+	Mov [Edi + 4], Ecx	;Local port
+	Cmp D[lpGetExtendedUdpTable], FALSE
+	Je >
+	Mov Eax, [Esi + 8]	;dwOwningPid
+	Mov [Edi + 8], Eax
+:	Pop Eax
+	Invoke GlobalFree, Eax
+	Mov Eax, TRUE
+	Ret
+L4:	Add Esi, [lStructSize]
+	Dec Ebx
+	Jmp < L2
+L6:	Pop Eax
+	Invoke GlobalFree, Eax
+L8:
+	Xor Eax, Eax
+	Ret
+EndF
+
+GetUdpOpenPorts Frame NoParam Uses Ebx, Edi, Esi
+	Local lStructSize:D, lp:D, lvi:LVITEM
+	Local ProcessEntry:PROCESSENTRY32
+
+	Mov Eax, SizeOf MIB_UDPROW
+	Cmp D[lpGetExtendedUdpTable], 0
+	Je >
+	Mov Eax, SizeOf MIB_UDPROW_OWNER_PID
+:	Mov [lStructSize], Eax
+	Invoke SendMessage, [hWndLvUdp], LVM_DELETEALLITEMS, 0, 0
+	Invoke ReadUdpTableEx, [lp]
+	Or Eax, Eax
+	Jz > L?
+	Mov [lp], Eax
+	Mov Esi, Eax
+	Mov D[lvi.mask], LVIF_TEXT
+	Xor Edi, Edi
+	Mov Ebx, [Esi]
+	Add Esi, 4
+	Lea Eax, [szBuffer]
+	Mov [lvi.pszText], Eax
+L2:	Or Ebx, Ebx
+	Jz >> L4
+	Mov W[szBuffer], 0
+	Mov [lvi.iItem], Edi
+	Mov D[lvi.iSubItem], 0
+	Invoke SendMessage, [hWndLvUdp], LVM_INSERTITEM, 0, Addr lvi
+	Mov [lvi.iItem], Eax
+	Inc D[lvi.iSubItem]
+	Mov Eax, [Esi + 4]		;dwLocalPort
+	Invoke PortToStr, Eax, Addr szBuffer
+	Invoke SendMessage, [hWndLvUdp], LVM_SETITEM, 0, Addr lvi
+	Inc D[lvi.iSubItem]
+	Mov Eax, [Esi]			;dwLocalAddr
+	Invoke IPToStr, Eax, Addr szBuffer
+	Invoke SendMessage, [hWndLvUdp], LVM_SETITEM, 0, Addr lvi
+	Inc D[lvi.iSubItem]
+	Mov Edx, (-1)
+	Cmp D[lpGetExtendedUdpTable], 0
+	Je >
+	Mov Edx, [Esi + 8]	;dwOwningPid
+:	Invoke GetProcessInfo, Edx, Addr szBuffer, Addr ProcessEntry
+	Invoke SendMessage, [hWndLvUdp], LVM_SETITEM, 0, Addr lvi
+	Add Esi, [lStructSize] ;SizeOf MIB_UDPROW
+	Inc Edi
+	Dec Ebx
+	Jmp << L2
+L4:	Invoke GlobalFree, [lp]
+	Invoke SendMessage, [hWndLvUdp], LVM_SORTITEMSEX, [lCurrentUdpSort], Addr CompareUdpFunction
+L?:	Ret
+EndF
+
+InitAdapterValues: Uses Ebx
+	Mov Eax, [dwCurrentIndex]
+	Cmp Eax, (-1)
+	Jne >
+	Ret
+:	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Ebx, [Eax]		;Get adapter data address
+	Invoke UpdateBytes, TRUE
+	Lea Eax, [Ebx + ADAPTER_DATA.dwLastSpeedIn]
+	Invoke UpdateSpeed, 0, IDC_NETMON_STCSPEEDIN, Eax, TRUE
+	Lea Eax, [Ebx + ADAPTER_DATA.dwLastSpeedOut]
+	Invoke UpdateSpeed, 0, IDC_NETMON_STCSPEEDOUT, Eax, TRUE
+	Invoke GetWindowItem, [IconData.hWnd], IDC_NETMON_STCIP
+	Push Eax
+	Invoke IPToStr, [Ebx + ADAPTER_DATA.dwAddress], Addr szBuffer
+	Pop Edx
+	Invoke SendMessage, Edx, WM_SETTEXT, 0, Addr szBuffer
+	Invoke GetWindowItem, [IconData.hWnd], IDC_NETMON_STCSUBMASK
+	Push Eax
+	Invoke IPToStr, [Ebx + ADAPTER_DATA.dwMask], Addr szBuffer
+	Pop Edx
+	Invoke SendMessage, Edx, WM_SETTEXT, 0, Addr szBuffer
+	Mov Eax, [Ebx + ADAPTER_DATA.dwBytesIn]
+	Mov [Ebx + ADAPTER_DATA.dwLastSpeedIn], Eax
+	Or Eax, Eax
+	Jz >
+	Dec Eax
+:	Mov [Ebx + ADAPTER_DATA.dwLastBytesIn], Eax
+	Mov Eax, [Ebx + ADAPTER_DATA.dwBytesOut]
+	Mov [Ebx + ADAPTER_DATA.dwLastSpeedOut], Eax
+	Or Eax, Eax
+	Jz >
+	Dec Eax
+:	Mov [Ebx + ADAPTER_DATA.dwLastBytesOut], Eax
+	Ret
+EndU
+
+InitInterfaces: Uses Ebx, Edi, Esi
+	Xor Ebx, Ebx
+	Invoke FreeAdaptersMemory
+	Lea Edi, [dwIfTableIndex]
+	Invoke SendMessage, [hWndCombo], CB_RESETCONTENT, 0, 0
+	Cmp D[dwCurrentIndex], (-1)
+	Jne >
+	Mov D[dwCurrentIndex], 0
+:	Invoke GetIPAddressTables
+	Cmp Eax, (-1)
+	Jne >
+	Ret
+:	Mov Esi, [lpPtr]
+	Mov Ecx, Eax	;Ecx = Number of entries
+	Mov [dwNumConns], Eax
+	Add Esi, 4
+	Lea Esi, [Esi]	;Esi = Pointer to first MIB_IPADDRROW struct
+L2:	Push Ecx
+	Mov Eax, [Esi + MIB_IPADDRROW.dwIndex]
+	Mov [MibIfRow.dwIndex], Eax
+	Invoke GetIfEntry, Addr MibIfRow
+	Cmp D[MibIfRow.dwType], MIB_IF_TYPE_LOOPBACK
+	Jne >
+	Cmp D[dwNumConns], 2
+	Jge > L4
+:	Invoke GlobalAlloc, GPTR, SizeOf ADAPTER_DATA
+	Mov Edx, Eax
+	Cmp D[MibIfRow.dwInOctets], 0
+	Je >
+	Or Ebx, Ebx
+	Jnz >
+	Mov Eax, Edi
+	Sub Eax, Offset dwIfTableIndex
+	Shr Eax, 2
+	Mov [dwCurrentIndex], Eax
+	Mov Ebx, TRUE
+:	Mov [Edi], Edx
+	Mov Eax, [MibIfRow.dwIndex]
+	Mov [Edx + ADAPTER_DATA.dwIndex], Eax
+	Mov Eax, [MibIfRow.dwType]
+	Mov [Edx + ADAPTER_DATA.dwType], Eax
+	Mov Eax, [Esi + MIB_IPADDRROW.dwAddr]
+	Mov [Edx + ADAPTER_DATA.dwAddress], Eax
+	Mov Eax, [Esi + MIB_IPADDRROW.dwMask]
+	Mov [Edx + ADAPTER_DATA.dwMask], Eax
+	Add Edi, 4
+	Lea Eax, [MibIfRow.bDescr]
+	Invoke SendMessage, [hWndCombo], CB_ADDSTRING, 0, Eax
+L4:	Add Esi, SizeOf MIB_IPADDRROW
+	Pop Ecx
+	Dec Ecx
+	Jnz << L2
+	Invoke SelectAdapter, (-1)
+	Mov Eax, NO_ERROR
+	Ret
+EndU
+
+NCLButtonDblClk Frame hWnd
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_TABSTRIP1
+	Mov Ebx, Eax
+	Invoke SendMessage, Eax, TCM_GETCURSEL, 0, 0
+	Or Eax, Eax
+	Jz >
+	Invoke SendMessage, Ebx, TCM_SETCURSEL, 0, 0
+	Lea Esi, szBuffer
+	Mov [Esi + NMHDR.hwndFrom], Ebx
+	Mov D[Esi + NMHDR.idFrom], IDC_NETMON_TABSTRIP1
+	Mov D[Esi + NMHDR.code], TCN_SELCHANGE
+	Invoke SendMessage, [hWnd], WM_NOTIFY, IDC_NETMON_TABSTRIP1, Esi
+:	Xor D[bSmallSize], 1
+	Invoke SetMonitorSize, [hWnd]
+	Return (TRUE)
+EndF
+
+OpenNetworkConnections Frame hWnd
+	Cmp D[lPlatForm], ecWinNT
+	Jg > L2
+	Jne >
+	Invoke ShellExecute, [hWnd], NULL, TEXT("CONTROL.EXE"), TEXT(" ncpa.cpl"), NULL, SW_SHOWNORMAL
+	Ret
+:	Invoke ShellExecute, [hWnd], NULL, TEXT("CONTROL.EXE"), TEXT(" Netcpl.cpl"), NULL, SW_SHOWNORMAL
+	Ret
+L2:	Invoke ShellExecute, [hWnd], NULL, TEXT("ncpa.cpl"), NULL, NULL, SW_SHOWNORMAL
+	Ret
+EndF
+
+ReadIfTable Frame bCheckNet Uses Ebx
+	Local bReturn:D
+
+	Mov D[bReturn], FALSE
+	Mov Eax, [dwCurrentIndex]
+	Cmp Eax, (-1)
+	Jne >
+	Xor Eax, Eax
+:	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Ebx, [Eax]
+	Or Ebx, Ebx
+	Jnz >
+	Mov D[dwCurrentIndex], (-1)
+L1:	Invoke SelectAdapter, (-1)
+	Mov Eax, [hIconDisconn]
+	Jmp >> L4
+:	Cmp D[Ebx + ADAPTER_DATA.dwType], MIB_IF_TYPE_LOOPBACK
+	Je < L1
+	Mov Eax, [Ebx + ADAPTER_DATA.dwIndex]
+	Mov [MibIfRow.dwIndex], Eax
+;	Invoke GetIfEntry, Addr MibIfRow
+	Invoke SelectAdapter, [MibIfRow.dwSpeed]
+	Cmp Eax, NO_ERROR
+	Jne > L2
+	Mov Edx, MIB_IF_OPER_STATUS_NON_OPERATIONAL
+	Cmp D[lPlatForm], ecWinNT
+	Jle >
+	Mov Edx, MIB_IF_OPER_STATUS_CONNECTING
+:	Cmp [MibIfRow.dwOperStatus], Edx
+	Jle > L2
+	Mov D[bReturn], TRUE
+L2:	Mov Eax, [MibIfRow.dwInOctets]
+	Mov [Ebx + ADAPTER_DATA.dwBytesIn], Eax
+	Mov Eax, [MibIfRow.dwOutOctets]
+	Mov [Ebx + ADAPTER_DATA.dwBytesOut], Eax
+	Cmp D[bCheckNet], FALSE
+	Je > L6
+	Cmp D[bReturn], 0
+	Je >
+	Cmp D[dwNetState], STATUS_DISCONN
+	Jne > L6
+	Mov D[dwNetState], STATUS_NONE
+	Mov Eax, [hIconNone]
+	Jmp > L4
+:	Cmp D[dwNetState], STATUS_DISCONN
+	Je > L6
+	Mov D[dwNetState], STATUS_DISCONN
+	Mov Eax, [hIconDisconn]
+L4:	Cmp Eax, [IconData.hIcon]
+	Je > L6
+	Invoke SetIcons, Eax
+L6:	Ret
+EndF
+
+ReadTcpTableEx Frame dwSize Uses Edi, Esi
+	Invoke GetCurrentProcess
+	Mov Edi, Eax
+	Invoke SetPrivileges, Edi, TRUE
+
+	Xor Esi, Esi
+	Mov Eax, [lpGetExtendedTcpTable]
+	Or Eax, Eax
+	Je > L4
+	Mov D[dwSize], SizeOf MIB_TCPROW_OWNER_PID
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+
+	Lea Edx, [dwSize]
+	Push 0
+	Push TCP_TABLE_OWNER_PID_ALL
+	Push AF_INET
+	Push TRUE
+	Push Edx
+	Push Esi
+	Call [lpGetExtendedTcpTable] ;Invoke GetExtendedTcpTable, Esi, Addr dwSize, TRUE, AF_INET, TCP_TABLE_OWNER_PID_ALL, 0
+	Cmp Eax, NO_ERROR
+	Je > L2
+	Cmp Eax, ERROR_INSUFFICIENT_BUFFER
+	Jne > L4
+	Invoke GlobalFree, Esi
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+L2:	Lea Edx, [dwSize]
+	Push 0
+	Push TCP_TABLE_OWNER_PID_ALL
+	Push AF_INET
+	Push TRUE
+	Push Edx
+	Push Esi
+	Call [lpGetExtendedTcpTable] ;Invoke GetExtendedTcpTable, Esi, Addr dwSize, TRUE, AF_INET, TCP_TABLE_OWNER_PID_ALL, 0
+	Cmp Eax, NO_ERROR
+	Je > L8
+L4:	Or Esi, Esi
+	Jz >
+	Invoke GlobalFree, Esi
+:	Mov D[lpGetExtendedTcpTable], NULL
+	Mov D[dwSize], SizeOf MIB_TCPROW
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+	Invoke GetTcpTable, Esi, Addr dwSize, FALSE
+	Cmp Eax, NO_ERROR
+	Je > L6
+	Cmp Eax, ERROR_INSUFFICIENT_BUFFER
+	Je >
+	Invoke GlobalFree, Esi
+	Xor Eax, Eax
+	Jmp > L10
+:	Invoke GlobalFree, Esi
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+L6:	Invoke GetTcpTable, Esi, Addr dwSize, FALSE
+	Cmp Eax, NO_ERROR
+	Je > L8
+	Invoke GlobalFree, Esi
+	Xor Eax, Eax
+	Jmp > L10
+L8:	Mov Eax, Esi
+
+L10:
+	Push Eax
+	Invoke SetPrivileges, Edi, FALSE
+	Pop Eax
+	Ret
+EndF
+
+RefreshTcpOpenPorts Frame hWnd Uses Ebx, Edi, Esi
+	Local rc:RECT, lvi:LVITEM
+
+	Cmp D[bRefreshingTcp], FALSE
+	Je >
+	Ret
+:	Mov D[bRefreshingTcp], TRUE
+	Invoke SetWaitCursor, [hWnd]
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GRPLISTVIEW
+	Mov Edi, Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_GETTOPINDEX, 0, 0
+	Push Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_GETNEXTITEM, (-1), LVNI_SELECTED
+	Cmp Eax, (-1)
+	Jne >
+	Xor Eax, Eax
+:	Mov [lvi.iItem], Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEMCOUNT, 0, 0
+	Mov Ebx, Eax
+	Invoke SendMessage, Edi, WM_SETREDRAW, FALSE, 0
+	Invoke GetTcpOpenPorts, Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEMCOUNT, 0, 0
+	Mov Esi, Eax
+	Cmp Eax, [lvi.iItem]
+	Jg >
+	Dec Eax
+	Mov [lvi.iItem], Eax
+:	Mov D[lvi.mask], LVIF_STATE
+	Mov D[lvi.iSubItem], 0
+	Mov D[lvi.state], (LVIS_FOCUSED | LVIS_SELECTED)
+	Mov D[lvi.stateMask], (LVIS_FOCUSED | LVIS_SELECTED)
+	Invoke SendMessage, [hWndLvTcp], LVM_SETITEM, 0, Addr lvi
+	Mov D[rc.left], LVIR_BOUNDS
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEMRECT, 0, Addr rc
+	Mov Eax, [rc.top]
+	Sub [rc.bottom], Eax
+	Xor Edx, Edx
+	Pop Eax
+	Mul D[rc.bottom]
+	Invoke SendMessage, [hWndLvTcp], LVM_SCROLL, 0, Eax
+	Invoke SetFocus, [hWndLvTcp]
+	Invoke SetDefaultCursor
+	Invoke SendMessage, Edi, WM_SETREDRAW, TRUE, 0
+	Cmp Ebx, Esi
+	Jne >
+	Invoke InvalidateRect, [hWndLvTcp], NULL, FALSE
+	Jmp > L2
+:	Invoke RedrawWindow, Edi, NULL, NULL, (RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW | RDW_ALLCHILDREN)
+L2:	Mov D[bRefreshingTcp], FALSE
+	Ret
+EndF
+
+RefreshUdpOpenPorts Frame hWnd Uses Ebx, Edi, Esi
+	Local rc:RECT, lvi:LVITEM
+
+	Cmp D[bRefreshingUdp], FALSE
+	Je >
+	Ret
+:	Mov D[bRefreshingUdp], TRUE
+	Invoke SetWaitCursor, [hWnd]
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GRPLISTVIEW
+	Mov Edi, Eax
+	Invoke SendMessage, [hWndLvUdp], LVM_GETTOPINDEX, 0, 0
+	Push Eax
+	Invoke SendMessage, [hWndLvUdp], LVM_GETNEXTITEM, (-1), LVNI_SELECTED
+	Cmp Eax, (-1)
+	Jne >
+	Xor Eax, Eax
+:	Mov [lvi.iItem], Eax
+	Invoke SendMessage, [hWndLvTcp], LVM_GETITEMCOUNT, 0, 0
+	Mov Ebx, Eax
+	Invoke SendMessage, Edi, WM_SETREDRAW, FALSE, 0
+	Invoke GetUdpOpenPorts, Eax
+	Invoke SendMessage, [hWndLvUdp], LVM_GETITEMCOUNT, 0, 0
+	Mov Esi, Eax
+	Cmp Eax, [lvi.iItem]
+	Jg >
+	Dec Eax
+	Mov [lvi.iItem], Eax
+:	Mov D[lvi.mask], LVIF_STATE
+	Mov D[lvi.iSubItem], 0
+	Mov D[lvi.state], (LVIS_FOCUSED | LVIS_SELECTED)
+	Mov D[lvi.stateMask], (LVIS_FOCUSED | LVIS_SELECTED)
+	Invoke SendMessage, [hWndLvUdp], LVM_SETITEM, 0, Addr lvi
+	Mov D[rc.left], LVIR_BOUNDS
+	Invoke SendMessage, [hWndLvUdp], LVM_GETITEMRECT, 0, Addr rc
+	Mov Eax, [rc.top]
+	Sub [rc.bottom], Eax
+	Xor Edx, Edx
+	Pop Eax
+	Mul D[rc.bottom]
+	Invoke SendMessage, [hWndLvUdp], LVM_SCROLL, 0, Eax
+	Invoke SetFocus, [hWndLvUdp]
+	Invoke SetDefaultCursor
+	Invoke SendMessage, Edi, WM_SETREDRAW, TRUE, 0
+	Cmp Ebx, Esi
+	Jne >
+	Invoke InvalidateRect, [hWndLvUdp], NULL, FALSE
+	Jmp > L2
+:	Invoke RedrawWindow, Edi, NULL, NULL, (RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW | RDW_ALLCHILDREN)
+L2:	Mov D[bRefreshingUdp], FALSE
+	Ret
+EndF
+
+ReadUdpTableEx Frame dwSize Uses Edi, Esi
+	Invoke GetCurrentProcess
+	Mov Edi, Eax
+	Invoke SetPrivileges, Edi, TRUE
+
+	Xor Esi, Esi
+	Mov Eax, [lpGetExtendedUdpTable]
+	Or Eax, Eax
+	Je > L4
+	Mov D[dwSize], SizeOf MIB_UDPROW_OWNER_PID
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+
+	Lea Edx, [dwSize]
+	Push 0
+	Push UDP_TABLE_OWNER_PID
+	Push AF_INET
+	Push TRUE
+	Push Edx
+	Push Esi
+	Call [lpGetExtendedUdpTable]
+	Cmp Eax, NO_ERROR
+	Je > L2
+	Cmp Eax, ERROR_INSUFFICIENT_BUFFER
+	Jne > L4
+	Invoke GlobalFree, Esi
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+L2:	Lea Edx, [dwSize]
+	Push 0
+	Push UDP_TABLE_OWNER_PID
+	Push AF_INET
+	Push TRUE
+	Push Edx
+	Push Esi
+	Call [lpGetExtendedUdpTable]
+	Cmp Eax, NO_ERROR
+	Je > L8
+L4:	Or Esi, Esi
+	Jz >
+	Invoke GlobalFree, Esi
+:	Mov D[lpGetExtendedUdpTable], NULL
+	Mov D[dwSize], SizeOf MIB_UDPROW
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+	Invoke GetUdpTable, Esi, Addr dwSize, FALSE
+	Cmp Eax, NO_ERROR
+	Je > L6
+	Cmp Eax, ERROR_INSUFFICIENT_BUFFER
+	Je >
+	Invoke GlobalFree, Esi
+	Xor Eax, Eax
+	Jmp > L10
+:	Invoke GlobalFree, Esi
+	Invoke GlobalAlloc, GPTR, [dwSize]
+	Mov Esi, Eax
+L6:	Invoke GetUdpTable, Esi, Addr dwSize, FALSE
+	Cmp Eax, NO_ERROR
+	Je > L8
+	Invoke GlobalFree, Esi
+	Xor Eax, Eax
+	Jmp > L10
+L8:	Mov Eax, Esi
+
+L10:
+	Push Eax
+	Invoke SetPrivileges, Edi, FALSE
+	Pop Eax
+	Ret
+EndF
+
+SaveMonitorPosition Frame hWnd Uses Ebx, Edi, Esi
+	Local wp:WINDOWPLACEMENT
+
+	Mov D[wp.length], SizeOf WINDOWPLACEMENT
+	Invoke GetWindowPlacement, [hWnd], Addr wp
+	Lea Ebx, [rcLarge]
+	Lea Edi, [szLeft]
+	Lea Esi, [szTop]
+	Cmp D[bSmallSize], FALSE
+	Je >
+	Lea Ebx, [rcSmall]
+	Lea Edi, [szSmallLeft]
+	Lea Esi, [szSmallTop]
+:	Mov Eax, [wp.rcNormalPosition.left]
+	Mov [Ebx + RECT.left], Eax
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, Eax
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Edi, Addr szBuffer
+	Mov Eax, [wp.rcNormalPosition.top]
+	Mov [Ebx + RECT.top], Eax
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, Eax
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Esi, Addr szBuffer
+	Ret
+EndF
+
+SelectAdapter Frame dwNetSpeed Uses Ebx
+	Cmp D[dwNetSpeed], (-1)
+	Jne > L2
+	Invoke SendMessage, [hWndCombo], CB_SETCURSEL, [dwCurrentIndex], 0
+	Cmp Eax, CB_ERR
+	Jne >
+	Mov D[dwCurrentIndex], (-1)
+	Invoke LoadString, [App.Instance], IDS_CAPTION, Addr IconData.szTip, 64
+	Ret
+:	Mov Eax, [dwCurrentIndex]
+	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Eax, [Eax]		;Get adapter data address
+	Mov Eax, [Eax + ADAPTER_DATA.dwIndex]
+	Mov [MibIfRow.dwIndex], Eax
+L2:	Invoke GetIfEntry, Addr MibIfRow
+	Push Eax
+	Mov Eax, [dwNetSpeed]
+	Cmp Eax, [MibIfRow.dwSpeed]
+	Je >> L4
+	Mov Ebx, IDS_KBITS
+	Mov Ecx, 1000
+	Mov Edx, 100
+	Cmp D[MibIfRow.dwSpeed], 999999
+	Jbe >
+	Mov Ebx, IDS_MBITS
+	Mov Ecx, 1000000
+	Mov Edx, 100000
+	Cmp D[MibIfRow.dwSpeed], 999999999
+	Jbe >
+	Mov Ebx, IDS_GBITS
+	Mov Ecx, 1000000000
+	Mov Edx, 100000000
+:	Invoke GetSpeedString, [MibIfRow.dwSpeed], Ecx, Edx
+	Invoke lstrlen, Addr szBuffer
+	Add Eax, Offset szBuffer
+	Invoke LoadString, [App.Instance], Ebx, Eax, 12
+	Invoke SetControlText, IDC_NETMON_STCNETSPEED, Addr szBuffer
+	Invoke LoadString, [App.Instance], IDS_SPEED, Addr IconData.szTip, 64
+	Add Eax, Offset IconData.szTip
+	Mov B[Eax], ' '
+	Mov B[Eax + 1], ' '
+	Add Eax, 2
+	Invoke lstrcpy, Eax, Addr szBuffer
+L4:	Pop Eax
+	Ret
+EndF
+
+SetControlText Frame ulControl, lpszText
+	Invoke GetWindowItem, [IconData.hWnd], [ulControl]
+	Invoke SendMessage, Eax, WM_SETTEXT, 0, [lpszText]
+	Ret
+EndF
+
+SetMonitorSize Frame hWnd Uses Edi, Esi
+	Local rc:RECT
+
+	Cmp D[bSmallSize], 0
+	Je >
+	Invoke CopyRect, Addr rc, Addr rcSmall
+	Mov Edi, SW_HIDE
+	Mov Esi, [lSmallTop]
+	Jmp > L2
+:	Invoke CopyRect, Addr rc, Addr rcLarge
+	Mov Edi, SW_SHOWNORMAL
+	Mov Esi, [lLargeTop]
+L2:	Invoke SetWindowPos, [hWnd], NULL, [rc.left], [rc.top], [rc.right], [rc.bottom], (SWP_NOZORDER | SWP_FRAMECHANGED)
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_TABSTRIP1
+	Invoke ShowWindow, Eax, Edi
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP1
+	Invoke ShowWindow, Eax, Edi
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP2
+	Invoke ShowWindow, Eax, Edi
+	Invoke GetWindowItem, [hWnd], IDC_NETMON_GROUP3
+	Invoke SetWindowPos, Eax, NULL, [lLeft], Esi, 0, 0, (SWP_NOZORDER | SWP_NOSIZE)
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, [bSmallSize]
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szSmallSize, Addr szBuffer
+	Ret
+EndF
+
+SetPriority Frame hWnd, lLevel
+	Mov Eax, IDM_MENU_LOW
+	Cmp D[lLevel], BELOW_NORMAL_PRIORITY_CLASS
+	Je >
+	Cmp D[lLevel], IDLE_PRIORITY_CLASS
+	Je >
+	Mov Eax, IDM_MENU_HIGH
+:	Invoke SendMessage, [hWnd], WM_COMMAND, Eax, 0
+	Ret
+EndF
+
+SetPrivileges Frame hProcess, bEnable Uses Edi
+	Local hToken:D, tp:TOKEN_PRIVILEGES
+
+	Mov Eax, (-1)
+	Cmp D[lPlatForm], ecWinNT
+	Jl > L2
+	Invoke OpenProcessToken, [hProcess], (TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY), Addr hToken
+	Invoke LookupPrivilegeValue, NULL, TEXT("SeDebugPrivilege"), Addr tp.Privileges.Luid
+	Mov D[tp.PrivilegeCount], 1
+	Xor Eax, Eax
+	Cmp D[bEnable], 0
+	Je >
+	Mov Eax, SE_PRIVILEGE_ENABLED
+:	Mov [tp.Privileges.Attributes], Eax
+	Invoke AdjustTokenPrivileges, [hToken], FALSE, Addr tp, SizeOf TOKEN_PRIVILEGES, NULL, NULL
+	Invoke GetLastError
+	Push Eax
+	Invoke CloseHandle, [hToken]
+	Pop Eax
+L2:	Ret
+EndF
+
+SetThousand: Uses Ebx, Edi, Esi
+	Lea Esi, [szBuffer]
+	Add Esi, 64
+	Mov Edi, Esi
+	Mov Ebx, Esi
+	Sub Edi, 2
+	Mov B[Edi], 0
+	Dec Edi
+	Invoke lstrlen, Esi
+	Add Esi, Eax
+	Mov Ecx, 3
+L2:	Dec Esi
+	Mov Al, [Esi]
+	Mov [Edi], Al
+	Dec Edi
+	Dec Ecx
+	Jnz >
+	Cmp Esi, Ebx
+	Je >
+	Mov Al, [sThousand]
+	Mov [Edi], Al
+	Dec Edi
+	Mov Ecx, 3
+:	Cmp Esi, Ebx
+	Jne < L2
+	Inc Edi
+	Mov Eax, Edi
+	Ret
+EndU
+
+ThreadProc Frame lpParameter Uses Ebx, Edi, Esi
+	Mov D[bThreadActive], TRUE
+L2:	Invoke ReadIfTable, TRUE
+	Invoke InitAdapterValues
+	Invoke GetTickCount
+	Add Eax, 500
+	Mov [dwCounter1], Eax
+	Add Eax, 500
+	Mov [dwCounter2], Eax
+	Mov D[dwCounter3], 0
+L4:	Cmp D[bDoThread], FALSE
+	Je >> L12
+	Cmp D[bShowIcon], FALSE
+	Jne >
+	Invoke Shell_NotifyIcon, NIM_ADD, Addr IconData
+	Mov [bShowIcon], Eax
+:	Invoke GetTickCount
+	Cmp D[lAutoRefreshPorts], 0
+	Je > L8
+	Cmp Eax, D[dwCounter3]
+	Jl > L8
+	Push Eax
+	Mov Ecx, Eax
+	Mov Eax, 1000
+	Mul D[lAutoRefreshPorts]
+	Add Eax, Ecx
+	Cmp D[bScrolling], 0
+	Jne > L6
+	Mov D[dwCounter3], Eax
+	Cmp D[bTcpPortsTab], 0
+	Je >
+	Invoke RefreshTcpOpenPorts, [IconData.hWnd]
+	Jmp > L6
+:	Cmp D[bUdpPortsTab], 0
+	Je > L6
+	Invoke RefreshUdpOpenPorts, [IconData.hWnd]
+L6:	Pop Eax
+L8:	Cmp Eax, [dwCounter2]
+	Jge > L10
+	Cmp Eax, [dwCounter1]
+	Jge >
+	Invoke SleepEx, 1, 1
+	Jmp << L4
+:	Add Eax, 500
+	Mov [dwCounter1], Eax
+	Invoke UpdateLights, FALSE, FALSE
+	Jmp << L4
+L10:
+	Add Eax, 500
+	Mov [dwCounter1], Eax
+	Add Eax, 500
+	Mov [dwCounter2], Eax
+	Invoke GetIPAddressTables
+	Cmp Eax, (-1)
+	Je >
+	Cmp Eax, [dwNumConns]
+	Je >
+	Invoke InitInterfaces
+	Jmp << L2
+:	Invoke ReadIfTable, TRUE
+	Mov Eax, [dwCurrentIndex]
+	Cmp Eax, (-1)
+	Jne >
+	Mov D[dwNetState], STATUS_DISCONN
+	Mov Eax, [hIconDisconn]
+	Cmp Eax, [IconData.hIcon]
+	Je << L4
+	Invoke SetIcons, Eax
+	Jmp << L4
+:	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Ebx, [Eax]
+	Or Ebx, Ebx
+	Jz << L4
+	Mov Edi, [Ebx + ADAPTER_DATA.dwBytesIn]
+	Mov Esi, [Ebx + ADAPTER_DATA.dwBytesOut]
+	Invoke UpdateLights, TRUE, FALSE
+	Mov Eax, Edi
+	Sub Eax, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Mov [Ebx + ADAPTER_DATA.dwLastSpeedIn], Eax
+	Mov Eax, Esi
+	Sub Eax, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Mov [Ebx + ADAPTER_DATA.dwLastSpeedOut], Eax
+	Mov [Ebx + ADAPTER_DATA.dwLastBytesIn], Edi
+	Mov [Ebx + ADAPTER_DATA.dwLastBytesOut], Esi
+	Jmp << L4
+L12:
+	Xor Eax, Eax
+	Mov [bThreadActive], Eax
+	Ret
+EndF
+
+Timer1Proc: Uses Ebx, Edi, Esi
+	Cmp D[bFirst], FALSE
+	Je >
+	Mov D[bFirst], FALSE
+	Invoke ReadIfTable, TRUE
+	Invoke InitAdapterValues
+	Mov D[dwCounter1], 0
+	Mov D[dwCounter3], 0
+:	Cmp D[bShowIcon], FALSE
+	Jne >
+	Invoke Shell_NotifyIcon, NIM_ADD, Addr IconData
+	Mov [bShowIcon], Eax
+:	Cmp D[lAutoRefreshPorts], 0
+	Jle > L2
+	Dec D[dwCounter3]
+	Jg > L2
+	Mov Eax, [lAutoRefreshPorts]
+	Shl Eax, 1
+	Cmp D[bScrolling], FALSE
+	Jne > L2
+	Mov [dwCounter3], Eax
+	Cmp D[bTcpPortsTab], FALSE
+	Je >
+	Invoke RefreshTcpOpenPorts, [IconData.hWnd]
+	Jmp > L2
+:	Cmp D[bUdpPortsTab], FALSE
+	Je > L2
+	Invoke RefreshUdpOpenPorts, [IconData.hWnd]
+L2:	Cmp D[dwCounter1], 0
+	Jg >
+	Inc D[dwCounter1]
+	Invoke UpdateLights, FALSE, FALSE
+	Jmp LEnd
+:	Mov D[dwCounter1], 0
+	Invoke GetIPAddressTables
+	Cmp Eax, (-1)
+	Je >
+	Cmp Eax, [dwNumConns]
+	Je >
+	Invoke InitInterfaces
+	Mov D[bFirst], TRUE
+	Jmp LEnd
+:	Invoke ReadIfTable, TRUE
+	Mov Eax, [dwCurrentIndex]
+	Cmp Eax, (-1)
+	Jne >
+	Mov D[dwNetState], STATUS_DISCONN
+	Mov Eax, [hIconDisconn]
+	Cmp Eax, [IconData.hIcon]
+	Je > LEnd
+	Invoke SetIcons, Eax
+	Jmp > LEnd
+:	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Ebx, [Eax]
+	Or Ebx, Ebx
+	Jz > LEnd
+	Mov Edi, [Ebx + ADAPTER_DATA.dwBytesIn]
+	Mov Esi, [Ebx + ADAPTER_DATA.dwBytesOut]
+	Invoke UpdateLights, TRUE, FALSE
+	Mov Eax, Edi
+	Sub Eax, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Mov [Ebx + ADAPTER_DATA.dwLastSpeedIn], Eax
+	Mov Eax, Esi
+	Sub Eax, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Mov [Ebx + ADAPTER_DATA.dwLastSpeedOut], Eax
+	Mov [Ebx + ADAPTER_DATA.dwLastBytesIn], Edi
+	Mov [Ebx + ADAPTER_DATA.dwLastBytesOut], Esi
+LEnd:
+	Mov Eax, TRUE
+	Ret
+EndU
+
+UpdateBytes Frame bForce Uses Ebx, Edi, Esi
+	Mov Eax, [dwCurrentIndex]
+	Cmp Eax, (-1)
+	Je > L4
+	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Ebx, [Eax]
+	Lea Esi, szBuffer
+	Add Esi, 64
+	Cmp D[bForce], FALSE
+	Jne >
+	Mov Eax, [Ebx + ADAPTER_DATA.dwBytesIn]
+	Cmp Eax, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Je > L2
+:	Invoke wsprintf, Esi, Addr szFormat, [Ebx + ADAPTER_DATA.dwBytesIn]
+	Add Esp, 12
+	Invoke SetThousand
+	Invoke SetControlText, IDC_NETMON_STCRECEIVED, Eax
+L2:	Cmp D[bForce], FALSE
+	Jne >
+	Mov Eax, [Ebx + ADAPTER_DATA.dwBytesOut]
+	Cmp Eax, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Je > L4
+:	Invoke wsprintf, Esi, Addr szFormat, [Ebx + ADAPTER_DATA.dwBytesOut]
+	Add Esp, 12
+	Invoke SetThousand
+	Invoke SetControlText, IDC_NETMON_STCSENT, Eax
+L4:	Ret
+EndF
+
+UpdateLights Frame bUpdateSpeed, bForce Uses Ebx, Edi, Esi
+	Cmp D[dwNetState], STATUS_DISCONN
+	Jne >
+	Ret
+:	Mov Eax, [dwCurrentIndex]
+	Cmp Eax, (-1)
+	Jne >
+	Ret
+:	Shl Eax, 2
+	Add Eax, Offset dwIfTableIndex
+	Mov Ebx, [Eax]
+	Invoke ReadIfTable, FALSE
+	Mov Edi, [Ebx + ADAPTER_DATA.dwBytesIn]
+	Mov Esi, [Ebx + ADAPTER_DATA.dwBytesOut]
+	Cmp Edi, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Je > L4
+	Cmp Esi, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Je > L4
+	Sub Edi, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Sub Esi, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Cmp D[dwNetState], (STATUS_RECEIVE | STATUS_SEND)
+	Je >> L6
+	Cmp D[Ebx + ADAPTER_DATA.dwBytesIn], 0
+	Jne >
+	Cmp D[Ebx + ADAPTER_DATA.dwBytesIn], 0
+	Je >> L6
+:	Mov D[dwNetState], (STATUS_RECEIVE | STATUS_SEND)
+	Mov D[bUpdateSpeed], TRUE
+	Mov Eax, [hIconBoth]
+L2:	Cmp Eax, [IconData.hIcon]
+	Je >> L6
+	Invoke SetIcons, Eax
+	Jmp > L6
+L4:	Cmp Edi, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Je >
+	Sub Edi, [Ebx + ADAPTER_DATA.dwLastBytesIn]
+	Xor Esi, Esi
+	Cmp D[dwNetState], STATUS_RECEIVE
+	Je > L6
+	Mov D[dwNetState], STATUS_RECEIVE
+	Mov D[bUpdateSpeed], TRUE
+	Mov Eax, [hIconReceive]
+	Jmp < L2
+:	Cmp Esi, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Je >
+	Xor Edi, Edi
+	Sub Esi, [Ebx + ADAPTER_DATA.dwLastBytesOut]
+	Cmp D[dwNetState], STATUS_SEND
+	Je > L6
+	Mov D[dwNetState], STATUS_SEND
+	Mov D[bUpdateSpeed], TRUE
+	Mov Eax, [hIconSend]
+	Jmp < L2
+:	Xor Edi, Edi
+	Xor Esi, Esi
+	Cmp D[dwNetState], STATUS_NONE
+	Je > L6
+	Mov D[dwNetState], STATUS_NONE
+	Mov D[bUpdateSpeed], TRUE
+	Mov Eax, [hIconNone]
+	Jmp << L2
+L6:	Invoke UpdateBytes, FALSE
+	Cmp D[bUpdateSpeed], 0
+	Je >
+	Lea Eax, [Ebx + ADAPTER_DATA.dwLastSpeedIn]
+	Invoke UpdateSpeed, Edi, IDC_NETMON_STCSPEEDIN, Eax, [bForce]
+	Lea Eax, [Ebx + ADAPTER_DATA.dwLastSpeedOut]
+	Invoke UpdateSpeed, Esi, IDC_NETMON_STCSPEEDOUT, Eax, [bForce]
+:	Ret
+EndF
+
+UpdateSpeed Frame dwBytesSecond, ulControl1, lpdwLastSpeed, bForce Uses Ebx, Edi, Esi
+	Invoke ConvertToScale, [dwBytesSecond]
+	Mov [dwBytesSecond], Eax
+	Mov Edx, [lpdwLastSpeed]
+	Cmp D[bForce], FALSE
+	Jne >
+	Cmp Eax, [Edx]
+	Jne >
+	Ret
+:	Mov [Edx], Eax
+	Mov Edi, 1024
+	Mov Esi, 102
+	Mov Ebx, IDS_KBYTES
+	Cmp D[bBits], FALSE
+	Je >
+	Mov Ebx, IDS_KBITS
+:	Cmp Eax, 1048576 ; (1024 * 1024)
+	Jl > L2
+	Mov Ebx, IDS_MBYTES
+	Cmp D[bBits], FALSE
+	Je >
+	Mov Ebx, IDS_MBITS
+:	Mov Edi, 1048576
+	Mov Esi, 104857
+L2:	Invoke GetSpeedString, Eax, Edi, Esi
+	Lea Esi, [szBuffer]
+	Invoke lstrlen, Addr szBuffer
+	Add Esi, Eax
+	Invoke LoadString, [App.Instance], Ebx, Esi, 20
+	Invoke SetControlText, [ulControl1], Addr szBuffer
+	Mov Edi, [lMeterDownIndex]
+	Cmp D[ulControl1], IDC_NETMON_STCSPEEDIN
+	Je >
+	Mov Edi, [lMeterUpIndex]
+:	Invoke SetMeterValue, Edi, [dwBytesSecond]
+	Ret
+EndF

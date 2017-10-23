@@ -1,0 +1,95 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = wndChildB
+  AlignMode       = 0
+  AutoRedraw      = 1
+  BackColor       = 0x004080FF
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3120
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 1
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 2
+  Text            = MDI Child B
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 4710
+End
+
+.Const
+
+.Data
+
+CHILDBMESSAGES	DD	WM_CREATE, OnChildBCreate
+				DD WM_CLOSE, OnChildBClose
+
+.Code
+
+wndChildBProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf CHILDBMESSAGES / 8
+	Mov Edx, Addr CHILDBMESSAGES
+:	Dec Ecx
+	Js >L1
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+
+L1:
+	Xor Eax, Eax	;Mov Eax, FALSE
+	Ret
+EndF
+
+OnChildBCreate:
+	UseData wndChildBProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Mov Eax, TRUE
+	Ret
+EndU
+
+OnChildBClose:
+	UseData wndChildBProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE
+:	Ret
+EndU

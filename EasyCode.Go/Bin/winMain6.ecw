@@ -1,0 +1,220 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = winMain
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3690
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Handle button click
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 5430
+  Begin Button = btn2
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1001
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 540
+    ImageType       = -1
+    Left            = 2160
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = String test
+    ToolTipText     = 
+    Top             = 1605
+    Visible         = 1
+    Width           = 1080
+  End
+  Begin Button = btn1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1000
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 540
+    ImageType       = -1
+    Left            = 2145
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = Button1
+    ToolTipText     = 
+    Top             = 555
+    Visible         = 1
+    Width           = 1080
+  End
+End
+
+.Const
+
+.Data
+
+WINMAIN_MESSAGES	DD WM_CREATE, OnwinMainCreate
+					DD WM_CLOSE, OnwinMainClose
+					DD WM_COMMAND, OnwinMainClickBtn
+
+myStringVar			DB 20 Dup 0
+
+.Code
+
+winMainProcedure Frame hWnd, uMsg, wParam, lParam
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf WINMAIN_MESSAGES / 8
+	Mov Edx, Addr WINMAIN_MESSAGES
+:	Dec Ecx
+	Js > L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnwinMainCreate: UseData winMainProcedure
+	;==================================
+	;Write the initialization code here
+	;==================================
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndU
+
+OnwinMainClose: UseData winMainProcedure
+	;=========================
+	;Write the final code here
+	;=========================
+	Invoke IsModal, [hWnd]
+	Or Eax, Eax		;Cmp Eax, FALSE
+	Jz >
+	Invoke EndModal, [hWnd], IDCANCEL
+	Mov Eax, TRUE	;Return (TRUE)
+:	Ret
+EndU
+OnwinMainClickBtn: UseData winMainProcedure
+
+	Mov Eax, [wParam]
+	Cmp Ax, IDC_WINMAIN_BTN1		; Is this button 1?
+		Jnz >.notButton1
+
+	; This IS button 1 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure
+
+	; Button 1 AND left click so process
+	;Invoke SetText, [hWnd], "You clicked button 1!!!"
+	Invoke MessageBoxA, [hWnd], 'You clicked button 1', 'Message box test', MB_YESNO
+
+	; Process return value from message box
+	Cmp Ax, IDYES
+		Jnz >.notOK
+	Invoke MessageBoxA, [hWnd], 'You clicked yes!', 'Message box test', MB_OK
+	Return (TRUE)
+
+	.notOK
+	Invoke MessageBoxA, [hWnd], 'I guess you clicked no!', 'Message box test', MB_OK
+	Return (TRUE)
+
+	.notButton1						; This is not button 1
+
+	Cmp Ax, IDC_WINMAIN_BTN2		; Is this button 2?
+		Jnz >>.exitProcedure
+
+	; This IS button 2 so check for left click
+	Shr Eax, 16
+	Cmp Ax, BN_CLICKED
+		Jnz >>.exitProcedure
+
+	; Button 2 AND left click so process
+	;Invoke SetText, [hWnd], "You clicked button 2!!!"
+	Invoke MessageBoxA, [hWnd], 'You clicked string test', 'Message box test', MB_ICONINFORMATION
+
+	Mov Eax, 0FFFFFFFFH
+	Invoke String, Eax, Addr myStringVar, ecHexa
+	Invoke MessageBoxA, [hWnd], Addr myStringVar, 'Message box test', MB_ICONINFORMATION
+
+	Return (TRUE)
+
+	.exitProcedure					; Neither button 1 nor button 2
+
+	Return (FALSE)
+
+; End OnwinMainClickBtn
+EndU
+winMainbtn1 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+winMainbtn2 Frame hWnd, uMsg, wParam, lParam
+	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF

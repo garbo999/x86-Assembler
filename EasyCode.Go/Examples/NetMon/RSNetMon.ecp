@@ -1,0 +1,38 @@
+;Do not modify this file!!!
+Easy Code 1.06.0.0016
+Begin ECProject = RSNetMon
+  EasyCodeProject=1
+  FileType=0
+  Processor=.486
+  Align=4
+  DebugInfo=0
+  AsmFiles=1
+  StaticLib=1
+  MLOptions=
+  LinkOptions=
+  MMXOptions=0
+  CommonControls=1
+  RichEdit=0
+  PackFile=1
+  Unicode=0
+  ECMacros=1
+  StartupWindow=NetMon
+  Title=Easy Code visual project
+  Resources=RSNetMon.ecr
+  Dialog=Affinity.ecw
+  Window=Details.ecw
+  Window=NetMon.ecw
+  Window=RSAbout.ecw
+  Window=Settings.ecw
+  Module=Common.asm
+  Module=RSMeter.asm
+  Include=commctrl.h
+  Include=tlhelp32.h
+  Include=Common.inc
+  Include=RSMeter.inc
+  Library=comctl32.dll
+  Library=comdlg32.dll
+  Library=IPHLPAPI.DLL
+  Library=shell32.dll
+  MiscFile=Manifest.xml
+End

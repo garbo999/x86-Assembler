@@ -1,0 +1,68 @@
+#include "powermgr.h"
+
+1                             24	DISCARDABLE	"Res\\Manifest.xml"
+IDI_ICO                       ICON	DISCARDABLE	"Res\\icon.ico"
+IDI_DWN                       ICON	DISCARDABLE	"Res\\dwn.ico"
+IDI_RBT                       ICON	DISCARDABLE	"Res\\rbt.ico"
+IDI_LF                        ICON	DISCARDABLE	"Res\\logoff.ico"
+IDI_SBGI                      ICON	DISCARDABLE	"Res\\stg.ico"
+IDI_CLOSEI                    ICON	DISCARDABLE	"Res\\quit.ico"
+IDI_HLPI                      ICON	DISCARDABLE	"Res\\hlp.ico"
+IDI_NFOI                      ICON	DISCARDABLE	"Res\\inf.ico"
+IDI_MOVEI                     ICON	DISCARDABLE	"Res\\move.ico"
+IDI_MOVE                      BITMAP	DISCARDABLE	"Res\\move.bmp"
+IDI_SBG                       BITMAP	DISCARDABLE	"Res\\stg.bmp"
+IDI_CLOSE                     BITMAP	DISCARDABLE	"Res\\quit.bmp"
+IDI_HLP                       BITMAP	DISCARDABLE	"Res\\hlp.bmp"
+IDI_NFO                       BITMAP	DISCARDABLE	"Res\\inf.bmp"
+
+IDR_MENU MENU DISCARDABLE
+BEGIN
+    POPUP "fn"
+    BEGIN
+        MENUITEM "show",                        IDM_SHOW
+        MENUITEM SEPARATOR
+        MENUITEM "auto run",                    IDM_AS
+        MENUITEM SEPARATOR
+        MENUITEM "help",                        IDM_HLP
+        MENUITEM "about",                       IDM_ABT
+        MENUITEM SEPARATOR
+        MENUITEM "exit",                        IDM_EXIT
+    END
+END
+
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDT_TTL                             "power manager"
+END
+
+IDR_VERSION VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x2L
+ FILEFLAGS 0x0L
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Comments", "power manager desktop application\0"
+            VALUE "CompanyName", "stwoowerks\0"
+            VALUE "FileDescription", "power manager\0"
+            VALUE "FileVersion", "1.00.0.0001\0"
+            VALUE "InternalName", "powermgr\0"
+            VALUE "LegalCopyright", "copyright © 2010 stwoowerks\0"
+            VALUE "OriginalFilename", "powermgr.exe\0"
+            VALUE "ProductName", "powermgr\0"
+            VALUE "ProductVersion", "1.00.0.0001\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1252
+    END
+END

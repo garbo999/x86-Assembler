@@ -1,0 +1,29 @@
+;Do not modify this file!!!
+Easy Code 1.06.0.0011
+Begin ECProject = CardFile
+  EasyCodeProject=0
+  FileType=0
+  Processor=.486
+  Align=4
+  DebugInfo=0
+  AsmFiles=1
+  GlobalVariables=1
+  MLOptions=/ni
+  LinkOptions=/ni
+  MMXOptions=0
+  CommonControls=1
+  RichEdit=0
+  PackFile=1
+  Unicode=0
+  ECMacros=1
+  StartupWindow=CardFile
+  Title=Easy Code classic project
+  Resources=CardFile.ecr
+  Module=CardFile.asm
+  Include=Windows.inc
+  Library=gdi32.dll
+  Library=Kernel32.dll
+  Library=User32.dll
+  Library=shell32.dll
+  ExternResources=CardFile.RES
+End

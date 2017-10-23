@@ -1,0 +1,1017 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = Settings
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 4
+  Caption         = 1
+  CenterWindow    = 1
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040181
+  Font            = Tahoma,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 260
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 1
+  Left            = 0
+  MaximizeBox     = 0
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 0
+  NormalStyle     = 0x56C80000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 0
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = 
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 1
+  Top             = 0
+  Visible         = 1
+  Width           = 265
+  Begin Button = btnCancel
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 1
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 24
+    ImageType       = -1
+    Left            = 164
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    TabStop         = 1
+    Text            = IDS_CANCEL
+    ToolTipText     = 
+    Top             = 196
+    Visible         = 1
+    Width           = 90
+  End
+  Begin Button = btnOK
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DrawFocus       = 1
+    Enabled         = 0
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 24
+    ImageType       = -1
+    Left            = 164
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = IDS_OK
+    ToolTipText     = 
+    Top             = 167
+    Visible         = 1
+    Width           = 90
+  End
+  Begin Group = Group1
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,700,0,0,0
+    ForeColor       = 0x00FF0000
+    Height          = 156
+    Left            = 6
+    NormalStyle     = 0x56000307
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    Text            = IDS_METER
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 2
+    Visible         = 1
+    Width           = 248
+    Begin Group = Group2
+      BackColor       = 0x8000000F
+      Border          = 1
+      ClientEdge      = 0
+      ClipChildren    = 1
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 59
+      Left            = 9
+      NormalStyle     = 0x56000107
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 3
+      Text            = IDS_TANSFER_SPEED
+      TextAlignment   = 0
+      ToolTipText     = 
+      Top             = 18
+      Visible         = 1
+      Width           = 158
+      Begin Radio = Radio2
+        Auto            = 1
+        BackColor       = 0x8000000F
+        Border          = 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = MS Sans Serif,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 17
+        Left            = 10
+        LeftText        = 0
+        MultiLine       = 0
+        NormalStyle     = 0x54000109
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 5
+        TabStop         = 1
+        Text            = Byte&s
+        TextAlignment   = 0
+        ToolTipText     = 
+        Top             = 35
+        Value           = 1
+        Visible         = 1
+        Width           = 65
+      End
+      Begin Radio = Radio1
+        Auto            = 1
+        BackColor       = 0x8000000F
+        Border          = 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = MS Sans Serif,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 17
+        Left            = 10
+        LeftText        = 0
+        MultiLine       = 0
+        NormalStyle     = 0x54000109
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 4
+        TabStop         = 0
+        Text            = &Bits
+        TextAlignment   = 0
+        ToolTipText     = 
+        Top             = 18
+        Value           = 0
+        Visible         = 1
+        Width           = 65
+      End
+    End
+    Begin Group = Group4
+      BackColor       = 0x8000000F
+      Border          = 1
+      ClientEdge      = 0
+      ClipChildren    = 1
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,700,0,0,0
+      ForeColor       = 0x00FF0000
+      Height          = 66
+      Left            = 8
+      NormalStyle     = 0x56000307
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 11
+      Text            = IDS_RANGE
+      TextAlignment   = 1
+      ToolTipText     = 
+      Top             = 81
+      Visible         = 1
+      Width           = 232
+      Begin Static = Static2
+        AutoSize        = 0
+        BackColor       = 0x8000000F
+        Border          = 0
+        CenterVertically= 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = Tahoma,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 15
+        Left            = 120
+        NoPrefix        = 0
+        PathEllipsis    = 0
+        NormalStyle     = 0x5400010C
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 14
+        Text            = IDS_UPLOAD
+        TextAlignment   = 0
+        ToolTipText     = 
+        Top             = 17
+        Transparent     = 0
+        Visible         = 1
+        Width           = 96
+        WordWrap        = 0
+      End
+      Begin Static = Static1
+        AutoSize        = 0
+        BackColor       = 0x8000000F
+        Border          = 0
+        CenterVertically= 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = Tahoma,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 15
+        Left            = 8
+        NoPrefix        = 0
+        PathEllipsis    = 0
+        NormalStyle     = 0x5400010C
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 12
+        Text            = IDS_DOWNLOAD
+        TextAlignment   = 0
+        ToolTipText     = 
+        Top             = 17
+        Transparent     = 0
+        Visible         = 1
+        Width           = 96
+        WordWrap        = 0
+      End
+      Begin Combo = Combo1
+        BackColor       = 0x80000005
+        CaseStyle       = 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = Tahoma,8,400,0,0,0
+        ForeColor       = 0x80000008
+        Height          = 21
+        IntegralHeight  = 1
+        Left            = 8
+        OwnerDraw       = 0
+        NormalStyle     = 0x54000603
+        RightToLeft     = 0
+        ScrollBars      = 0
+        Sorted          = 0
+        StaticEdge      = 0
+        Style           = 2
+        TabOrder        = 13
+        TabStop         = 1
+        Text            = Combo1
+        ToolTipText     = 
+        Top             = 34
+        Visible         = 1
+        VisibleRows     = 4
+        Width           = 102
+      End
+      Begin Combo = Combo2
+        BackColor       = 0x80000005
+        CaseStyle       = 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = Tahoma,8,400,0,0,0
+        ForeColor       = 0x80000008
+        Height          = 21
+        IntegralHeight  = 1
+        Left            = 120
+        OwnerDraw       = 0
+        NormalStyle     = 0x54000603
+        RightToLeft     = 0
+        ScrollBars      = 0
+        Sorted          = 0
+        StaticEdge      = 0
+        Style           = 2
+        TabOrder        = 15
+        TabStop         = 1
+        Text            = Combo2
+        ToolTipText     = 
+        Top             = 34
+        Visible         = 1
+        VisibleRows     = 4
+        Width           = 102
+      End
+    End
+    Begin Group = Group3
+      BackColor       = 0x8000000F
+      Border          = 1
+      ClientEdge      = 0
+      ClipChildren    = 1
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 59
+      Left            = 174
+      NormalStyle     = 0x56000307
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 6
+      Text            = IDS_COLOR
+      TextAlignment   = 1
+      ToolTipText     = 
+      Top             = 18
+      Visible         = 1
+      Width           = 66
+      Begin Button = btnDown
+        BackColor       = 0x8000000F
+        Border          = 0
+        Cancel          = 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Default         = 0
+        DrawFocus       = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = Tahoma,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 17
+        ImageType       = -1
+        Left            = 8
+        MultiLine       = 0
+        OwnerDraw       = 0
+        NormalStyle     = 0x54000300
+        Picture         = [None]
+        PicturePosition = 0
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 8
+        TabStop         = 1
+        Text            = ...
+        ToolTipText     = 
+        Top             = 36
+        Visible         = 1
+        Width           = 22
+      End
+      Begin Image = ImgUp
+        BackColor       = 0x8000000F
+        Border          = 1
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Height          = 18
+        ImageType       = -1
+        Left            = 36
+        NormalStyle     = 0x54800103
+        Picture         = [None]
+        StaticEdge      = 0
+        Stretch         = 0
+        TabOrder        = 9
+        ToolTipText     = 
+        Top             = 17
+        Transparent     = 0
+        Visible         = 1
+        Width           = 20
+      End
+      Begin Image = ImgDown
+        BackColor       = 0x8000000F
+        Border          = 1
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Height          = 18
+        ImageType       = 1
+        Left            = 9
+        NormalStyle     = 0x54800103
+        Picture         = [None]
+        StaticEdge      = 0
+        Stretch         = 1
+        TabOrder        = 7
+        ToolTipText     = 
+        Top             = 17
+        Transparent     = 0
+        Visible         = 1
+        Width           = 20
+      End
+      Begin Button = btnUp
+        BackColor       = 0x8000000F
+        Border          = 0
+        Cancel          = 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Default         = 0
+        DrawFocus       = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = Tahoma,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 17
+        ImageType       = -1
+        Left            = 35
+        MultiLine       = 0
+        OwnerDraw       = 0
+        NormalStyle     = 0x54000300
+        Picture         = [None]
+        PicturePosition = 0
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 10
+        TabStop         = 1
+        Text            = ...
+        ToolTipText     = 
+        Top             = 36
+        Visible         = 1
+        Width           = 22
+      End
+    End
+  End
+  Begin Group = Group5
+    BackColor       = 0x8000000F
+    Border          = 1
+    ClientEdge      = 0
+    ClipChildren    = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = Tahoma,8,700,0,0,0
+    ForeColor       = 0x00FF0000
+    Height          = 67
+    Left            = 6
+    NormalStyle     = 0x56000307
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 16
+    Text            = IDS_PORTS
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 162
+    Visible         = 1
+    Width           = 148
+    Begin Group = Group6
+      BackColor       = 0x8000000F
+      Border          = 1
+      ClientEdge      = 0
+      ClipChildren    = 1
+      ClipSiblings    = 1
+      CursorIcon      = [None]
+      CursorShape     = 0
+      Enabled         = 1
+      ExStyle         = 0x00000000
+      Font            = Tahoma,8,400,0,0,0
+      ForeColor       = 0x80000012
+      Height          = 40
+      Left            = 9
+      NormalStyle     = 0x56000307
+      RightToLeft     = 0
+      StaticEdge      = 0
+      TabOrder        = 17
+      Text            = 
+      TextAlignment   = 1
+      ToolTipText     = 
+      Top             = 18
+      Visible         = 1
+      Width           = 130
+      Begin Static = Static4
+        AutoSize        = 0
+        BackColor       = 0x8000000F
+        Border          = 0
+        CenterVertically= 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = MS Sans Serif,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 15
+        Left            = 74
+        NoPrefix        = 0
+        PathEllipsis    = 0
+        NormalStyle     = 0x5400010C
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 20
+        Text            = IDS_SECONDS
+        TextAlignment   = 0
+        ToolTipText     = 
+        Top             = 20
+        Transparent     = 0
+        Visible         = 1
+        Width           = 50
+        WordWrap        = 0
+      End
+      Begin Edit = Edit1
+        AutoHScroll     = 1
+        AutoVScroll     = 0
+        BackColor       = 0x80000005
+        Border          = 0
+        CaseStyle       = 3
+        ClientEdge      = 1
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000200
+        Font            = MS Sans Serif,8,400,0,0,0
+        ForeColor       = 0x80000008
+        Height          = 17
+        Left            = 54
+        MaxLength       = 1
+        MultiLine       = 0
+        NormalStyle     = 0x54002001
+        PasswordChar    = 
+        ReadOnly        = 0
+        RightToLeft     = 0
+        ScrollBars      = 0
+        StaticEdge      = 0
+        TabOrder        = 19
+        TabStop         = 1
+        Text            = 
+        TextAlignment   = 1
+        ToolTipText     = 
+        Top             = 18
+        Visible         = 1
+        WantReturn      = 0
+        Width           = 16
+      End
+      Begin Static = Static3
+        AutoSize        = 0
+        BackColor       = 0x8000000F
+        Border          = 0
+        CenterVertically= 0
+        ClientEdge      = 0
+        ClipSiblings    = 1
+        CursorIcon      = [None]
+        CursorShape     = 0
+        Enabled         = 1
+        ExStyle         = 0x00000000
+        Font            = MS Sans Serif,8,400,0,0,0
+        ForeColor       = 0x80000012
+        Height          = 15
+        Left            = 10
+        NoPrefix        = 0
+        PathEllipsis    = 0
+        NormalStyle     = 0x5400010C
+        RightToLeft     = 0
+        StaticEdge      = 0
+        TabOrder        = 18
+        Text            = IDS_EVERY
+        TextAlignment   = 0
+        ToolTipText     = 
+        Top             = 20
+        Transparent     = 0
+        Visible         = 1
+        Width           = 48
+        WordWrap        = 0
+      End
+    End
+  End
+End
+
+.Const
+
+.Data
+
+SETTINGS_MESSAGES	DD WM_CREATE, OnSettingsCreate
+					DD WM_COMMAND, OnSettingsCommand
+					DD WM_CLOSE, OnSettingsClose
+					DD WM_DESTROY, OnSettingsDestroy
+
+
+sz100000			DB			"0 - 100#000", 0
+sz500000			DB			"0 - 500#000", 0
+sz1000000			DB			"0 - 1#000#000", 0
+sz5000000			DB			"0 - 5#000#000", 0
+sz10000000			DB			"0 - 10#000#000", 0
+sz20000000			DB			"0 - 20#000#000", 0
+sz50000000			DB			"0 - 50#000#000", 0
+sz100000000			DB			"0 - 100#000#000", 0
+
+crCurrentDownColor	DD			0
+crMeterNewDownColor	DD			0
+crMeterOldDownColor	DD			0
+crCurrentUpColor	DD			0
+crMeterNewUpColor	DD			0
+crMeterOldUpColor	DD			0
+hIconDown			DD			NULL
+hIconUp				DD			NULL
+
+
+.Code
+
+SettingsProcedure Frame hWnd, uMsg, wParam, lParam
+	Local chColor:CHOOSECOLOR
+
+	Mov Eax, [uMsg]
+	Mov Ecx, SizeOf SETTINGS_MESSAGES / 8
+	Mov Edx, Addr SETTINGS_MESSAGES
+:	Dec Ecx
+	Js >L2
+	Cmp [Edx + Ecx * 8], Eax
+	Jne <
+	Call [Edx + Ecx * 8 + 4]
+	Ret
+L2:	Xor Eax, Eax	;Return (FALSE)
+	Ret
+EndF
+
+OnSettingsCreate: UseData SettingsProcedure
+	Mov Eax, [crMeterDownColor]
+	Mov [crCurrentDownColor], Eax
+	Mov [crMeterNewDownColor], Eax
+	Mov [crMeterOldDownColor], Eax
+	Mov Eax, [crMeterUpColor]
+	Mov [crCurrentUpColor], Eax
+	Mov [crMeterNewUpColor], Eax
+	Mov [crMeterOldUpColor], Eax
+	Invoke SetRightSeparator, Addr sz100000
+	Invoke SetRightSeparator, Addr sz500000
+	Invoke SetRightSeparator, Addr sz1000000
+	Invoke SetRightSeparator, Addr sz5000000
+	Invoke SetRightSeparator, Addr sz10000000
+	Invoke SetRightSeparator, Addr sz20000000
+	Invoke SetRightSeparator, Addr sz50000000
+	Invoke SetRightSeparator, Addr sz100000000
+	Invoke LoadImage, [App.Instance], IDI_ICON_DOWN_ON, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Mov [hIconDown], Eax
+	Invoke LoadImage, [App.Instance], IDI_ICON_UP_ON, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Mov [hIconUp], Eax
+	Cmp D[crMeterDownColor], 00FFFF00H
+	Je >
+	Invoke ChangeIconColor, [hIconDown], 00FFFF00H, [crMeterDownColor]
+	Or Eax, Eax
+	Jz >
+	Xchg [hIconDown], Eax
+	Invoke DestroyIcon, Eax
+:	Cmp D[crMeterUpColor], 0000FFFFH
+	Je >
+	Invoke ChangeIconColor, [hIconUp], 0000FFFFH, [crMeterUpColor]
+	Or Eax, Eax
+	Jz >
+	Xchg [hIconUp], Eax
+	Invoke DestroyIcon, Eax
+:	Lea Eax, szBuffer
+	Mov B[Eax], ' '
+	Inc Eax
+	Invoke LoadString, [App.Instance], IDS_SETTINGS, Eax, 64
+	Invoke GetNoEllipsisText, Addr szBuffer
+	Invoke GetNoPrefixString, Addr szBuffer
+	Invoke SetWindowText, [hWnd], Addr szBuffer
+	Invoke LoadString, [App.Instance], IDS_REFRESH, Addr szBuffer, 64
+	Invoke GetNoPrefixString, Addr szBuffer
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_GROUP6
+	Invoke SetWindowText, Eax, Addr szBuffer
+	Cmp D[bBits], 0
+	Je >
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_RADIO1
+	Invoke SendMessage, Eax, BM_SETCHECK, BST_CHECKED, 0
+:	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_COMBO1
+	Mov Edi, Eax
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_COMBO2
+	Mov Esi, Eax
+	Invoke SendMessage, Edi, CB_RESETCONTENT, 0, 0
+	Invoke SendMessage, Esi, CB_RESETCONTENT, 0, 0
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz100000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz100000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz500000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz500000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz1000000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz1000000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz5000000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz5000000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz10000000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz10000000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz20000000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz20000000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz50000000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz50000000
+	Invoke SendMessage, Edi, CB_ADDSTRING, 0, Addr sz100000000
+	Invoke SendMessage, Esi, CB_ADDSTRING, 0, Addr sz100000000
+	Invoke SendMessage, Edi, CB_SETCURSEL, [lMeterDownMaxValueEnum], 0
+	Invoke SendMessage, Esi, CB_SETCURSEL, [lMeterUpMaxValueEnum], 0
+	Invoke String, [lAutoRefreshPorts], Addr szBuffer, ecDecimal
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_EDIT1
+	Invoke SetWindowText, Eax, Addr szBuffer
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_BTNCANCEL
+	Invoke SetDefault, Eax, TRUE
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_BTNOK
+	Invoke SetEnabled, Eax, FALSE
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnSettingsCommand: UseData SettingsProcedure
+	LoWord ([wParam])
+	Cmp Ax, IDC_SETTINGS_BTNCANCEL
+	Jne >
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >> L12
+	Invoke SendMessage, [hWnd], WM_CLOSE, 0, 0
+	Return (TRUE)
+:	Cmp Ax, IDC_SETTINGS_RADIO1
+	Je >
+	Cmp Ax, IDC_SETTINGS_RADIO2
+	Jne > L4
+:	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >> L12
+L2:	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_BTNOK
+	Mov Edi, Eax
+	Invoke EnableWindow, Eax, TRUE
+	Invoke SetDefault, Edi, TRUE
+	Return (TRUE)
+L4:	Cmp Ax, IDC_SETTINGS_COMBO1
+	Je >
+	Cmp Ax, IDC_SETTINGS_COMBO2
+	Jne > L6
+:	HiWord ([wParam])
+	Cmp Ax, CBN_SELCHANGE
+	Je < L2
+	Jmp >> L12
+L6:	Cmp Ax, IDC_SETTINGS_BTNDOWN
+	Je >
+	Cmp Ax, IDC_SETTINGS_BTNUP
+	Jne >> L10
+:	Mov Ebx, Eax
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >> L12
+	Mov D[chColor.lStructSize], SizeOf CHOOSECOLOR
+	Move ([chColor.hwndOwner], [hWnd])
+	Mov D[chColor.hInstance], NULL
+	Mov Eax, [crMeterNewDownColor]
+	Cmp Bx, IDC_SETTINGS_BTNUP
+	Jne >
+	Mov Eax, [crMeterNewUpColor]
+:	Mov [chColor.rgbResult], Eax
+	Mov D[chColor.lpCustColors], Offset szBuffer
+	Mov D[chColor.Flags], CC_ANYCOLOR
+	Cmp D[chColor.rgbResult], 0
+	Jl >
+	Or D[chColor.Flags], CC_RGBINIT
+:	Mov D[chColor.lCustData], NULL
+	Mov D[chColor.lpfnHook], NULL
+	Mov D[chColor.lpTemplateName], NULL
+	Invoke ChooseColor, Addr chColor
+	Or Eax, Eax
+	Jz >> L8
+	Mov Eax, [chColor.rgbResult]
+	Lea Edi, [crMeterNewDownColor]
+	Cmp Bx, IDC_SETTINGS_BTNUP
+	Jne >
+	Lea Edi, [crMeterNewUpColor]
+:	Cmp Eax, [Edi]
+	Je >> L8
+	Mov [Edi], Eax
+	Mov Eax, [hIconDown]
+	Mov Edx, [crMeterNewDownColor]
+	Cmp Bx, IDC_SETTINGS_BTNUP
+	Jne >
+	Mov Eax, [hIconUp]
+	Mov Edx, [crMeterNewUpColor]
+:	Push Edx
+	Lea Esi, [hIconDown]
+	Mov Eax, IDI_ICON_DOWN_WHITE
+	Cmp Bx, IDC_SETTINGS_BTNUP
+	Jne >
+	Lea Esi, [hIconUp]
+	Mov Eax, IDI_ICON_UP_WHITE
+:	Invoke LoadImage, [App.Instance], Eax, IMAGE_ICON, 16, 16, LR_LOADMAP3DCOLORS
+	Xchg [Esi], Eax
+	Invoke DestroyIcon, Eax
+	Pop Edx
+	Invoke ChangeIconColor, [Esi], 00FFFFFFH, Edx
+	Mov Edi, IDC_SETTINGS_IMGDOWN
+	Lea Esi, [hIconDown]
+	Cmp Bx, IDC_SETTINGS_BTNUP
+	Jne >
+	Mov Edi, IDC_SETTINGS_IMGUP
+	Lea Esi, [hIconUp]
+:	Xchg [Esi], Eax
+	Invoke DestroyIcon, Eax
+	Invoke GetWindowItem, [hWnd], Edi
+	Invoke InvalidateRect, Eax, NULL, TRUE
+	Lea Edi, crMeterOldDownColor
+	Cmp Bx, IDC_SETTINGS_BTNUP
+	Jne >
+	Lea Edi, crMeterOldUpColor
+:	Mov Eax, [chColor.rgbResult]
+	Mov [Edi], Eax
+	Jmp << L2
+L8:	Mov Eax, TRUE
+	Ret
+L10:
+	Cmp Ax, IDC_SETTINGS_EDIT1
+	Jne >
+	HiWord ([wParam])
+	Cmp Ax, EN_CHANGE
+	Je << L2
+	Jmp >> L12
+:	Cmp Ax, IDC_SETTINGS_BTNOK
+	Jne >> L12
+	HiWord ([wParam])
+	Cmp Ax, BN_CLICKED
+	Jne >> L12
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_RADIO1
+	Invoke SendMessage, Eax, BM_GETCHECK, 0, 0
+	Xor Edx, Edx
+	Cmp Eax, BST_UNCHECKED
+	Je >
+	Mov Edx, TRUE
+:	Mov [bBits], Edx
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, [bBits]
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szBits, Addr szBuffer
+
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_COMBO1
+	Invoke SendMessage, Eax, CB_GETCURSEL, 0, 0
+	Mov [lMeterDownMaxValueEnum], Eax
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, Eax
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterDownMaxValueEnum, Addr szBuffer
+	Invoke CheckMeterMaxValue, [lMeterDownMaxValueEnum], Addr lMeterDownMaxValue
+	Invoke SetMeterMaxValue, [lMeterDownIndex], [lMeterDownMaxValue]
+	
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_COMBO2
+	Invoke SendMessage, Eax, CB_GETCURSEL, 0, 0
+	Mov [lMeterUpMaxValueEnum], Eax
+	Invoke wsprintf, Addr szBuffer, Addr szFormat, Eax
+	Add Esp, 12
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterUpMaxValueEnum, Addr szBuffer
+	Invoke CheckMeterMaxValue, [lMeterUpMaxValueEnum], Addr lMeterUpMaxValue
+	Invoke SetMeterMaxValue, [lMeterUpIndex], [lMeterUpMaxValue]
+	Mov Eax, [crMeterNewDownColor]
+	Cmp Eax, [crMeterDownColor]
+	Je >
+	Mov [crMeterDownColor], Eax
+	Invoke String, Eax, Addr szBuffer, ecDecimal
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterDownColor, Addr szBuffer
+	Invoke SetMeterDownNewColor, [crCurrentDownColor]
+:	Mov Eax, [crMeterNewUpColor]
+	Cmp Eax, [crMeterUpColor]
+	Je >
+	Mov [crMeterUpColor], Eax
+	Invoke String, Eax, Addr szBuffer, ecDecimal
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szMeterUpColor, Addr szBuffer
+	Invoke SetMeterUpNewColor, [crCurrentUpColor]
+:	Invoke SetIcons, [IconData.hIcon]
+	Invoke UpdateLights, TRUE, TRUE
+	Invoke GetWindowItem, [hWnd], IDC_SETTINGS_EDIT1
+	Invoke GetWindowText, Eax, Addr szBuffer, 2
+	Invoke Value, Addr szBuffer
+	Mov [lAutoRefreshPorts], Eax
+	Invoke SetRegistryValue, HKEY_CURRENT_USER, Addr szRegistryKey, Addr szAutoRefreshPorts, Addr szBuffer
+	Invoke EndModal, [hWnd], IDOK
+	Return (TRUE)
+L12:
+	Xor Eax, Eax
+	Ret
+EndU
+
+OnSettingsClose: UseData SettingsProcedure
+	Invoke EndModal, [hWnd], IDCANCEL
+	Return (TRUE)
+EndU
+
+OnSettingsDestroy: UseData SettingsProcedure
+	Invoke DestroyIcon, [hIconDown]
+	Invoke DestroyIcon, [hIconUp]
+	Xor Eax, Eax
+	Ret
+EndU
+
+SettingsImgDown Frame hWnd, uMsg, wParam, lParam
+	Cmp D[uMsg], WM_PAINT
+	Jne >
+	Invoke PaintImage, [hWnd], [hIconDown]
+	Return (TRUE)
+:	Xor Eax, Eax
+	Ret
+EndF
+
+SettingsImgUp Frame hWnd, uMsg, wParam, lParam
+	Cmp D[uMsg], WM_PAINT
+	Jne >
+	Invoke PaintImage, [hWnd], [hIconUp]
+	Return (TRUE)
+:	Xor Eax, Eax
+	Ret
+EndF
+
+GetNoPrefixString Frame lpszBuffer Uses Edi, Esi
+	Mov Esi, [lpszBuffer]
+	Mov Edi, Esi
+L2:	Cmp B[Esi], 0
+	Je > L4
+	Mov Al, [Esi]
+	Cmp Al, '&'
+	Je >
+	Mov [Edi], Al
+	Inc Edi
+:	Inc Esi
+	Jmp < L2
+L4:	Mov Al, [Esi]
+	Mov [Edi], Al
+	Ret
+EndF
+
+PaintImage Frame hWnd, hIcon
+	Local ps:PAINTSTRUCT
+
+	Invoke BeginPaint, [hWnd], Addr ps
+	Invoke GetClientRect, [hWnd], Addr ps.rcPaint
+	Invoke GetSysColorBrush, COLOR_BTNFACE
+	Invoke FillRect, [ps.hdc], Addr ps.rcPaint, Eax
+	Invoke DrawIconEx, [ps.hdc], 4, 3, [hIcon], 16, 16, NULL, NULL, DI_NORMAL
+	Invoke EndPaint, [hWnd], Addr ps
+	Ret
+EndF
+
+SetRightSeparator Frame lpszString Uses Esi
+	Mov Esi, [lpszString]
+	Mov Al, [sThousand]
+L2:	Cmp B[Esi], 0
+	Jne >
+	Ret
+:	Cmp B[Esi], '#'
+	Jne >
+	Mov [Esi], Al
+:	Inc Esi
+	Jmp < L2
+EndF

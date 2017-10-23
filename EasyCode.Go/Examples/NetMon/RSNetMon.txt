@@ -1,0 +1,4 @@
+Network monitor (works on Windows 95/98/ME/NT40/2K/XP/VISTA/SEVEN)
+==================================================================
+
+Dooble-click on the title bar, to resize the window of the "Network monitor".

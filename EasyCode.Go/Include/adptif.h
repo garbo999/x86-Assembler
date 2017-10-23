@@ -1,0 +1,10 @@
+#ifndef ADPTIF_H
+#define ADPTIF_H
+
+#DEFINE ADPTIF_H_REQVER 100
+
+ADDRESS_RESERVED STRUCT
+	Reserved DB 28 DUP (?)
+ENDS
+
+#endif /* ADPTIF_H */
